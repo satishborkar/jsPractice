@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('bootstrap.min.css');
+
+*,*:before,*:after{
+   
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 12px;
+    font-weight: normal;
+     font-family: 'Open Sans', sans-serif;
+}
+
+.page-header{
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.logo{
+    font-size: 20px;
+    font-weight: 600;
+    display: inline-block;
+    background: #000;
+    border:1px solid #000;
+    color: #fff;
+    margin:0;
+    padding: 7px 10px;
+    line-height: 36px;
+}
+
+.logo small{
+    display: inline-block;
+    padding-right:10px;
+    color: #fff;
+}
+
+.form-horizontal .control-label{
+    text-align: left;
+    position: relative;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.form-horizontal .control-label::after{
+    content: ':';
+    display: block;
+    width: 5px;
+    height: 100%;
+    color:#000;
+    position: absolute;
+    right: -5px;
+    top: 7px;
+}
+
+.required{
+    position: relative;
+}
+
+.required::before{
+    content: '*';
+    display: block;
+    width: 5px;
+    height: 100%;
+    color: red;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+.aesterick{
+    display: inline-block;
+    padding: 0 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: red;
+    transform: translateY(5px)
+}
+
+.info-bar{
+    line-height: 26px;
+    background-color: #eee;
+    text-align: right;
+    padding-right: 10px;
+    margin-bottom: 15px;
+}
+
+.form-control{
+    border-radius: 0;
+    width: 80%;
+}
+
+.form-group{
+    min-height: 34px;
+}
+
+.checkbox-inline, .radio-inline{
+    padding-left: 5px;
+}
+
+.bold{
+    font-weight: 600 !important;
+}
+
+.no-gutter [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+.sub-section{
+    padding-bottom: 5px;
+    padding-top: 10px;
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+    font-size: 13px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sub-section:after{
+    content: '' !important;
+}
+
+.left-fill-null{
+    padding-left: 0 !important;
+}
+
+.full-width{
+    width: 100% !important;
+}
+
+.btn{
+    border-radius: 2px;
+    min-width: 60px;
+}
+
+.mini{
+    height: 27px !important;
+}
+
+.collapsable{
+    position: relative;
+    padding-left: 20px;
+    font-weight: 600;
+    margin-left: 5px;
+    margin-top: 5px;
+    min-height: 22px;
+}
+
+.collapsable span{
+    cursor: pointer;
+}
+
+.collapsable:before{
+    content: '+';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+    background-color: #000;
+    color: #fff;
+}
+
+.sub-content{
+    display: none;
+    padding-left: 30px;
+    min-height: 114px;
+}
+
+.pull-minus{
+    margin-left: -1px;
+}
+
+.dynamic-tr{
+    display: none;
+}
+
+.fieldset{
+    padding: 15px;
+    border:1px solid #ccc;
+    margin-bottom: 15px;
+    display: none
+}
+
+.text-right-bold{
+    text-align: right !important;
+    font-weight: 600 !important;
+}
+
+.margin-btm{
+    margin-bottom: 30px;
+}
+
+
+.btn-holder .btn{
+    margin-left: 10px;
+}
+
+.group-title{
+    border-bottom: 1px solid #ccc;
+    line-height: 36px;
+    margin-top:-10px;
+}
+
+.brdr-left{
+    border-left: 1px solid #ccc;
+}
+
+.brdr-btm{
+    border-bottom: 1px solid #ccc;
+}
+
+.glyphicon{
+    margin-right: 5px;
+}
+
+.archives-dialog{
+    min-height: 380px;
+    max-height: 380px;
+    overflow: auto;
+}
+
+.lft-menu ul.list-second{
+    display: none;
+}
+
+ul.list-null,
+ul.list-null li{
+    list-style: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.list-null li{
+    padding: 2px 0;
+}
+
+.lft-menu ul.list-first{
+    margin-left: 10px;
+}
+
+.lft-menu ul.list-second{
+    margin-left: 20px;
+}
+
+.fill-top-15{
+    padding-top: 15px;
+}
+
+.block-ui{
+    width:100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #000;
+    opacity: 0.5;
+     z-index: 888;
+}
+
+.dialog-box{
+    width: 550px;
+    height: 150px;
+    padding: 15px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    z-index: 999;
+    background-color: #fff;
+}
+
+.dialog-box,
+.block-ui{
+    display: none;
+}
+
+.litle-box{
+    min-height: 50px;
+}
+
+/*.entry-tbl td{
+    white-space: nowrap;
+}*/
+
+.tbl-head td{
+    font-weight: bold;
+}
+
+.entry-tbl td.tbl-big-data{
+    white-space: nowrap !important;
+    min-width: 150px !important;
+}

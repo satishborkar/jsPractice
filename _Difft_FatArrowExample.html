@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // var person = {
+        //     firstname: 'Satish',
+        //     lastname: 'Borkar',
+        //     fullName: function () {
+        //         return this.firstname + this.lastname
+        //     }
+        // };
+        // console.log(person.fullName());
+
+        var devInfoObject = function () {
+            return {
+                devName: "Prashant ",
+                devType: 'Javascript Developer',
+                devBind: function () {
+                    console.log(this.devName + this.devType)
+                }
+            }
+        };
+
+        devInfoObject.call({devName:"Satish"}).devBind();
+
+        var devInfoObject2 = function () {
+            return {
+                devName: "Prashant ",
+                devType: 'Javascript Developer',
+                devBind: ()=> {
+                    console.log(this.devName + this.devType);
+                }
+            }
+        };
+
+        devInfoObject2.call().devBind();
+        //devInfoObject2.call({devName:"Satish ", devType: 'UI Developer'}).devBind();
+        //devInfoObject2.call().devBind();
+
+    </script>
+
+</body>
+
+</html>

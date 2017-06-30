@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Js Examples</title>
+    <style>
+    body{
+        padding:50px;
+        font-family: Courier New, Courier, monospace;
+    }
+
+    table{
+        border-collapse: collapse;
+        width:100%;
+        border-left:1px solid #ccc;
+        border-top:1px solid #ccc;
+    }
+
+    table tr td,
+    table tr th{
+        padding: 5px;
+        border-right:1px solid #ccc;
+        border-bottom:1px solid #ccc;
+    }
+
+    .strong{
+        font-weight: bold;
+        color: blue;
+    }
+
+    </style>
+</head>
+
+<body>
+    <table width="100%" id="tbl">
+    </table>
+
+    <script type="text/javascript">
+        var row = "";
+        var x = 1;
+        var counter = 1;
+
+        for(x in Object){
+            row += "<tr> <td>" +  counter + "</td><td class='strong'>" +  x + "</td>"+ "<td>" +  Object[x] + "</td> </tr>";
+            x++, counter++;
+        };
+
+        table = document.getElementById("tbl").innerHTML = row;
+
+    </script>
+
+</body>
+
+</html>

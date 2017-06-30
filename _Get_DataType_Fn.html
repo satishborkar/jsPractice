@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Js Examples</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+        function getDataType(element) {
+            return element.constructor.toString().indexOf("Array") > -1;
+        };
+
+
+        getDataType(fruits);
+
+        //console.log( fruits instanceof Array);
+
+
+        function defineDataType(x) {
+            if (x instanceof Array) {
+                console.log("Array");
+            } else if (x instanceof Number) {
+                console.log("Number");
+            } else if (x instanceof Object) {
+                console.log("Object");
+            } else if (x instanceof String) {
+                console.log("String");
+            } else if (x instanceof Boolean) {
+                 console.log("Boolean");
+            } else if (x instanceof Function) {
+                 console.log("Function");
+            } else {
+                console.log(x + " is not recognised!");
+            }
+        };
+
+        var goLive = false;
+        var getName =function(){
+            return "Satish Borkar"
+        };
+        var blank = undefined;
+        var notExist = null;
+
+
+        defineDataType(fruits);
+        defineDataType(goLive);
+        defineDataType(getName);
+        defineDataType(blank);
+        defineDataType(notExist);
+
+
+    </script>
+
+</body>
+
+</html>

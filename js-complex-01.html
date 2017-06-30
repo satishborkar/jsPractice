@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Js Examples</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        console.log("===============================================================================");
+
+        function addition(a) {
+            var element = a;
+            function innerFun(b) {
+                element += b;
+                return innerFun;
+            }
+            innerFun.toString = function () {
+                return element;
+            }
+            return innerFun;
+        }
+
+        console.log(addition(5)(8)(7)(5)(8)(7)(5)(8)(7)(5)(8)(7)(5)(8)(7)(5)(8)(7)(5)(8)(7)(5)(8)(7));
+
+        console.log("===============================================================================");
+
+        (function () {
+            var a = b = 3;
+        })();
+
+        console.log("Type Of  a: " + (typeof a));
+        console.log("Type Of  b: " + (typeof b));
+
+        // console.log("Value Of  a: " + (a));
+        // console.log("Value Of  b: " + (b));
+
+        console.log("a defined? " + (typeof a !== 'undefined'));
+        console.log("b defined? " + (typeof b !== 'undefined'));
+
+        console.log("===============================================================================");
+
+        var myObject = {
+            foo: "bar",
+            func: function () {
+                //Lexical scope for this & selft is refereed to myObject so it accesible in first Level.
+                // Lexical scope for self is assigned to func function so self will be accessible thought func function as local variable
+                var self = this;
+                console.log("First Level:  this.foo = " + this.foo);
+                console.log("First Level:  self.foo = " + self.foo);
+
+                (function () {
+                    console.log("Second Level:  this.foo = " + this.foo);
+                    console.log("Second Level:  self.foo = " + self.foo);
+
+                    ((function () {
+                        console.log("Third Level: this.foo = " + this.foo);
+                        console.log("Third Level: self.foo = " + self.foo);
+
+                        ((function () {
+                            console.log("Fourth Level: this.foo = " + this.foo);
+                            console.log("Fourth Level: self.foo = " + self.foo);
+                        })())
+
+                    })())
+                } ());
+            }
+        };
+
+        myObject.func()
+
+        console.log("===============================================================================");
+
+
+        var myES6Object = {
+            foo: "bar",
+            fatArrowfunc: () => {
+                var self = this;
+                console.log("Fat-Arrow-Func First Level:  this.foo = " + this.foo);
+                console.log("Fat-Arrow-Func First Level:  self.foo = " + self.foo);
+            }
+        };
+
+        myES6Object.fatArrowfunc();
+
+        console.log("===============================================================================");
+
+        (function () {
+            return  console.log("Hi! I am self executable function");
+        })();
+
+
+        // Self-invoking functions in JavaScript (or Immediately Invoked Function Expressions) or Module
+
+        (function () {
+            function callMe(){
+                console.log("Hi! you have called me from SEF");
+            }
+            callMe();
+
+        })();
+        // IIFS [Immediately Invoked Function Expressions] can  not be accessible from out side;
+        callMe();
+
+    </script>
+
+</body>
+
+</html>

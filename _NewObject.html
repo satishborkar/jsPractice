@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Js Examples</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        
+        // Object with properties
+
+        var domManupulate = {
+            addClass: function () {
+                console.log("domManupulate : class is added !!")
+            },
+            removeClass: function () {
+                console.log("domManupulate : class is removed !!")
+            },
+            toggleClass: function () {
+                console.log("domManupulate : class is toggled !!")
+            },
+            replaceClass: function () {
+                console.log("domManupulate : class is replaced !!")
+            }
+        };
+
+        domManupulate.addClass();
+        domManupulate.removeClass();
+        domManupulate.toggleClass();
+        domManupulate.replaceClass();
+
+        
+        // Function with methods
+
+        var domManupulate2 = function () {
+            return {
+                addClass: function () {
+                    console.log("domManupulate2 : class is added !!")
+                },
+                removeClass: function () {
+                    console.log("domManupulate2 : class is removed !!")
+                },
+                toggleClass: function () {
+                    console.log("domManupulate2 : class is toggled !!")
+                },
+                replaceClass: function () {
+                    console.log("domManupulate2 : class is replaced !!")
+                }
+            }
+        };
+
+        // domManupulate2.call().addClass();
+        // domManupulate2.call().removeClass();
+        // domManupulate2.call().toggleClass();
+        // domManupulate2.call().replaceClass();
+
+        // domManupulate2().addClass();
+        // domManupulate2().removeClass();
+        // domManupulate2().toggleClass();
+        // domManupulate2().replaceClass();
+
+        // var x = domManupulate2();
+        // x.addClass();
+
+
+    </script>
+
+</body>
+
+</html>
