@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Js Examples : - </title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+
+        //Six data types that are primitives:
+        // 1] Boolean
+        // 2] Null
+        // 3] Undefined
+        // 4] Number
+        // 5] String
+        // 6] Symbol (new in ECMAScript 6)
+        // 7] Object
+
+        var a1 = null;
+        var a2 = {};
+        var a3 = [];
+        var a4 = undefined;
+        var a5 = "Satish";
+
+        //console.log(typeof a3);
+        //console.log(toString.call(a3))
+        //console.log( (a3 != null) && typeof a3 === "object" && (toString.call(a3)!= '[object Array]' ));
+        //console.log(a3.constructor.toString().indexOf("Array") > -1);
+
+//---------------------------------------------------------------------------------------
+
+        var k = h = 4;
+        console.log("K : " + k);
+        console.log("H : " + h);
+
+        // (function (window) {
+        //     var q = r = 6;
+        // })(window);
+
+        // console.log("Q : " + q);
+        // console.log("R : " + r);
+
+        // (function () {
+        //     var a = b = 3;
+        //     // is equal to
+        //     //  b = 3;
+        //     //  var a = b;
+        // })();
+
+        // console.log("A : " + a);
+        // console.log("B : " + b);
+
+//---------------------------------------------------------------------------------------
+
+        // In the outer function, 
+        // both this and self refer to myObject and 
+        // therefore both can properly reference and access foo.
+
+        // In the inner function, 
+        // though, this no longer refers to myObject.
+        // As a result, this.foo is undefined in the inner function, 
+        // whereas the reference to the local variable self remains in scope 
+        // and is accessible there.
+
+        var myObject = {
+            foo: "bar",
+            func: function () {
+                var self = this;
+                console.log("outer func:  this.foo = " + this.foo);
+                console.log("outer func:  self.foo = " + self.foo);
+                (function () {
+                    console.log("inner func:  this.foo = " + this.foo);
+                    console.log("inner func:  self.foo = " + self.foo);
+                }());
+                var satya = function(){
+                    console.log("inner var func:  this.foo = " + this.foo);
+                    console.log("inner var func:  self.foo = " + self.foo);
+                };
+                satya();
+            }
+        };
+        myObject.func();
+
+//---------------------------------------------------------------------------------------
+
+    </script>
+</body>
+
+</html>

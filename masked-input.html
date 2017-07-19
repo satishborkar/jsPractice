@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Js Examples : - </title>
+    <style>
+        input{
+            margin: 15px;
+            min-height: 30px;
+            padding: 7px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" name="phone" value="" class="phoneNumber" id="phone">
+        <input type="text" name="ccard" value="" class="phoneNumber" id="ccard">
+        <input type="text" name="ccard" value="" class="phoneNumber" id="ccard2">
+        <input type="text" name="expiryDate" value="" class="phoneNumber" id="expiryDate">
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="jquery.maskedinput.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#phone").mask("(999) 999-9999", { placeholder: " " }).attr('placeholder', '(xxx) xxx-xxxx');
+            $("#ccard").mask("9999-9999-9999-9999", { placeholder: " " }).attr('placeholder', 'xxxx-xxxx-xxxx-xxxx');
+            $("#ccard2").mask("9999 9999 9999 9999", { placeholder: " " }).attr('placeholder', 'xxxx xxxx xxxx xxxx');
+            $("#expiryDate").mask("99/99", { placeholder: " " }).attr('placeholder', 'xx/xx');
+        });
+    </script>
+
+    <!--<script src="jquery.maskedinput.js"></script>-->
+</body>
+
+</html>
