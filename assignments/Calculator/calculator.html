@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Js Examples : - </title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <style>
+        *,
+        *:before,
+        *:after {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 800px;
+            margin: 80px auto;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+        }
+
+        button,
+        input {
+            margin: 7px 5px 5px 0;
+            padding: 7px 15px;
+        }
+
+        #app {
+            display: block;
+            border: 1px solid #ccc;
+            width: 300px;
+            height: auto;
+            min-height: 150px;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/javascript" src="calculator.js"></script>
+    <script type="text/javascript">
+        var calc = new Calculator('#app');
+    </script>
+
+</body>
+
+</html>

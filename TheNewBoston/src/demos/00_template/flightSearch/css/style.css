@@ -1,0 +1,550 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600,700,900');
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    font-size: 12px;
+    /* background-color: rgba(240, 240, 240, 0.4); */
+    background-color: #fff;
+    background-image: url('../img/airbus-a350-1000.jpg');
+    background-position: 0 0;
+    background-repeat: repeat-y;
+}
+
+
+/* .removeBg {
+    background: rgba(240, 240, 240, 0.4);
+} */
+
+.app-container {
+    width: 100%;
+    float: left;
+}
+
+.header,
+.row {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+.container {
+    width: auto;
+    max-width: 1024px;
+    margin: 10px auto 0 auto;
+}
+
+.header {
+    min-height: 80px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 2px;
+    margin-bottom: 40px;
+    background-color: #fff;
+}
+
+.header h1 {
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+    color: #003580;
+    padding: 30px 30px 30px 0;
+}
+
+.side-bar {
+    width: 30%;
+    float: left;
+    position: relative;
+    z-index: 10;
+}
+
+.side-bar input[name="tripType"] {
+    display: inline-block;
+    width: 80px;
+    height: 27px;
+    position: relative;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transform: translate(-13px, -43px);
+    outline: none;
+}
+
+.side-bar input[name="tripType"]:checked {
+    height: 24px;
+    transform: translate(-13px, -40px);
+}
+
+.side-bar input[name="tripType"]:before:before {
+    line-height: 24px;
+}
+
+.side-bar input[name="tripType"]:before {
+    background-color: #b1b1bd;
+    text-transform: capitalize;
+    content: attr(value);
+    text-align: center;
+    line-height: 27px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    z-index: 10;
+    cursor: pointer;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+
+/* .side-bar input[name="tripType"]:hover:before {
+    background-color: #00405d;
+} */
+
+.side-bar input[name="tripType"]:checked:before {
+    background-color: #003580;
+}
+
+.side-bar input[type='text'],
+.side-bar select {
+    width: 100%;
+    padding: 7px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+
+.side-bar input[type='text']:focus,
+.side-bar input[type='text']:hover,
+.side-bar input[type='text'].filled,
+.side-bar select:focus,
+.side-bar select:hover,
+.side-bar select.filled {
+    box-shadow: none;
+    outline: none;
+    border-bottom: 1px solid #003580;
+}
+
+.side-bar .inline {
+    display: block;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.side-bar .inline label {
+    display: block;
+    transform: translate(-4px, -22px) !important;
+    z-index: 10;
+    text-indent: 10px;
+    pointer-events: none;
+    -webkit-perspective: 1600;
+    perspective: 1600;
+}
+
+.side-bar input[type='text']:focus+label,
+.side-bar input[type='text'].filled+label {
+    transform: translate(-4px, -44px) !important;
+    color: #bbb;
+}
+
+.side-bar input[type='text']:focus span.line,
+.side-bar input[type='text'].filled span.line {
+    width: 100%;
+}
+
+.label {
+    display: block;
+    padding-bottom: 7px;
+}
+
+.label small {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+}
+
+span.block {
+    display: block;
+    line-height: 20px;
+    font-size: 20px;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    background: #ccc;
+    float: left;
+}
+
+.decrement {
+    border-left: 1px solid #aaa;
+}
+
+.increment {
+    border-right: 1px solid #aaa;
+}
+
+span.block a {
+    display: block;
+    width: 100%;
+    padding: 0 7px;
+    height: 100%;
+    text-decoration: none;
+    color: #000;
+}
+
+.travellers {
+    display: block;
+    width: 30px !important;
+    text-align: center;
+    outline: 0;
+    float: left;
+    padding: 2px !important;
+    border-top: 1px solid #ccc !important;
+    border-bottom: 1px solid #ccc !important;
+}
+
+.col-5 {
+    width: 50%;
+}
+
+.col-33 {
+    width: 33%;
+}
+
+.col-66 {
+    width: 66%;
+}
+
+.pull-left {
+    float: left
+}
+
+.span-top-1 {
+    margin-top: 10px;
+}
+
+.span-top-2 {
+    margin-top: 20px;
+}
+
+.content-panel {
+    width: 70%;
+    float: left;
+    position: relative;
+}
+
+.flights-container,
+.slide-container {
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    z-index: 1;
+    width: 96%;
+}
+
+.slide-container {
+    min-height: 500px;
+    background-color: red;
+}
+
+.slide-container {
+    transform: translate3d(-40%, 0, 0);
+    opacity: 0;
+    z-index: -1;
+    top: 52px;
+}
+
+.content-panel.page-slide .flights-container {
+    transform: translate3d(-40%, 0, 0);
+    opacity: 0;
+    z-index: -1;
+}
+
+.content-panel.page-slide .slide-container {
+    transform: translate3d(0, 0, 0);
+    opacity: 10;
+    z-index: 1;
+}
+
+.gutter {
+    display: block;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.brdr {
+    border: 1px solid #003580;
+    border-radius: 2px;
+    position: relative;
+}
+
+.brdr:before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 0;
+    border-top: 5px solid #003580;
+}
+
+.btn {
+    display: inline-block;
+    padding: 5px 9px;
+    border: 1px solid #003580;
+    background: #003580;
+    color: #fff;
+    border-radius: 2px;
+    position: relative;
+}
+
+.btn:hover,
+.btn:focus {
+    background: #003366;
+    outline: 0;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+h2.title {
+    display: block;
+    line-height: 30px;
+    font-size: 16px;
+    color: #003366;
+}
+
+.filterControl {
+    width: 100%;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 13.8px 0;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: #003366;
+    border-radius: 1.3px;
+    border: 1px solid #003366;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    border: 1px solid #003366;
+    height: 25px;
+    width: 16px;
+    border-radius: 3px;
+    background: #003366;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -11px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #003366;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: #003366;
+    border-radius: 1.3px;
+    border: 1px solid #003366;
+}
+
+input[type=range]::-moz-range-thumb {
+    border: 1px solid #003366;
+    height: 25px;
+    width: 16px;
+    border-radius: 3px;
+    background: #003366;
+    cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #003580;
+    border: 1px solid #003580;
+    border-radius: 2.6px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #003580;
+    border: 0.2px solid #003580;
+    border-radius: 2.6px;
+}
+
+input[type=range]::-ms-thumb {
+    border: 1px solid #003580;
+    height: 25px;
+    width: 16px;
+    border-radius: 3px;
+    background: #003580;
+    cursor: pointer;
+    height: 4px;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #003580;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #c6dcef;
+}
+
+.clr {}
+
+.clr::before,
+.clr::after {
+    content: '';
+    clear: both;
+}
+
+.txt-right {
+    text-align: right
+}
+
+.lift-up-15 {
+    margin-top: -15px;
+}
+
+.jouney-dates {
+    background-color: #003580;
+}
+
+.jouney-dates h2.title {
+    line-height: 40px;
+    text-indent: 10px;
+    color: #fff;
+}
+
+.jouney-dates p:first-child {
+    padding-top: 7px;
+}
+
+.jouney-dates p {
+    color: #fff;
+    padding-right: 10px;
+}
+
+button[data-handler="today"] {
+    display: none;
+}
+
+.no-data {
+    width: 100%;
+    padding: 15px;
+    min-height: 70px;
+    line-height: 70px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    border-radius: 2px;
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
+.invalid {
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
+ul.list-row,
+ul.list-row li {
+    list-style: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+ul.list-row li {
+    display: block;
+    border: 1px solid #bbb;
+    background-color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+ul.list-row li:hover,
+ul.list-row li:focus {
+    border-color: #003580;
+}
+
+.dyna-bar,
+.in-bound-date {
+    display: none;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .header {
+        margin-bottom: 20px;
+    }
+    .header h1 {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        font-size: 25px;
+        line-height: 50px;
+    }
+    .container {
+        padding: 10px;
+    }
+    .side-bar,
+    .content-panel {
+        width: 100%;
+    }
+    .content-panel.gutter {
+        padding: 0;
+    }
+    .lift-up-15 {
+        margin-top: 0;
+    }
+    .jouney-dates h2.title {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+    .jouney-dates p {
+        font-size: 11px;
+    }
+    .flights-container,
+    .slide-container {
+        left: 0;
+        width: 100%;
+    }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Js Examples : - </title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <style>
+        *,
+        *:before,
+        *:after {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 14px;
+        }
+
+        input {
+            padding: 7px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="text" id="satya" name="test" value="Test01rt45"></input>
+
+    <button id="add"> Add Something </button>
+
+    <script type="text/javascript">
+        var inputText = document.getElementById("satya");
+        var add = document.getElementById("add");
+
+        add.addEventListener('click', function () {
+            
+            console.log(inputText.selectionStart.innerHTML = 'Ganesh');
+            
+            //prevText[inputText.selectionStart] = 'ttttttttttttttttttttttt'
+            //inputText.value = 'Rajesh';
+        })
+    </script>
+
+</body>
+
+</html>

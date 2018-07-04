@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Function expression and its benefits</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <script src="main.js"></script> -->
+</head>
+
+<body>
+    <script>
+
+        funcD();
+        //funcC();
+        //Function Declaration example
+        function funcD() {
+            console.log("Function Declaration");
+        }
+
+        //Function Expression example
+        var funcC = function () {
+            console.log("Function Expression");
+        }
+
+        var funcB = function (n) {
+            return n();
+        }
+        //passing as parameter
+        funcB(funcC);
+
+
+    </script>
+
+</body>
+
+</html>

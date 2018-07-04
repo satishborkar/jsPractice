@@ -19,7 +19,10 @@
         // 4] Number
         // 5] String
         // 6] Symbol (new in ECMAScript 6)
+
         // 7] Object
+        // 8] Array
+        // 9] Function
 
         var a1 = null;
         var a2 = {};
@@ -27,17 +30,18 @@
         var a4 = undefined;
         var a5 = "Satish";
 
-        //console.log(typeof a3);
-        //console.log(toString.call(a3))
-        //console.log( (a3 != null) && typeof a3 === "object" && (toString.call(a3)!= '[object Array]' ));
-        //console.log(a3.constructor.toString().indexOf("Array") > -1);
+        console.log(typeof a3);
+        console.log(toString.call(a3))
+        console.log( (a3 != null) && typeof a3 === "object" && (toString.call(a3)== '[object Array]' ));
+        console.log(a3.constructor.toString().indexOf("Array") > -1);
 
 //---------------------------------------------------------------------------------------
 
         var k = h = 4;
         console.log("K : " + k);
         console.log("H : " + h);
-
+        
+        //var q , r;
         // (function (window) {
         //     var q = r = 6;
         // })(window);
@@ -47,9 +51,9 @@
 
         // (function () {
         //     var a = b = 3;
-        //     // is equal to
-        //     //  b = 3;
-        //     //  var a = b;
+        //     //is equal to
+        //      b = 3;
+        //      var a = b;
         // })();
 
         // console.log("A : " + a);

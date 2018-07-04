@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Employee List</title>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <script src="../../js/react.min.js"></script>
+    <script src="../../js/react-dom.min.js"></script>
+    <script src="../../js/browser.min.js"></script>
+    <style>
+        body{
+            padding: 50px;
+        }
+        *[disabled]{
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body>
+    <h1>React JS CRUD App</h1>
+    <div id="app"></div>
+    <script type="text/babel">
+
+        var EmployeesRow = React.createClass({
+            getInitialState:function(){
+                return{
+                    editEmpl: false,
+                    newRecord:  this.props.newRecordUI,
+                    recordNull: this.props.noRecordAvailable
+                }
+            },
+
+            saveEmployee:function(){
+                this.setState({
+                    newRecordUI: false
+                });
+                //console.log(this.refs.newCostCenter.value);
+                const newRecordData = {
+                    id          : this.refs.newId.value,
+                    name        : this.refs.newName.value,
+                    designation : this.refs.newDesignation.value,
+                    costCenter  : this.refs.newCostCenter.value
+                }
+                //console.log(newRecordData);
+                this.props.saveNewRecordMethod(newRecordData, this.props.index);
+            },
+
+            editEmployee : function(){
+                this.setState({
+                    editEmpl: true
+                })
+            },
+
+            updateEmployee:function(){
+                this.setState({
+                    editEmpl: false
+                });
+                //console.log(this.refs.newName.value);
+                const newRecordData = {
+                    id          : this.props.empData.id,
+                    name        : this.refs.editName.value,
+                    designation : this.refs.editDesignation.value,
+                    costCenter  : this.refs.editCostCenter.value
+                }
+                this.props.updateRecord(newRecordData, this.props.empData.id);
+            },
+
+            removeEmployee:function(){
+                let confirm = window.confirm("Would you really want to delete record?");
+
+                if(confirm){
+                    this.props.dropEmployee(this.props.empData.id)
+                }
+                //console.log(this.props.dropEmployee + ' -  ' +  this.props.index)
+            },
+
+            render:function(){
+
+                    if(this.state.editEmpl){
+                        return(
+                        <tr>
+                            <td> {this.props.empData.id}</td>
+                            <td> <input type="text" defaultValue={this.props.empData.name}  ref="editName" /> </td>
+                            <td> <input type="text" defaultValue={this.props.empData.designation} ref="editDesignation" /> </td>
+                            <td> <input type="text" defaultValue={this.props.empData.costCenter} ref="editCostCenter" /> </td>
+                            <td> <a href="javascript:void(0)" accessKey="u" onClick={this.updateEmployee}> Update </a> </td>
+                        </tr>
+                        )
+                    }else if(this.state.newRecord){
+                        return(
+                        <tr>
+                            <td><input type="text" ref="newId" /></td>
+                            <td> <input type="text" ref="newName" /> </td>
+                            <td> <input type="text" ref="newDesignation" /> </td>
+                            <td> <input type="text" ref="newCostCenter" /></td>
+                            <td> <a href="javascript:void(0)" accessKey="s" onClick={this.saveEmployee}> Save </a> </td>
+                        </tr>
+                        )
+                    }else if(this.state.recordNull){
+                        return(
+                        <tr>
+                            <td colSpan="5" style={{textAlign:'center', backgroundColor:'#CC7A7A', color:'#fff'}}> No records found </td>
+                        </tr>
+                        )
+                    }else{
+                        return(
+                        <tr>
+                            <td> {this.props.empData.id} </td>
+                            <td> {this.props.empData.name} </td>
+                            <td> {this.props.empData.designation} </td>
+                            <td> {this.props.empData.costCenter} </td>
+                            <td> <a href="javascript:void(0)" accessKey="e" onClick={this.editEmployee}> Edit </a> |  <a href="javascript:void(0)" accessKey="d" onClick={this.removeEmployee}> Delete </a>  </td>
+                        </tr>
+                        )
+                    }
+            }
+        });
+
+        var EmployeesGrid = React.createClass({
+
+            getInitialState:function(){
+                const rawData = [
+                        {id:'1', name:'John Smith', designation:'Project Manager', costCenter:'London'},
+                        {id:'2', name:'Martin Kzokoslovkia', designation:'Team Lead', costCenter:'Canbera'},
+                        {id:'3', name:'Vesselly Zaitsev', designation:'Zonal Manager', costCenter:'Moscow'},
+                        {id:'4', name:'Manish Papereja', designation:'Operationl Incharge', costCenter:'Mumbai'},
+                        {id:'5', name:'Johny Deep', designation:'Delivery Head', costCenter:'NewYork'},
+                        {id:'6', name:'Michael M. Crespo', designation:'Project Manager', costCenter:'London'},
+                        {id:'7', name:'Seth J. Vinson', designation:'Associate', costCenter:'Canbera'},
+                        {id:'8', name:'David A. Marquis', designation:'Sr. Manager', costCenter:'Moscow'},
+                        {id:'9', name:'Ирма Зо́това', designation:'Marketing Head', costCenter:'Moscow'},
+                        {id:'10', name:'Louis Edwards', designation:'Delivery Head', costCenter:'Manchester'},
+                        {id:'11', name:'Sophie Waechter', designation:'Project Manager', costCenter:'Munich'},
+                        {id:'12', name:'Claire McBryde', designation:'Team Lead', costCenter:'Canbera'},
+                        {id:'13', name:'Ludmila Krištofová', designation:'Zonal Manager', costCenter:'Moscow'},
+                        {id:'14', name:'Kate Ronan', designation:'Operationl Head', costCenter:'Mumbai'},
+                        {id:'15', name:'Marenne van Meerendonk', designation:'Delivery Head', costCenter:'Austria'}
+                    ];
+                return {
+                    employeesData:rawData,
+                    employees:rawData,
+                    newEmpl : false,
+                    noRecordAvailable:false,
+                    disabledFilterBtn : true
+                }
+            },
+
+            componentDidUpdate :function(){
+                // whenever component gets update
+            },
+
+            addNewRecord:function(){
+                this.setState({
+                    newEmpl : true,
+                    noRecordAvailable:false
+                })
+            },
+
+            {}
+
+            saveNewRecord:function(newRecord, i){
+                const empArr = this.state.employeesData;
+                      empArr.push(newRecord);
+
+                this.setState({
+                    employeesData:empArr,
+                    newEmpl : false
+                })
+            },
+
+            deleteEmployee : function(recordId){
+                var empArr = this.state.employeesData;
+
+                for(let x = 0; x < empArr.length; x++){
+                    //console.log(empArr[x]["id"]);
+                    if(empArr[x]["id"]===recordId){
+                        const index = empArr.indexOf(empArr[x]);
+                        //console.log(index);
+                        empArr.splice(index,1);
+                    }
+                }
+
+                // for(let x = 0; x < this.state.employees.length; x++){
+                //     //console.log(empArr[x]["id"]);
+                //     if(this.state.employees[x]["id"]===recordId){
+                //         const index = this.state.employees.indexOf(this.state.employees[x]);
+                //         //console.log(index);
+                //         this.state.employees.splice(index,1);
+                //     }
+                // }
+
+                this.setState({
+                    employeesData:empArr
+                });
+
+                // console.log(empArr);
+                // console.log(this.state.employees);
+            },
+
+            editEmplRecord:function(newRecord, recordId){
+                let empArr = this.state.employeesData;
+
+                //console.log(recordId);
+
+                for(let i=0;i < empArr.length; i++){
+                    if(empArr[i]["id"] == recordId){
+                        empArr[i] = newRecord;
+                    }
+                };
+
+                this.setState({
+                    employeesData:empArr
+                })
+            },
+
+            empLoop:function(emp, i){
+                return(
+                     <EmployeesRow key= {i} index={i} empData={emp} dropEmployee={this.deleteEmployee} updateRecord={this.editEmplRecord} />
+                )
+             },
+
+             reverse: function(){
+                const arr = this.state.employeesData;
+                arr.reverse();
+                this.setState({
+                    employeesData:arr
+                })
+             },
+
+            fliterData: function(i){
+
+                const filterVal = this.refs.getFilterBy.value;
+                const patrn = new RegExp(filterVal, "gi");
+                const data = this.state.employees;
+                const fliterObj = [];
+
+
+                for (let i = 0; i < data.length; i++) {
+                    for( let x in data[i]){
+                        if(data[i][x].match(patrn) ){
+                            fliterObj.push(data[i])
+                        }
+                    };
+                }
+
+                this.setState({
+                    employeesData : fliterObj
+                })
+
+                if(this.refs.getFilterBy.value.length === 0){
+                    this.removeFilter();
+                    this.setState({
+                        disabledFilterBtn:true
+                    })
+                }
+
+                if(this.refs.getFilterBy.value.length > 0){
+                    this.setState({
+                        disabledFilterBtn:false
+                    })
+                }
+
+             },
+
+             removeFilter:function(){
+                this.refs.getFilterBy.value = "";
+                this.setState({
+                    employeesData: this.state.employees,
+                    disabledFilterBtn: true
+                })
+             },
+
+             reRenderData :function(){
+                if(this.refs.getFilterBy.value.length === 0){
+                    this.removeFilter();
+                }
+             },
+
+            render:function(){
+
+                const isNewRecord = (this.state.newEmpl)? <EmployeesRow newRecordUI={true} saveNewRecordMethod={this.saveNewRecord} /> : '';
+                const renderData = (!this.state.newEmpl && this.state.employeesData.length === 0)? <EmployeesRow noRecordAvailable={true}/> : this.state.employeesData.map(this.empLoop);
+
+                return(
+                    <div>
+                        <div className="col-12">
+                            <button className="button-success" style={{marginBottom:'10px', marginRight:'10px'}} accessKey="a" onClick={this.addNewRecord}> Add New Employee </button>
+                            <button className="button-info" style={{marginBottom:'10px', marginRight:'10px'}} accessKey="re" onClick={this.reverse}> Reverse Data </button>
+                            <input type="text" name="getFilterBy" ref="getFilterBy" style={{marginBottom:'10px', marginRight:'10px', padding:'6px'}} onChange={this.reRenderData} onKeyDown={this.fliterData}  />
+                            <button className="button-info" style={{marginBottom:'10px', marginRight:'10px'}} onClick={this.fliterData}> Filter </button>
+                            <button className="button-success" style={{marginBottom:'10px', marginRight:'10px'}} onClick={this.removeFilter} disabled={this.state.disabledFilterBtn}> Remove Filter </button>
+                        </div>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th> Emp ID </th>
+                                <th> Name </th>
+                                <th> Designation </th>
+                                <th> Cost Center </th>
+                                <th> Action </th>
+                            </tr>
+                           </thead>
+                           {isNewRecord}
+                           {
+                            //this.state.employeesData.map(function(emp, i){
+                            //     return(<EmployeesRow key= {i} index={i} empData={emp} dropEmployee={this.deleteEmployee} />)
+                            //}.bind(this))
+
+                            // we have to bind this to to inner function as we entering into another lixical scope though anonimous function
+                            // Or else we can use fat arrow function to avoid getting an errot of undefined some function like deleteEmployee
+
+                            // this.state.employeesData.map((emp, i)=>{
+                            //     return(<EmployeesRow key= {i} index={i} empData={emp} dropEmployee={this.deleteEmployee} />)
+                            // })
+
+                            renderData
+                           }
+                        </table>
+                    </div>
+                )
+            }
+        });
+
+        ReactDOM.render(<EmployeesGrid/>, document.getElementById('app'));
+
+    </script>
+
+
+</body>
+</html>

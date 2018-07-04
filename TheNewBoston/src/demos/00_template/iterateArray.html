@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Family &amp; Tree :)</title>
+    <style>
+        body {
+            vertical-align: top;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: normal;
+            font-size: 14px;
+            vertical-align: top;
+            -webkit-transition: height 1s ease-in-out;
+            -moz-transition: height 1s ease-in-out;
+            -o-transition: height 1s ease-in-out;
+            transition: height 1s ease-in-out;
+        }
+        
+        ul,
+        li {
+            margin: 0;
+            margin-left: 5px;
+            padding: 2px 5px;
+        }
+        
+        .jsdft-main {
+            margin-left: 50px;
+            margin-top: 50px;
+        }
+        
+        *[class ^='type-'] {
+            display: inline-block;
+            width: auto;
+            padding: 3px 7px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: #fff;
+            background: #000;
+            font-weight: 200;
+        }
+        
+        .type-1 {
+            background-color: #16a61e;
+        }
+        
+        .type-2 {
+            background-color: #e03500;
+        }
+        
+        .type-3 {
+            background-color: #0140ca;
+        }
+        
+        .type-4 {
+            background-color: #007cc3;
+        }
+        
+        .type-5 {
+            background-color: #720e9e;
+        }
+        
+        .type-6 {
+            background-color: #ea0a8e;
+        }
+        
+        .type-7 {
+            background-color: #00a478;
+        }
+        
+        .type-8 {
+            background-color: #f3ce13;
+        }
+        
+        .type-9 {
+            background-color: #ea0a8e;
+        }
+        
+        .type-10 {
+            background-color: #e54a4f;
+        }
+        
+        dl {
+            display: block;
+            padding: 7px;
+            border-left: 1px solid #00405d;
+            margin: 0;
+            margin-bottom: 5px;
+            position: relative;
+            font-size: 12px;
+        }
+        
+        dl:before,
+        dl:after {
+            content: '';
+            width: 5px;
+            height: 0;
+            border-top: 1px solid #00405d;
+            position: absolute;
+            left: -3px;
+        }
+        
+        dl:before {
+            top: 0;
+        }
+        
+        dl:after {
+            bottom: 0;
+        }
+        
+        dl dt,
+        dl dd {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+        }
+        
+        dl dt {
+            width: 28%;
+            /* max-width: 150px !important; */
+            position: relative;
+            border: 1px solid #00405d;
+            padding: 4px;
+            font-weight: normal;
+            margin-bottom: 7px;
+            border-radius: 2px;
+            background: #3d4944;
+            color: #fff;
+            font-size: 12px;
+        }
+        
+        dl dt:before {
+            content: '';
+            width: 7px;
+            height: 0;
+            position: absolute;
+            left: -8px;
+            top: 9px;
+            border-bottom: 1px solid #00405d;
+        }
+        
+        dl dt:after {
+            content: ' ';
+            width: 0;
+            height: 0;
+            position: absolute;
+            right: 10px;
+            top: 0;
+        }
+        
+        dl dd {
+            width: 70%;
+            color: #666;
+            padding-top: 5px;
+            font-size: 12px;
+            line-height: 18px;
+        }
+        
+        ul:not(:nth-child(1)) {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+
+    <script>
+        var app = document.getElementById("app");
+
+        var htmlString = '';
+
+        function interateArray(data) {
+            if (Array.isArray(data) && data.constructor.toString().indexOf("Array") > -1) {
+
+                htmlString += '<ul>';
+
+                for (let i = 0; i < data.length; i++) {
+
+                    if (typeof data[i] == 'object' && data[i].constructor.toString().indexOf("Object") > -1) {
+                        htmlString += '<li>';
+                        iterateObjectData(data[i]);
+                        htmlString += '</li>';
+                    } else {
+                        htmlString += '<li>';
+                        htmlString += wrapInHref(data[i], 'type-1');
+                        htmlString += '</li>'
+                    }
+
+                }
+                htmlString += '</ul>';
+
+                app.innerHTML = htmlString;
+
+            }
+        };
+
+        function iterateObjectData(data) {
+            htmlString += '<ul>';
+            for (key in data) {
+                htmlString += '<li>';
+
+                if (typeof data[key] != 'string') {
+                    htmlString += wrapInHref(key, 'type-1');
+                }
+                if (typeof data[key] == 'string') {
+                    htmlString += data[key];
+                }
+
+                if (typeof data[key] == 'object' && data[key].constructor.toString().indexOf("Object") > -1) {
+                    iterateObjectData(data[key]);
+                } else if (Array.isArray(data[key])) {
+                    interateArray(data[key]);
+                }
+                htmlString += '</li>';
+            }
+            htmlString += '</ul>';
+        };
+
+        function wrapInHref(textString, cssClass) {
+            var text = '';
+            if (cssClass) {
+                text = '<a href="javascript:void(0)" onClick="toogle(this)" class="' + cssClass + '">' + textString + '</a>';
+            } else {
+                text = '<a href="javascript:void(0)" onClick="toogle(this)">' + textString + '</a>';
+            }
+            return text;
+        };
+
+
+
+        function toogle(elem) {
+            if (elem.nextElementSibling != null &&
+                elem.nextElementSibling.hasAttribute('style') &&
+                elem.nextElementSibling.style.display == 'block') {
+                elem.nextElementSibling.style.display = 'none';
+            } else if (elem.nextElementSibling == null) {
+                alert("Sorry!, there is no data availabe for this item");
+            } else {
+                elem.nextElementSibling.style.display = 'block';
+            }
+        }
+
+
+
+        var jsCollection = {
+            "data": [{
+                    "JavaScript": {
+                        "DataTypes": [{
+                            "Primitive": [{
+                                    "String": {
+                                        "Properties": [{
+                                            "name": "constructor",
+                                            "desc": "Returns the string's constructor function"
+                                        }, {
+                                            "name": "length",
+                                            "desc": "Returns the length of a string"
+                                        }, {
+                                            "name": "prototype",
+                                            "desc": "Allows you to add properties and methods to an string object"
+                                        }],
+                                        "Methods": [{
+                                            "name": "charAt()",
+                                            "desc": "Returns the character at the specified index (position)"
+                                        }, {
+                                            "name": "charCodeAt()",
+                                            "desc": "Returns the Unicode of the character at the specified index"
+                                        }, {
+                                            "name": "concat()",
+                                            "desc": "Joins two or more strings, and returns a new joined strings"
+                                        }, {
+                                            "name": "endsWith()",
+                                            "desc": "Checks whether a string ends with specified string/characters"
+                                        }]
+                                    }
+                                },
+                                "Numbers",
+                                "Boolean",
+                                "Null",
+                                "Undefined",
+                                "Symbols"
+                            ]
+                        }, {
+                            "Complex": [
+                                "Object",
+                                "Array",
+                                "Function"
+                            ]
+                        }]
+                    }
+                },
+                "Browser BOM",
+                "DOM"
+            ]
+        }
+
+        interateArray(jsCollection.data);
+    </script>
+</body>
+
+</html>

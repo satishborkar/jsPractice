@@ -1,0 +1,14 @@
+{
+  "name": "todo-list-js",
+  "version": "1.0.0",
+  "description": "sample todo list in pure js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@satishborkar && todomvc.com",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.18.2"
+  }
+}

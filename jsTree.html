@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Javascript Family &amp; Tree :) </title>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rokkitt:300"> -->
+    <style>
+        body {
+            vertical-align: top;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: normal;
+            font-size: 14px;
+            vertical-align: top;
+            -webkit-transition: height 1s ease-in-out;
+            -moz-transition: height 1s ease-in-out;
+            -o-transition: height 1s ease-in-out;
+            transition: height 1s ease-in-out;
+        }
+        
+        .jsdft-main {
+            margin-left: 50px;
+            margin-top: 50px;
+        }
+        
+        *[class ^='type-'] {
+            display: inline-block;
+            width: auto;
+            padding: 3px 7px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: #fff;
+            background: #000;
+            font-weight: 200;
+        }
+        
+        .type-1 {
+            background-color: #16a61e;
+        }
+        
+        .type-2 {
+            background-color: #e03500;
+        }
+        
+        .type-3 {
+            background-color: #0140ca;
+        }
+        
+        .type-4 {
+            background-color: #007cc3;
+        }
+        
+        .type-5 {
+            background-color: #720e9e;
+        }
+        
+        .type-6 {
+            background-color: #ea0a8e;
+        }
+        
+        .type-7 {
+            background-color: #00a478;
+        }
+        
+        .type-8 {
+            background-color: #f3ce13;
+        }
+        
+        .type-9 {
+            background-color: #ea0a8e;
+        }
+        
+        .type-10 {
+            background-color: #e54a4f;
+        }
+        
+        dl {
+            display: block;
+            padding: 7px;
+            border-left: 1px solid #00405d;
+            margin: 0;
+            margin-bottom: 5px;
+            position: relative;
+            font-size: 12px;
+        }
+        
+        dl:before,
+        dl:after {
+            content: '';
+            width: 5px;
+            height: 0;
+            border-top: 1px solid #00405d;
+            position: absolute;
+            left: -3px;
+        }
+        
+        dl:before {
+            top: 0;
+        }
+        
+        dl:after {
+            bottom: 0;
+        }
+        
+        dl dt,
+        dl dd {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+        }
+        
+        dl dt {
+            width: 28%;
+            /* max-width: 150px !important; */
+            position: relative;
+            border: 1px solid #00405d;
+            padding: 4px;
+            font-weight: normal;
+            margin-bottom: 7px;
+            border-radius: 2px;
+            background: #3d4944;
+            color: #fff;
+            font-size: 12px;
+        }
+        
+        dl dt:before {
+            content: '';
+            width: 7px;
+            height: 0;
+            position: absolute;
+            left: -8px;
+            top: 9px;
+            border-bottom: 1px solid #00405d;
+        }
+        
+        dl dt:after {
+            content: ' ';
+            width: 0;
+            height: 0;
+            position: absolute;
+            right: 10px;
+            top: 0;
+        }
+        
+        dl dd {
+            width: 70%;
+            color: #666;
+            padding-top: 5px;
+            font-size: 12px;
+            line-height: 18px;
+        }
+        
+        ol:not(.jsdft-main),
+        ul:not(.jsdft-main) {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="jsdft-main">
+        <li> <a href="#nogo" class="type-1">JavaScript</a>
+            <ul>
+                <li><a href="#nogo" class="type-2">Data Types</a>
+                    <ol type="A">
+                        <li> <a href="#nogo" class="type-3">Primitive</a>
+                            <ol type="1">
+                                <li>
+                                    <a href="#nogo" class="type-4">string</a>
+                                    <ol type="a">
+                                        <li>
+                                            <a href="#nogo" class="type-5">Properties</a>
+                                            <dl>
+                                                <dt>constructor</dt>
+                                                <dd>Returns the string's constructor function</dd>
+                                                <dt>length</dt>
+                                                <dd>Returns the length of a string</dd>
+                                                <dt>prototype</dt>
+                                                <dd>Allows you to add properties and methods to an object</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <a href="#nogo" class="type-5">Methods</a>
+                                            <dl>
+                                                <dt>charAt()</dt>
+                                                <dd>Returns the character at the specified index (position)</dd>
+                                                <dt>charCodeAt()</dt>
+                                                <dd>Returns the Unicode of the character at the specified index</dd>
+                                                <dt>concat()</dt>
+                                                <dd>Joins two or more strings, and returns a new joined strings</dd>
+                                                <dt>endsWith()</dt>
+                                                <dd>Checks whether a string ends with specified string/characters</dd>
+                                                <dt>fromCharCode()</dt>
+                                                <dd>Converts Unicode values to characters</dd>
+                                                <dt>includes()</dt>
+                                                <dd>Checks whether a string contains the specified string/characters</dd>
+                                                <dt>indexOf()</dt>
+                                                <dd>Returns the position of the first found occurrence of a specified value in a string</dd>
+                                                <dt>lastIndexOf()</dt>
+                                                <dd>Returns the position of the last found occurrence of a specified value in a string</dd>
+                                                <dt>localeCompare()</dt>
+                                                <dd>Compares two strings in the current locale</dd>
+                                                <dt>match()</dt>
+                                                <dd>Searches a string for a match against a regular expression, and returns the matches</dd>
+                                                <dt>repeat()</dt>
+                                                <dd>Returns a new string with a specified number of copies of an existing string</dd>
+                                                <dt>replace()</dt>
+                                                <dd>Searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced</dd>
+                                                <dt>search()</dt>
+                                                <dd>Searches a string for a specified value, or regular expression, and returns the position of the match</dd>
+                                                <dt>slice()</dt>
+                                                <dd>Extracts a part of a string and returns a new string</dd>
+
+                                                <dt>split()</dt>
+                                                <dd>Splits a string into an array of substrings</dd>
+                                                <dt>startsWith()</dt>
+                                                <dd>Checks whether a string begins with specified characters</dd>
+                                                <dt>substr()</dt>
+                                                <dd>Extracts the characters from a string, beginning at a specified start position, and through the specified number of character</dd>
+                                                <dt>substring()</dt>
+                                                <dd>Extracts the characters from a string, between two specified indices</dd>
+                                                <dt>toLocaleLowerCase()</dt>
+                                                <dd>Converts a string to lowercase letters, according to the host's locale</dd>
+                                                <dt>toLocaleUpperCase()</dt>
+                                                <dd>Converts a string to uppercase letters, according to the host's locale</dd>
+                                                <dt>toLowerCase()</dt>
+                                                <dd>Converts a string to lowercase letters</dd>
+                                                <dt>toString()</dt>
+                                                <dd>Returns the value of a String object</dd>
+                                                <dt>toUpperCase()</dt>
+                                                <dd>Converts a string to uppercase letters</dd>
+                                                <dt>trim()</dt>
+                                                <dd>Removes whitespace from both ends of a string</dd>
+                                                <dt>valueOf()</dt>
+                                                <dd>Returns the primitive value of a String object</dd>
+
+                                            </dl>
+                                        </li>
+                                    </ol>
+
+                                </li>
+                                <li> <a href="#nogo" class="type-4">number</a></li>
+                                <li> <a href="#nogo" class="type-4">boolean</a></li>
+                                <li> <a href="#nogo" class="type-4">null</a></li>
+                                <li> <a href="#nogo" class="type-4">undefined</a></li>
+                                <li> <a href="#nogo" class="type-4">symbol</a></li>
+                            </ol>
+                        </li>
+                        <li><a href="#nogo" class="type-3">Complex</a>
+                            <ol>
+                                <li><a href="#nogo" class="type-4">Object</a>
+                                    <ol type="a">
+                                        <li> <a href="#nogo" class="type-5">Object Constructor</a>
+
+                                            <ol type="a">
+                                                <li>
+                                                    <a href="#nogo" class="type-6">Properties</a>
+                                                    <dl>
+                                                        <dt>Object.length</dt>
+                                                        <dd>Has a value of 1</dd>
+                                                        <dt>Object.prototype</dt>
+                                                        <dd>Allows the addition of properties to all objects of type Object.</dd>
+                                                    </dl>
+                                                </li>
+                                                <li>
+                                                    <a href="#nogo" class="type-6">Methods</a>
+                                                    <dl>
+                                                        <dt>Object.assign()</dt>
+                                                        <dd>Copies the values of all enumerable own properties from one or more source objects to a target object.</dd>
+
+                                                        <dt>Object.create()</dt>
+                                                        <dd>Creates a new object with the specified prototype object and properties.</dd>
+
+                                                        <dt>Object.defineProperty()</dt>
+                                                        <dd>Adds the named property described by a given descriptor to an object.</dd>
+
+                                                        <dt>Object.defineProperties()</dt>
+                                                        <dd>Adds the named properties described by the given descriptors to an object. </dd>
+
+                                                        <dt>Object.entries()</dt>
+                                                        <dd>Returns an array of a given object's own enumerable property [key, value] pairs. </dd>
+
+                                                        <dt>Object.freeze()</dt>
+                                                        <dd>Freezes an object: other code can't delete or change any properties. </dd>
+
+                                                        <dt>Object.getOwnPropertyDescriptor()</dt>
+                                                        <dd>Returns a property descriptor for a named property on an object. </dd>
+
+                                                        <dt>Object.getOwnPropertyDescriptors()</dt>
+                                                        <dd>Returns an object containing all own property descriptors for an object. </dd>
+
+                                                        <dt>Object.getOwnPropertyNames()</dt>
+                                                        <dd>Returns an array containing the names of all of the given object's own enumerable and non-enumerable properties. </dd>
+
+                                                        <dt>Object.getOwnPropertySymbols()</dt>
+                                                        <dd>Returns an array of all symbol properties found directly upon a given object.</dd>
+
+                                                        <dt>Object.getPrototypeOf()</dt>
+                                                        <dd>Returns the prototype of the specified object.</dd>
+
+                                                        <dt>Object.is()</dt>
+                                                        <dd>Compares if two values are the same value. Equates all NaN values (which differs from both Abstract Equality Comparison and Strict Equality Comparison).</dd>
+
+                                                        <dt>Object.isExtensible()</dt>
+                                                        <dd>Determines if extending of an object is allowed. </dd>
+
+                                                        <dt>Object.isFrozen()</dt>
+                                                        <dd>Determines if an object was frozen.</dd>
+
+                                                        <dt>Object.isSealed()</dt>
+                                                        <dd>Determines if an object is sealed.</dd>
+
+                                                        <dt>Object.keys()</dt>
+                                                        <dd>Returns an array containing the names of all of the given object's own enumerable properties.</dd>
+
+                                                        <dt>Object.preventExtensions()</dt>
+                                                        <dd>Prevents any extensions of an object.</dd>
+
+                                                        <dt>Object.seal()</dt>
+                                                        <dd>Prevents other code from deleting properties of an object.</dd>
+
+                                                        <dt>Object.setPrototypeOf()</dt>
+                                                        <dd>Sets the prototype (i.e., the internal [[Prototype]] property)</dd>
+
+                                                        <dt>Object.values()</dt>
+                                                        <dd>Returns an array of a given object's own enumerable values.</dd>
+
+                                                    </dl>
+                                                </li>
+                                                <li>
+                                                    <a href="#nogo" class="type-6">Object instances and Object prototype object</a>
+                                                    <ol type="a">
+                                                        <li>
+                                                            <a href="#nogo" class="type-7">Properties</a>
+                                                            <dl>
+                                                                <dt>Object.prototype.constructor</dt>
+                                                                <dd>Specifies the function that creates an object's prototype.</dd>
+
+                                                                <dt>Object.prototype.__proto__</dt>
+                                                                <dd>Points to the object which was used as prototype when the object was instantiated.</dd>
+
+                                                                <dt>Object.prototype.__noSuchMethod__ </dt>
+                                                                <dd>Allows a function to be defined that will be executed when an undefined object member is called as a method.</dd>
+
+                                                            </dl>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#nogo" class="type-7">Methods</a>
+                                                            <dl>
+                                                                <dt>Object.prototype.__defineGetter__()</dt>
+                                                                <dd>Associates a function with a property that, when accessed, executes that function and returns its return value.</dd>
+
+                                                                <dt>Object.prototype.__defineSetter__()</dt>
+                                                                <dd>Associates a function with a property that, when set, executes that function which modifies the property.</dd>
+
+                                                                <dt>Object.prototype.__lookupGetter__()</dt>
+                                                                <dd>Returns the function associated with the specified property by the __defineGetter__() method.</dd>
+
+                                                                <dt>Object.prototype.__lookupSetter__()</dt>
+                                                                <dd>Returns the function associated with the specified property by the __defineSetter__() method.</dd>
+
+                                                                <dt>Object.prototype.hasOwnProperty()</dt>
+                                                                <dd>Returns a boolean indicating whether an object contains the specified property as a direct property of that object and not inherited through the prototype chain.</dd>
+
+                                                                <dt>Object.prototype.isPrototypeOf()</dt>
+                                                                <dd>Returns a boolean indicating whether the object this method is called upon is in the prototype chain of the specified object.</dd>
+
+                                                                <dt>Object.prototype.propertyIsEnumerable()</dt>
+                                                                <dd>Returns a boolean indicating if the internal ECMAScript [[Enumerable]] attribute is set.</dd>
+
+                                                                <dt>Object.prototype.toSource()</dt>
+                                                                <dd>Returns string containing the source of an object literal representing the object that this method is called upon; you can use this value to create a new object.</dd>
+
+                                                                <dt>Object.prototype.toLocaleString()</dt>
+                                                                <dd>Calls toString().</dd>
+
+                                                                <dt>Object.prototype.toString()</dt>
+                                                                <dd>Returns a string representation of the object.</dd>
+
+                                                                <dt>Object.prototype.unwatch() </dt>
+                                                                <dd>Removes a watchpoint from a property of the object.</dd>
+
+                                                                <dt>Object.prototype.valueOf()</dt>
+                                                                <dd>Returns the primitive value of the specified object. </dd>
+
+                                                                <dt>Object.prototype.watch()</dt>
+                                                                <dd>Adds a watchpoint to a property of the object.</dd>
+                                                            </dl>
+                                                        </li>
+                                                    </ol>
+                                                </li>
+                                            </ol>
+
+                                        </li>
+                                        <li> <a href="#nogo" class="type-5">MATH</a> </li>
+                                        <li> <a href="#nogo" class="type-5">DATE</a> </li>
+                                        <li> <a href="#nogo" class="type-5">RegExp</a> </li>
+                                        <li> <a href="#nogo" class="type-5">Error</a> </li>
+                                    </ol>
+                                </li>
+                                <li><a href="#nogo" class="type-4">Array</a></li>
+                                <li><a href="#nogo" class="type-4">Function</a></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#nogo" class="type-1">Browsers BOM</a>
+            <ul>
+                <li><a href="#nogo" class="type-2">Window</a></li>
+                <li><a href="#nogo" class="type-2">Navigator</a></li>
+                <li><a href="#nogo" class="type-2">Screen</a></li>
+                <li><a href="#nogo" class="type-2">History</a></li>
+                <li><a href="#nogo" class="type-2">Location</a></li>
+            </ul>
+        </li>
+        <li><a href="#nogo" class="type-1">HTML DOM</a>
+            <ul>
+                <li><a href="#nogo" class="type-2">Document</a></li>
+                <li><a href="#nogo" class="type-2">Node / Elements</a></li>
+                <li><a href="#nogo" class="type-2">Attributes</a></li>
+                <li><a href="#nogo" class="type-2">Events</a></li>
+                <li><a href="#nogo" class="type-2">Style</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        (function() {
+            var links = document.querySelectorAll('a');
+
+            links.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    if (this.nextElementSibling != null &&
+                        this.nextElementSibling.hasAttribute('style') &&
+                        this.nextElementSibling.style.display == 'block') {
+                        this.nextElementSibling.style.display = 'none';
+                    } else if (this.nextElementSibling == null) {
+                        alert("Sorry!, there is no data availabe for this item");
+                    } else {
+                        this.nextElementSibling.style.display = 'block';
+                    }
+                })
+            })
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codewars JS Programs</title>
+    <style>
+        body {
+            width: 1024px;
+            margin: 50px auto 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+        // OPTION 03
+
+        // function one(fn) {
+        //     return fn ? fn(1) : 1
+        // };
+
+        // function two(fn) {
+        //     return fn ? fn(2) : 2
+        // };
+
+        // function seven(fn) {
+        //     return fn ? fn(7) : 7
+        // };
+
+        // function times(n){
+        //     return function(u){
+        //         return u * n;
+        //     }
+        // };
+
+
+        //console.log(seven(times(two())));
+
+
+        // OPTION 02
+
+        // var n = function(digit) {
+        // return function(op) {
+        //     return op ? op(digit) : digit;
+        // }
+        // };
+        // var zero = n(0);
+        // var one = n(1);
+        // var two = n(2);
+        // var three = n(3);
+        // var four = n(4);
+        // var five = n(5);
+        // var six = n(6);
+        // var seven = n(7);
+        // var eight = n(8);
+        // var nine = n(9);
+
+        // function plus(r) { return function(l) { return l + r; }; }
+        // function minus(r) { return function(l) { return l - r; }; }
+        // function times(r) { return function(l) { return l * r; }; }
+        // function dividedBy(r) { return function(l) { return l / r; }; }
+
+
+
+         // OPTION 03
+
+        // ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+        // .forEach(function (name, n) {
+        //     this[name] = function (f) {
+        //         return f ? f(n) : n
+        //     }
+        // });
+
+        // function plus(n) {
+        //     return function (a) {
+        //         return a + n
+        //     }
+        // }
+
+        // function minus(n) {
+        //     return function (a) {
+        //         return a - n
+        //     }
+        // }
+
+        // function times(n) {
+        //     return function (a) {
+        //         return a * n
+        //     }
+        // }
+
+        // function dividedBy(n) {
+        //     return function (a) {
+        //         return a / n
+        //     }
+        // }
+
+
+// OPTION 04
+// 'zero one two three four five six seven eight nine'.split(' ').forEach(
+//   (mth, num) => this[mth] = (f = val => val) => f(num) 
+// )
+
+// let plus      = (r) => (l) => l + r
+// let minus     = (r) => (l) => l - r
+// let times     = (r) => (l) => l * r
+// let dividedBy = (r) => (l) => l / r
+
+        
+    </script>
+</body>
+
+</html>

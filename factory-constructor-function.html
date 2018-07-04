@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <script>
+        // Factory Functions
+        function createCircle(radius) {
+            return {
+                radius,
+                draw: function () {
+                    console.log("Factory Functions...", this.radius)
+                }
+            }
+        };
+
+        const circle1 = createCircle(1);
+        circle1.draw();
+
+        // Constructor Functions
+
+        function CreateCircle(radius) {
+            console.log(this);
+            this.radius = radius;
+            this.draw = function () {
+                console.log("Constructor Functions...", this.radius)
+            }
+        }
+
+        const circle2 = new CreateCircle(5);
+
+        circle2.draw();
+    </script>
+</body>
+
+</html>

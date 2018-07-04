@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codewars JS Programs</title>
+    <style>
+        body {
+            width: 1024px;
+            margin: 50px auto 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>
+        This time we want to write calculations using functions and get the results. Let's have a look at some examples: Requirements:
+        <br/> There must be a function for each number from 0 ("zero") to 9 ("nine")
+        <br/> There must be a function for each of the following mathematical operations: plus, minus, times, dividedBy (divided_by
+        in Ruby)
+        <br/> Each calculation consist of exactly one operation and two numbers
+        <br/> The most outer function represents the left operand, the most inner function represents the right operand
+        <br/>
+
+    </p>
+    <pre>
+        For Example : 
+        seven(times(five())); // must return 35
+        four(plus(nine())); // must return 13
+        eight(minus(three())); // must return 5
+        six(dividedBy(two())); // must return 3
+    </pre>
+    <script>
+        // function zero(f) {
+        //     return makeNum(0, f);
+        // }
+
+        // function one(f) {
+        //     return makeNum(1, f);
+        // }
+
+        // function two(f) {
+        //     return makeNum(2, f)
+        // }
+
+        // function three(f) {
+        //     return makeNum(3, f);
+        // }
+
+        // function four(f) {
+        //     return makeNum(4, f);
+        // }
+
+        // function five(f) {
+        //     return makeNum(5, f);
+        // }
+
+        // function six(f) {
+        //     return makeNum(6, f);
+        // }
+
+        // function seven(f) {
+        //     return makeNum(7, f);
+        // }
+
+        // function eight(f) {
+        //     return makeNum(8, f);
+        // }
+
+        // function nine(f) {
+        //     return makeNum(9, f);
+        // }
+
+        // function plus(n) {
+        //     return function (u) {
+        //         return u + n;
+        //     }
+        // }
+
+        // function minus(n) {
+        //     return function (u) {
+        //         return u - n;
+        //     }
+        // }
+
+        // function times(n) {
+        //     return function (u) {
+        //         return n * u;
+        //     }
+        // }
+
+        // function dividedBy(n) {
+        //     return function (u) {
+        //         return u / n;
+        //     }
+        // }
+
+        // function makeNum(n, f) {
+        //     //n is number of function & f is callback function which will always option
+        //     if (f == null) {
+        //         return n;
+        //     } else {
+        //         return f(n);
+        //     }
+        // }
+
+
+        var n = function (digit) {
+            return function (op) {
+                return op ? op(digit) : digit;
+            }
+        };
+        var zero = n(0);
+        var one = n(1);
+        var two = n(2);
+        var three = n(3);
+        var four = n(4);
+        var five = n(5);
+        var six = n(6);
+        var seven = n(7);
+        var eight = n(8);
+        var nine = n(9);
+
+        function plus(r) {
+            return function (l) {
+                return l + r;
+            };
+        }
+
+        function minus(r) {
+            return function (l) {
+                return l - r;
+            };
+        }
+
+        function times(r) {
+            return function (l) {
+                return l * r;
+            };
+        }
+
+        function dividedBy(r) {
+            return function (l) {
+                return l / r;
+            };
+        }
+
+        console.log(seven(times(five()))); // must return 35
+        console.log(four(plus(nine()))); // must return 13
+        console.log(eight(minus(three()))); // must return 5
+        console.log(six(dividedBy(two()))); // must return 3
+    </script>
+</body>
+
+</html>

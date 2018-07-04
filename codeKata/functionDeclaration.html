@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            width: 1024px;
+            margin: 50px auto 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Can we use function before its declaration.</p>
+    <script>
+        satya();
+        callMeBeforeDeclaration();
+
+        function callMeBeforeDeclaration() {
+            console.log("Hi!...");
+        }
+
+        var satya = function(){
+            console.log("Hi..Satya!!!");
+        }
+    </script>
+</body>
+
+</html>

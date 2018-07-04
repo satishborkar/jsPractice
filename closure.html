@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Closures in Javascript</title>
+</head>
+
+<body>
+    <script>
+        var addTo = function(passed) {
+            var add = function(inner) {
+                return passed + inner
+            }
+
+            return add;
+        }
+
+        //console.log(addTo(3)(7))
+
+        var addToThree = new addTo(8);
+        //console.log(addToThree(8));
+
+        console.dir(addTo(3));
+        console.dir(addToThree(8));
+    </script>
+</body>
+
+</html>

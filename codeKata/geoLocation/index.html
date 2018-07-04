@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get Weather Condition</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900');
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            border: 1px solid #ccc;
+            width: 400px;
+            height: 300px;
+            box-sizing: border-box;
+            padding: 15px;
+            text-align: center;
+            display: none;
+        }
+
+        #overlay {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .text-waiting {
+            width: 350px;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            color: #ccc;
+            font-weight: 100;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            transform: translateY(50px);
+        }
+
+        .circle {
+            width: 32px;
+            height: 32px;
+            background: transparent;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border: 2px solid transparent;
+            border-top-color: #F1646C;
+            border-bottom-color: #79bae2;
+            border-radius: 50%;
+            animation: rotate 0.8s infinite;
+            -webkit-animation: rotate 0.8s infinite;
+        }
+
+        .double {
+            border-style: dashed;
+            -webkit-animation: rotate 0.8s ease-out infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+                border-top-color: #F1646C;
+                border-bottom-color: #79bae2;
+                border-left-color: transparent;
+                border-right-color: transparent;
+            }
+            100% {
+                transform: rotate(360deg);
+                border-top-color: transparent;
+                border-bottom-color: transparent;
+                border-left-color: #F1646C;
+                border-right-color: #79bae2;
+            }
+        }
+
+        @keyframes rotateBig {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="overlay">
+        <div class="circle double"></div>
+        <div class="text-waiting"> Fetching the weather data...please wait.. </div>
+    </div>
+    <div id="app"></div>
+    <script>
+        var BASE_URL = 'https://weathersync-zimbra.herokuapp.com';
+
+        var app = document.getElementById("app");
+
+        var overlay = document.getElementById("overlay");
+
+        var template = `<p>Current weather condition for </p>
+                        <h1>{{city}}</h1>
+                        <h2>{{temp}}∘ C</h2>       
+                        <div>
+                            <img src="{{icon}}" alt="{{weather}}" title="{{weather}}">
+                        </div>
+                        <p> {{weather}} | {{weather_desc}}</p> `;
+
+        var currentCordinates = {};
+
+        //document.addEventListener('DOMContentLoaded', getApiGeoLocation, false);
+
+        function getApiGeoLocation() {
+            return fetch(BASE_URL + '/ip').then(function (response) {
+                return response.json();
+            }).catch(function (error) {
+                return error
+            })
+        };
+
+        getApiGeoLocation().then(function (data) {
+
+            // setting data to lcalStorage to use when page is get refreshed.
+            if (data.coord) {
+                setItemLocalStorage(data);
+                var lat = parseInt(localStorage.getItem('lattitude'));
+                var lon = parseInt(localStorage.getItem('longitude'));
+            }
+
+            return data;
+        }).then(function (data) {
+            if (data.hasOwnProperty('location') && data.location.latitude && data.location.longitude) {
+                return fetch(BASE_URL + `/weather?=$${data.location.latitude}&$${data.location.longitude}`).then(function (response) {
+                    console.log(response.json());
+                    return response.json();
+                }).catch(function (error) {
+                    return error
+                })
+            }
+        })
+
+
+        // fetch("https://fcc-weather-api.glitch.me/api/current?lat=" + data.coord.latitude + "&lon=" + data.coord.longitude)
+        //     .then(function (response) {
+        //         return response.json()
+        //     })
+        //     .then(function (data) {
+        //         console.log(data)
+        //         showWeatherDetails(data);
+        //     })
+
+
+
+        function setItemLocalStorage(obj) {
+            if (!localStorage.getItem('lattitude') || localStorage.getItem('lattitude') === undefined &&
+                !localStorage.getItem('longitude') || localStorage.getItem('lattitude') === undefined
+            ) {
+                localStorage.setItem('lattitude', obj.coord.latitude);
+                localStorage.setItem('longitude', obj.coord.longitude);
+            }
+        }
+        function showWeatherDetails(wData) {
+            //var currentTemp = ((wData.main.temp - 273.15) * 1.8) + 32;
+            template = template.replace("{{city}}", wData.name);
+            template = template.replace("{{temp}}", wData.main.temp);
+            template = template.replace(/{{weather}}/g, wData.weather[0].main)
+            template = template.replace("{{icon}}", wData.weather[0].icon);
+            template = template.replace("{{weather_desc}}", wData.weather[0].description);
+            app.innerHTML = template;
+            overlay.style.display = "none";
+            app.style.display = "block";
+        }
+
+
+
+    </script>
+</body>
+
+</html>

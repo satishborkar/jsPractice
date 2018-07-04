@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codewars JS Programs</title>
+    <style>
+        body {
+            width: 1024px;
+            margin: 50px auto 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function narcissistic(value) {
+            var arr = value.toString().split('');
+            var result = 0;
+
+            for (let i = 0; i < arr.length; i++) {
+                result += Math.pow(arr[i], arr.length);
+            }
+
+            if (value == result) {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        // function narcissistic(value) {
+        //     return ('' + value).split('').reduce(function (p, c) {
+        //         return p + Math.pow(c, ('' + value).length)
+        //     }, 0) == value;
+        // }
+
+        console.log(narcissistic(153));
+        console.log(narcissistic(1634));
+        console.log(narcissistic(125477));
+    </script>
+</body>
+
+</html>

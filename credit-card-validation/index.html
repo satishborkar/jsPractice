@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CC Formatter</title>
+    <link rel="stylesheet" href="css/credit-card-validator.css">
+</head>
+
+<body>
+    <form>
+        <!-- <input type="text" id="txt_cardNumber" name="txt_cardNumber" pattern="[0-9.]+"> -->
+        <h2>Format &amp; Validate Credit Card Number in JavaScript </h2>
+        <input id="cc" type="text" value="" placeholder="XXXX XXXX XXXX XXXX" maxlength="23">
+        <div class="row card-info">
+            <div class="row">
+                <label>Card Type : </label>
+                <label id="card-type"></label>
+            </div>
+            <div id="card-type" class="row">
+                <label>Card Number Validity : </label>
+                <label id="card-valid"></label>
+            </div>
+        </div>
+    </form>
+    <script src="js/credit-card-validator.js"></script>
+</body>
+
+</html>

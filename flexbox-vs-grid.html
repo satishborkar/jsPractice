@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        .cards {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cards li {
+            border: 2px solid #490A3D;
+            border-radius: 5px;
+            background-color: #BD1550;
+            color: #fff;
+            flex: 1 1 200px;
+        }
+
+        .cards h2 {
+            background-color: #490A3D;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .cards p {
+            padding: 10px;
+        }
+
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+        }
+
+        .flex li {
+            flex: 1 1 200px;
+            margin: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /*grid-template-columns: repeat(auto-fill, minmax(200px 1fr));*/
+            grid-gap: 20px;
+        }
+
+        #dropin-container {
+            position: relative;
+        }
+
+        #dropin-container iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Flexbox</h1>
+        <ul class="flex cards">
+            <li>
+                <h2>Item 1</h2>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nostrum sunt. Omnis est architecto sequi
+                    ex similique. Mollitia totam, velit adipisci illo provident doloremque incidunt magnam officiis voluptate
+                    fugiat eius!
+                </p>
+            </li>
+            <li>
+                <h2>Item 2</h2>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nostrum sunt. Omnis est architecto sequi
+                    ex similique. Mollitia totam, velit adipisci illo provident doloremque incidunt magnam officiis voluptate
+                    fugiat eius!
+                </p>
+            </li>
+            <li>
+                <h2>Item 3</h2>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nostrum sunt. Omnis est architecto sequi
+                    ex similique. Mollitia totam, velit adipisci illo provident doloremque incidunt magnam officiis voluptate
+                    fugiat eius!
+                </p>
+            </li>
+            <li>
+                <h2>Item 4</h2>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nostrum sunt. Omnis est architecto sequi
+                    ex similique. Mollitia totam, velit adipisci illo provident doloremque incidunt magnam officiis voluptate
+                    fugiat eius!
+                </p>
+            </li>
+            <li>
+                <h2>Item 5</h2>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nostrum sunt. Omnis est architecto sequi
+                    ex similique. Mollitia totam, velit adipisci illo provident doloremque incidunt magnam officiis voluptate
+                    fugiat eius!
+                </p>
+            </li>
+        </ul>
+
+        <h1>CSS Grid Layout</h1>
+        <ul class="grid cards">
+            <li>
+                <h2>Item 1</h2>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nostrum sunt. Omnis est architecto sequi
+                    ex similique. Mollitia totam, velit adipisci illo provident doloremque incidunt magnam officiis voluptate
+                    fugiat eius!
+                </p>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nostrum sunt. Omnis est architecto sequi
+                        ex similique. Mollitia totam, velit adipisci illo provident doloremque incidunt magnam officiis voluptate
+                        fugiat eius!
+                    </p>
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nostrum sunt. Omnis est architecto sequi
+                            ex similique. Mollitia totam, velit adipisci illo provident doloremque incidunt magnam officiis voluptate
+                            fugiat eius!
+                        </p>
+            </li>
+            <li id="dropin-container">
+                <iframe width="100%" height="100%" id="pop-veritrans" src="http://172.20.235.108:9090/merchant/"></iframe>
+            </li>
+            <li>
+                <h2>Item 3</h2>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nostrum sunt. Omnis est architecto sequi
+                    ex similique. Mollitia totam, velit adipisci illo provident doloremque incidunt magnam officiis voluptate
+                    fugiat eius!
+                </p>
+            </li>
+            <li>
+                <h2>Item 4</h2>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nostrum sunt. Omnis est architecto sequi
+                    ex similique. Mollitia totam, velit adipisci illo provident doloremque incidunt magnam officiis voluptate
+                    fugiat eius!
+                </p>
+            </li>
+            <li>
+                <h2>Item 5</h2>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nostrum sunt. Omnis est architecto sequi
+                    ex similique. Mollitia totam, velit adipisci illo provident doloremque incidunt magnam officiis voluptate
+                    fugiat eius!
+                </p>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

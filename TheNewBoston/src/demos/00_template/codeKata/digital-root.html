@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Code Kata</title>
+</head>
+
+<body>
+    <p>
+        In this kata, you must create a digital root function. A digital root is the recursive sum of all the digits in a number. Given n, take the sum of the digits of n. If that value has two digits, continue reducing in this way until a single-digit number
+        is produced. This is only applicable to the natural numbers.
+    </p>
+
+    <p>You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.</p>
+    <p>
+        In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+    </p>
+
+    <script>
+        // console.log('----------------------- digital_root ----------------------------');
+
+        function digital_root(n) {
+            var singleDigit = arguments[0].toString().split('');
+
+            var result = 0;
+
+            if (Array.isArray(singleDigit)) {
+                singleDigit.forEach(function(elem) {
+                    result += Number(elem);
+                });
+                console.log(result);
+                return result;
+            }
+        };
+
+
+        // console.log('----------------------- digital_root ----------------------------');
+
+        console.log(digital_root(28)); // returns "10";
+        console.log(digital_root(15254)); // returns "17";
+        console.log(digital_root(254874)); // returns "30";
+    </script>
+</body>
+
+</html>

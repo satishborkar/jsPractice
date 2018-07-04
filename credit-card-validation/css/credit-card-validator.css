@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+
+body {
+    padding: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: 'Lato', sans-serif;
+}
+
+input {
+    padding: 7px;
+    min-width: 300px;
+    margin-bottom: 10px;
+}
+
+.row{
+    width: 100%;
+    height: auto;
+    float: left;
+    clear: both;
+    margin-bottom: 5px;
+}
+
+.card-info{
+    font-size: 12px;
+}

@@ -1,0 +1,13 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+
+
+body{
+    max-width: 1024px;
+    margin: 50px auto;
+}

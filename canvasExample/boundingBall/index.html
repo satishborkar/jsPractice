@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Bouncing Balls</title>
+		<style type="text/css">
+			body{
+				background-color:#EFEFEF;
+			}
+			#glasspane{
+				position:absolute;
+				left:50px;
+				top:50px;
+				padding:0 20px 10px 10px;
+				border: thin solid rgba(0, 0, 0, 0.6);
+				color: #585555;
+				cursor: pointer;
+				webkit-box-shodow:rgba(0,0,0,0.5) 5px 5px 20px;
+				box-shodow:rgba(0,0,0,0.5) 5px 5px 20px;
+			}
+			#canvas{
+				margin-left: 10px;
+				margin-top: 10px;
+				background: #ffffff;
+				border: thin solid #aaaaaa;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="glasspane">
+			<h2 class='title'>Bouncing Balls</h2>
+
+			<p>One hundred balls bouncing</p>
+
+			<a id='startButton'>Start</a>
+		</div>
+		<canvas id='canvas' width='750' height='500'> Canvas not supported</canvas>
+		<script src="example.js"></script>
+		
+	</body>
+</html>

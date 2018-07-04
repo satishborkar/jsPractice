@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codewars JS Programs</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        body {
+            width: 1024px;
+            margin: 50px auto 150px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        input,
+        button {
+            padding: 7px;
+        }
+
+        input {
+            min-width: 250px;
+        }
+
+        .success {
+            color: green
+        }
+
+        .error {
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        At UAB football games, Blaze does push ups after each Blazer score. After the first Blazer touchdown (and point after), Blaze
+        does 7 pushes ups.
+    </p>
+    <p>After the second touchdown and point after, the score is now 14 and Blaze does 14 push ups.</p>
+    <p>
+        Write a program that calculates how many total push ups Blaze does during the whole game. Assume that only 7-point touchdowns
+        (including the point after) occur. Prompt for the final score and print out how many push ups Blaze has done.
+    </p>
+    <p>
+        Example 1:
+        <br> Enter final score: 21
+        <br> Push ups: 42
+        <br>
+    </p>
+
+    <p>Example 2:
+        <br>Enter final score: 7
+        <br> Push ups: 7</p>
+    <p>
+        <input type="text" name="inputText" id="inputText">
+        <button type="submit" onclick="totalPushUps()">Submit</button>
+    </p>
+
+    <p id="outputSection"></p>
+    <script>
+        function totalPushUps(str = document.getElementById("inputText").value) {
+            var val = parseInt(str);
+            var touchdown = val / 7;
+            var output = 0;
+
+            for (let i = 0; i < touchdown; i++) {
+                output += 7 * (i + 1);
+            }
+            //console.log(output);
+            document.getElementById("outputSection").classList.remove('error');
+            document.getElementById("outputSection").classList.add('success');
+            document.getElementById("outputSection").innerHTML = "Total push ups Blaze does during whole match is " + output;
+        }
+    </script>
+</body>
+
+</html>

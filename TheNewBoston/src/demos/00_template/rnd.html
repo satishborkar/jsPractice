@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #aoo {
+            color: red;
+            font-family: Courier New, Courier, monospace;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="aoo">
+        <a href="#nogo" id="wow">Prashant</a>
+    </div>
+
+    <script>
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // for (var i = 1; i < 11; i++) {
+        //     (function(j) {
+        //         setTimeout(function() {
+        //             console.log(j);
+        //         }, 1000 * j)
+        //     })(i);
+        // }
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // for (var i = 1; i < 6; i++) {
+        //     setTimeout(function(i) {
+        //         return function() {
+        //             console.log(i)
+        //         }
+        //     }(i), 1000 * i);
+        // }
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // function sum(a) {
+        //     var sum = a;
+
+        //     function f(b) {
+        //         sum += b;
+        //         return f;
+        //     }
+
+        //     f.valueOf = function() {
+        //         return sum;
+        //     }
+        //     return f;
+        // }
+
+
+        // console.log(sum(2)(5)(4));
+
+
+        function magicFunction(x) {
+            var sum = x;
+
+            function f(y) {
+                sum += y;
+                return f;
+            };
+
+            //every object has an toString & valueOf methods which returns the primitive values & text and 
+            //both methods gets automatically call when object is called
+
+            f.toString = function() {
+                return sum;
+            }
+
+            // f.valueOf = function() {
+            //     return sum;
+            // }
+
+            return f;
+        }
+
+        console.log(magicFunction(2)(5)(4));
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        var xam = {};
+        xam.toString = function() {
+            return 22;
+        }
+
+        //xam.toString will return the implemented values of toStrong which is 22
+        //xam.__proto__.toString();
+        //will return original function of toStroing Object
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flight Search Application</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="header clr">
+
+        <div class="container">
+            <h1>Flight Search Engine</h1>
+        </div>
+    </div>
+    <div class="app-container clr">
+        <div class="container">
+            <div class="side-bar">
+                <div class="row gutter bg-white brdr">
+                    <form action="" name="searchPanel">
+                        <div>
+                            <input type="radio" name="tripType" checked="checked" value="single">
+                            <input type="radio" name="tripType" value="round">
+                        </div>
+                        <div class="row" style="margin-top:-10px">
+                            <div class="row">
+                                <span class="inline"> 
+
+                            <input type="text" name="fromDestination" id="fromDestination" list="airportNames" onchange="isValidField(this)">
+                            <label for="fromDestination">
+                                  Enter Origin City
+                            </label>
+                            </span>
+                            </div>
+                            <div class="row">
+                                <span class="inline">                           
+                                <input type="text" name="toDestination" id="toDestination" list="airportNames" onchange="isValidField(this)">
+                                <label for="toDestination">
+                                    <span>Enter Destination City</span>
+                                </label>
+                                </span>
+                            </div>
+                            <div class="row">
+                                <span class="inline">                     
+                                <input type="text" name="outbounddate" readonly id="outbounddate">
+                                <label for="outbounddate">Deaparture Date</label>
+                            </span>
+                            </div>
+                            <div class="row in-bound-date">
+                                <span class="inline">                     
+                                    <input type="text" name="inbounddate" readonly id="inbounddate">
+                                    <label for="inboundDate">Return Date</label>
+                                </span>
+                            </div>
+                            <div class="row">
+                                <label for="travellers" class="label">Travellers</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-33 pull-left"><span class="label">Adults <small>(12+ yrs)</small> </span>
+                                    <span class="block decrement"> <a href="#nogo" onclick="Flights.SetTravellers('remove', 'adults')"> - </a></span>
+                                    <input type="text" class="travellers" value="1" name="adults" placeholder="adults" id="adults">
+                                    <span class="block increment"> <a href="#nogo" onclick="Flights.SetTravellers('add', 'adults')"> + </a></span></div>
+                                <div class="col-33 pull-left"> <span class="label">Childs <small>(2-12 yrs)</small> </span>
+                                    <span class="block decrement"> <a href="#nogo" onclick="Flights.SetTravellers('remove', 'child')"> - </a></span>
+                                    <input type="text" class="travellers" value="0" placeholder="child" name="child" id="child">
+                                    <span class="block increment"> <a href="#nogo" onclick="Flights.SetTravellers('add', 'child')"> + </a></span></div>
+                                <div class="col-33 pull-left">
+                                    <span class="label">Infants <small>(below 2 yrs)</small> </span>
+                                    <span class="block decrement"> <a href="#nogo" onclick="Flights.SetTravellers('remove', 'infant')"> - </a></span>
+                                    <input type="text" class="travellers" value="0" name="infant" placeholder="infant" id="infant">
+                                    <span class="block increment"> <a href="#nogo" onclick="Flights.SetTravellers('add', 'infant')"> + </a></span></div>
+
+                            </div>
+                            <div class="row span-top-1 ">
+                                <span class="inline">                           
+                                <select name="travelType" id="travelType">
+                                    <option value="0">Economy</option>
+                                    <option value="1">Premium Economy</option>
+                                    <option value="2">Business Class</option>
+                                    <option value="3">First Class</option>
+                                </select>                                    
+                            </span>
+                            </div>
+                            <div class="row span-top-1">
+                                <label for="btns"></label>
+                                <input type="button" value="Search" class="btn" id="searchBtn">
+                                <input type="reset" value="Cancel" class="btn" id="resetBtn" onclick="javascript:document.forms[0].reset">
+                                <datalist id="airportNames"></datalist>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row gutter bg-white brdr dyna-bar">
+                    <h2 class="title">Filter By :</h2>
+                    <div class="row span-top-1">
+                        <label for="byAirlineName" class="label">By Airline Name</label>
+                        <select name="airlineName" id="airlineName" class="filterControl" onchange="Flights.FilterBy(this)"></select>
+                    </div>
+                    <div class="row span-top-2">
+                        <label for="byPrice" class="label">By Price :  <span id="showPrice"></span> </label>
+                        <input type="range" name="price" id="price" value="9500" min="1500" max="10000" onchange="Flights.FliterByPrice(this), Flights.SetPriceToSlider()">
+                    </div>
+                </div>
+            </div>
+            <div class="content-panel gutter">
+                <div class="row lift-up-15 jouney-dates dyna-bar">
+                    <div class="col-66 pull-left">
+                        <h2 class="title">Pune >> Mumbai >> Pune</h2>
+                    </div>
+                    <div class="col-33 pull-left">
+                        <p class="txt-right">Deapart : 12/11/2017</p>
+                        <p class="txt-right">Return : 12/11/2017</p>
+                    </div>
+                </div>
+                <div class="row flights-container" id="app"></div>
+                <div class="row slide-container">
+                    <a href="#nogo" class="back"> Back to result</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/utilities.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

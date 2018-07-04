@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css sLECTOR</title>
+</head>
+
+<body>
+
+    <input type="checkbox" name="foo" id="foo">
+    <input type="checkbox" name="bar" id="bar">
+    <input type="checkbox" name="san" id="san">
+
+
+    <div id="page" class="oyester">
+        asdasvd
+    </div>
+    <div id="page" class="oyester"></div>
+    <div id="page" class="oyester"></div>
+
+    <p>Copy me and i will let you know what you have coped from me... :)</p>
+
+    <script>
+        function el(elem) {
+            //console.log(elem.charAt(0));
+            if (arguments[0].charAt(0) == '#') {
+                elem = document.querySelector(elem)
+            } else {
+                elem = document.querySelectorAll(elem)
+            }
+            //console.log(elem);
+            return elem;
+
+        };
+
+        var $ = el;
+
+        console.log('------------------------------');
+        console.log(el("#page"));
+        console.log('------------------------------');
+        console.log($(".oyester"))
+        console.log('------------------------------');
+
+        document.oncopy = function() {
+            console.log('you copied something!!!');
+        };
+
+        el("#page").addEventListener('click', function() {
+            console.log("Hi!....Goo....")
+        });
+
+        var checkboxes = $('input[type="checkbox"]');
+    </script>
+
+</body>
+
+</html>

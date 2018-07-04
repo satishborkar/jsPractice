@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codewars JS Programs</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        body {
+            width: 1024px;
+            margin: 50px auto 150px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        input,
+        button {
+            padding: 7px;
+        }
+
+        input {
+            min-width: 250px;
+        }
+
+        .success {
+            color: green
+        }
+
+        .error {
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>Output a given word horizontally and multiple times vertically so that each letter in the horizontal word matches the
+        position of that letter vertically.</p>
+
+    <p>
+        <strong>Input:</strong> The first line in the data set is an integer that represents the number of words that follow. Each
+        word is on a separate line.
+    </p>
+    <p>
+        <strong>Output:</strong> The horizontal word is to be in the centre of the output. Each vertical word is to read down from
+        the top. The first vertical word uses the first letter of the horizontal word. The last vertical word uses the last
+        letter of the horizontal word.
+    </p>
+    <p> All outputs are to have the same left edge vertically.</p>
+    <p> The output is to be formatted exactly like that for the sample output given below.</p>
+    <p>
+        <strong>Assumptions:</strong> All letters are upper case. The maximum word length is 10. </p>
+
+    <p>
+        <input type="text" name="inputText" id="inputText">
+        <button type="submit" onclick="createPyramids()">Submit</button>
+    </p>
+
+    <p id="outputSection" style="text-align:center; max-width:400px"></p>
+
+    <p>
+        <strong>Sample Input:</strong>
+        <br> TEST
+        <br> SAMPLE
+        <br> ART
+
+    </p>
+    <p>
+        <strong>Sample Output:</strong>
+        <div style="text-align:center; max-width:400px">
+            <br>T
+            <br>TE
+            <br>TES
+            <br>TEST
+            <br>EST
+            <br>ST
+            <br>T
+        </div>
+    </p>
+
+    <p>
+        <div style="text-align:center; max-width:400px">
+            <br>S
+            <br>SA
+            <br>SAM
+            <br>SAMP
+            <br>SAMPL
+            <br>SAMPLE
+            <br>AMPLE
+            <br>MPLE
+            <br>PLE
+            <br>LE
+            <br>E
+        </div>
+
+        <div style="text-align:center; max-width:400px">
+            <br>A
+            <br>AR
+            <br>ART
+            <br>RT
+            <br>T
+        </div>
+
+    </p>
+
+
+    <script>
+        function createPyramids(str = document.getElementById("inputText").value) {
+            var arr = str.toUpperCase().split('');
+            var result = '';
+            var count = 0;
+            var revCount = 0;
+
+            for (let j = 0; j < arr.length; j++) {
+
+                for (let i = 0; i < arr.length; i++) {
+                    if (i <= count) {
+                        result += arr[i];
+                    }
+                }
+                //for console
+                //result += '\n';
+                result += '<br/>';
+
+                count++;
+            }
+
+            for (let k = 0; k < arr.length; k++) {
+
+                for (let l = 0; l < arr.length; l++) {
+                    if (l > revCount) {
+                        result += arr[l];
+                    }
+                }
+                //result += '\n';
+                result += '<br/>';
+
+                revCount++;
+            }
+            //console.log(result);
+            document.getElementById("outputSection").innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>

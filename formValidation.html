@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            vertical-align: top;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            font-family: 'Patua One', cursive;
+            font-weight: normal;
+            font-size: 14px;
+        }
+        
+        label {
+            display: inline-block;
+            width: 150px;
+            vertical-align: top;
+        }
+        
+        .error-handler,
+        .success-msg {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 5px;
+            height: auto;
+            display: none;
+            color: #fff;
+        }
+        
+        .error-handler ul,
+        .success-msg ul {
+            margin: 0;
+            padding: 7px 0 7px 20px;
+        }
+        
+        .error-handler {
+            background-color: red;
+        }
+        
+        .success-msg {
+            background-color: green;
+        }
+        /* input:invalid {
+            border-color: red;
+        } */
+        
+        input,
+        input:valid,
+        textarea,
+        button {
+            border: 1px solid #ccc;
+            padding: 7px;
+        }
+        
+        button {
+            text-transform: uppercase
+        }
+        
+        button:hover,
+        button:focus {
+            border-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="./" method="POST" validate>
+        <div id="errorHandler" class="error-handler"></div>
+        <div id="successMsg" class="success-msg"></div>
+        <p>
+            <label for="fullName"> Name  : </label>
+            <input type="text" name="name" id="name" pattern="[a-z]{1,15}" required>
+        </p>
+        <p>
+            <label for="phone"> Phone  : </label>
+            <input type="text" name="phone" id="phone" required>
+        </p>
+        <p>
+            <label for="email"> Email  : </label>
+            <input type="text" name="email" id="email" required>
+        </p>
+        <p>
+            <label for="msg">Message  :</label>
+            <textarea name="msgContent" id="msg" cols="30" rows="10"></textarea>
+        </p>
+        <p>
+            <label></label>
+            <button type="submit" onclick="validateFrm(event)"> Submit  </button>
+            <button type="reset" onclick="resetFrm()">Cancel</button>
+        </p>
+    </form>
+
+    <script>
+        var errorHandler = document.getElementById('errorHandler'),
+            successMsg = document.getElementById('successMsg');
+
+        function validateFrm(e) {
+            e.preventDefault();
+
+            var name = document.forms[0].name.value,
+                phone = document.forms[0].phone.value,
+                email = document.forms[0].email.value,
+                msg = document.forms[0].msg.value,
+                errorList = [],
+                isDigits = /\d+/g,
+                isEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+
+            if (name == '' || name.length == 0 || name.match(isDigits) != null && name.match(isDigits).length > 0) {
+                errorList.push('Name');
+            }
+
+            if (phone == '' || isNaN(phone) || phone.length == 0) {
+                errorList.push('Phone');
+            }
+
+            if (email == '' || !isEmail.test(email)) {
+                errorList.push('Email');
+            }
+
+            if (msg == '' || msg.length == 0) {
+                errorList.push('Message ');
+            }
+
+            if (errorList.length > 0) {
+                let errString = '';
+                successMsg.style.display = 'none';
+                errorHandler.style.display = 'block';
+                errString += "<div> Please enter valid data in following fields : </div>";
+                errString += "<ul>";
+                errorList.forEach(function(item, index) {
+                    errString += "<li>" + item + "</li>";
+                });
+                errString += "</ul>";
+                errorHandler.innerHTML = errString;
+                return false;
+            }
+            errorHandler.style.display = 'none';
+            successMsg.style.display = 'block';
+            document.forms[0].reset;
+            successMsg.innerHTML = "<span> Your feedback has been sent successfully !, Thank you. </span>";
+            // to reset form following functuion need to be called
+            document.forms[0].reset();
+
+        }
+
+        function resetFrm() {
+            console.log("Hey! resetFrm");
+            successMsg.removeAttribute('style');
+            errorHandler.removeAttribute('style');
+            document.forms[0].reset();
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codewars JS Programs</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        body {
+            width: 1024px;
+            margin: 50px auto 150px;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Number is a palindrome if it is equal to the number with digits in reversed order. For example, 5, 44, 171, 4884 are
+        palindromes and 43, 194, 4773 are not palindromes.</p>
+    <p>Write a method palindrome_chain_length which takes a positive number and returns the number of special steps needed to
+        obtain a palindrome. The special step is: "reverse the digits, and add to the original number". If the resulting
+        number is not a palindrome, repeat the procedure with the sum until the resulting number is a palindrome.</p>
+    <p>If the input number is already a palindrome, the number of steps is 0.</p>
+    <p>Input will always be a positive integer.</p>
+    <p>For example, start with 87:</p>
+    <p>87 + 78 = 165; 165 + 561 = 726; 726 + 627 = 1353; 1353 + 3531 = 4884</p>
+    <p>4884 is a palindrome and we needed 4 steps to obtain it, so palindrome_chain_length(87) == 4</p>
+
+    <script>
+        /* ************************************************************ */
+        // var palindromeChainLength = function (n) {
+        //     var palNum = n,
+        //         chainlength = 0,
+        //         reverseNumber = '';
+        //     palNum.toString().split('').reverse().forEach((element) => {
+        //         reverseNumber += element;
+        //     });
+
+        //     if (parseInt(palNum) == parseInt(reverseNumber)) {
+        //         return chainlength;
+        //     } else {
+        //         palNum = parseInt(palNum) + parseInt(reverseNumber);
+        //         chainlength = chainlength += 1;
+        //         chainlength = chainlength + palindromeChainLength(palNum);
+        //         return chainlength;
+        //     }
+        // };
+
+        /* **************************************************** */
+
+        // var palindromeChainLength = function (n) {
+        //     var steps = 0;
+        //     while (!isPalindromic(n)) {
+        //         steps++;
+        //         n += reverseNum(n);
+        //     }
+        //     return steps;
+        // };
+
+        // function isPalindromic(n) {
+        //     if (n < 0) throw 'isPalindromic only works for positive numbers.';
+        //     if (Math.floor(n / 10) === 0) return true; // Single digit numbers are palindromic.
+        //     if (n % 10 === 0) return false; // n > 0, without leading 0s cannot be palindromic if ending in 0.
+        //     return reverseNum(n) === n;
+        // }
+
+        // function reverseNum(n) {
+        //     var r = 0;
+        //     while (n) {
+        //         r *= 10;
+        //         r += n % 10;
+        //         n = Math.floor(n / 10);
+        //     }
+        //     return r;
+        // }
+
+        /* **************************************************** */
+
+        var palindromeChainLength = function (n) {
+            var x = parseInt(("" + n).split('').reverse().join(''));
+
+            if (n != x) {
+                return 1 + palindromeChainLength(n + x);
+            }
+            return 0;
+        };
+
+        console.log("-------------------------------")
+        console.log(palindromeChainLength(87)) // 4
+        console.log("-------------------------------")
+        console.log(palindromeChainLength(4884)) //0
+        console.log("-------------------------------")
+        console.log(palindromeChainLength(89)) // 24
+        console.log("-------------------------------")
+        console.log(palindromeChainLength(10)) // 1
+        console.log("-------------------------------")
+        // console.log(palindromeChainLength(89)) // 24
+        // console.log("-------------------------------")
+    </script>
+</body>
+
+</html>

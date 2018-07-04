@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codewars JS Programs</title>
+    <style>
+        body {
+            width: 1024px;
+            margin: 50px auto 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>
+        Move the first letter of each word to the end of it, then add "ay" to the end of the word. 
+        Leave punctuation marks untouched.
+    </p>
+
+
+    <pre>
+        For example:
+        pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
+        pigIt('Hello World !');     // elloHay orldWay !
+    </pre>
+    <script>
+        function pigIt(str) {
+            var str = str.split(' ');
+            var output = '';
+            str.forEach(function(element, index){
+                if(index == str.length - 1 && element != "!"){
+                    element = element.replace(element.charAt(0), "") + element.charAt(0) + "ay";
+                }else if(element != "!"){
+                    element = element.replace(element.charAt(0), "") + element.charAt(0) + "ay ";
+                }
+                output += element;
+            });
+            console.log(output);
+        }
+
+        // function pigIt(str){
+        //     var words = str.split(' ');
+        //     var result = [];
+        //     var punctuation = '.,;:?!';
+            
+        //     for (var i = 0; i < words.length; i ++) {
+        //       var word = words[i];
+        //       if (punctuation.indexOf(word) > -1) {
+        //         result.push(word);
+        //       } else {
+        //         result.push(word.slice(1,word.length) + word[0] + "ay");
+        //       }
+        //     }
+        //       return result.join(' ');
+        //   }
+          
+        //   console.log(pigIt('Pig latin is cool'));
+        //   console.log(pigIt('This is my string'));
+
+        pigIt('Hello World !');
+        pigIt('Pig latin is cool');
+    </script>
+</body>
+
+</html>

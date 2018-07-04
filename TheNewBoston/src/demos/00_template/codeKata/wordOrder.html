@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Code Kata</title>
+</head>
+
+<body>
+
+    <p>
+        Your task is to sort a given string. Each word in the String will contain a single number. This number is the position the word should have in the result.
+    </p>
+    <p>Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+    </p>
+    <p>If the input String is empty, return an empty String. The words in the input String will only contain valid consecutive numbers.</p>
+    <p>For an input: "is2 Thi1s T4est 3a" the function should return "Thi1s is2 3a T4est"</p>
+
+
+    <script>
+        //var prashant = [];
+        //console.log(prashant.constructor.toString().indexOf("Array") > -1);
+
+        function order(words) {
+            const eachWord = words.split(' ', words.length);
+
+            if (Array.isArray(eachWord)) {
+                eachWord.forEach(function(elem) {
+                    elem.search('/^[0-9]$/')
+                });
+            }
+
+        };
+
+        //----------------------- order of word  ----------------------------';
+
+        //order("is2 Thi1s T4est 3a") // "Thi1s is2 3a T4est"
+
+        //order("4of Fo1r pe6ople g3ood th5e the2") // "Fo1r the2 g3ood 4of th5e pe6ople"
+
+        // order("") // ""
+    </script>
+</body>
+
+</html>

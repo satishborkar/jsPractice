@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Js Examples : - </title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <style>
+        *,
+        *:before,
+        *:after {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 14px;
+        }
+
+        body{
+            width: 800px;
+            margin: 80px auto;
+
+        }
+
+        input[type="text"]{
+            width: 40px;
+            padding: 7px;
+        }
+
+        button,
+        input{
+            margin: 7px 5px 5px 0;
+            padding:7px 15px;
+        }
+
+        #output{
+            border: 1px solid #79bae2;
+            width: 100px;
+            display:block;
+            min-height: 35px;
+            text-align: center;
+            line-height: 35px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Using Constructor Function Object Prototype Programming !! </h1> 
+
+    <input type="text" name="a" id="a" maxlength="2">
+    <input type="text" name="b" id="b" maxlength="2">
+
+    <div id="output"> </div>
+
+
+    <button id="add">  Add </button>
+
+    <button id="subtract">  Subtract </button>
+    <button id="multiply">  Multiply </button>
+    <button id="divide">  Divide </button>
+
+    <button id="increment">  Increment a </button>
+    <button id="decrement">  Decrement a </button>
+
+    <button id="increment">  Increment b </button>
+    <button id="decrement">  Decrement b </button>
+
+    <br/>
+    <br/>
+
+
+    <script type="text/javascript" src="appCalc.js"></script>
+    <script type="text/javascript">
+        function init(){
+            var calc = new Calculator();
+            document.getElementById('add').addEventListener('click', function(){ 
+                calc.add() 
+            });
+        };
+
+        init(); 
+
+    </script>
+
+</body>
+
+</html>

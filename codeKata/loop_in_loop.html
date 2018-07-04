@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Loop In Loop</title>
+</head>
+
+<body>
+    <script>
+        const menuList = [{
+                id: 1,
+                name: "Home",
+                link: "/"
+            },
+            {
+                id: 2,
+                name: "About US",
+                link: "/about"
+            },
+            {
+                id: 3,
+                name: "Products",
+                link: "/prod"
+            },
+            {
+                id: 4,
+                name: "Location",
+                link: "/locations"
+            },
+            {
+                id: 5,
+                name: "Stores",
+                link: "/stores"
+            }
+        ];
+
+        const activeMenu = [1, 5, 2];
+        const finalMenu = [];
+
+        const bountActiveMenu = menuList.map(menu => {
+            if(activeMenu.includes(menu.id)){
+                finalMenu.push(menu)
+            }
+        });
+
+        console.log(finalMenu);
+    </script>
+</body>
+
+</html>

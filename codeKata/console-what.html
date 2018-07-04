@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Console Log Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    
+<script>
+var STYLE = "color: #79bae2; padding:2px; font-size:12px; font-style:italic";
+
+    console.log(("%c ☕ typeof 'satya' Expected String  =>"), STYLE , typeof "satya");
+    console.log(("%c ☕ typeof satya Expected undefined  =>"), STYLE,  typeof satya);
+    console.log(("%c ☕ typeof 12345 Expected Number  =>"), STYLE, typeof 121323);
+    console.log(("%c ☕ typeof Number Expected Function  =>"), STYLE, typeof Number);
+    console.log(("%c ☕ typeof String Expected Function  =>"), STYLE, typeof String);
+    console.log(("%c ☕ typeof Array Expected Function  =>"), STYLE, typeof Array);
+    console.log(("%c ☕ typeof Boolean Expected Function  =>"), STYLE, typeof Boolean);
+    console.log(("%c ☕ typeof Undefined Expected Undefined  =>"), STYLE, typeof Undefined);
+    console.log(("%c ☕ typeof undefined Expected undefined  =>"), STYLE, typeof undefined);
+    console.log(("%c ☕ typeof Symbol Expected Function  =>"), STYLE, typeof Symbol);
+    console.log(("%c ☕ typeof Null Expected undefined  =>"), STYLE, typeof Null);
+    console.log(("%c ☕ typeof null Expected Object  =>"), STYLE, typeof null);
+    console.log(("%c ============================== "), STYLE);
+
+    console.log(("%c 1 + 1 +1 Expected 3 => "), STYLE, 1+1+1);
+    console.log(('%c "1"+"1"+1 Expected 111 => '), STYLE, '1'+'1'+1);
+    //console.log(('%c "1"+"1"+1 Expected Invalid left-hand side expression in postfix operation => '), STYLE, 1++'1'+1);
+    console.log(('%c 4+-"3"+ 2 Expected 3 => '), STYLE, 4+-'3'+ 2);
+    console.log(('%c 4+-"3"+ 2 Expected 3 => '), STYLE, 4-+'3'+ 2);
+    console.log(('%c 4+-"3"+ "2" Expected 12 => '), STYLE, 4+-'3'+ '2');
+    console.log(('%c 4+-"3"+ "2" Expected 12 => '), STYLE, 4 +'3'+ '2');
+</script>
+
+
+</body>
+</html>

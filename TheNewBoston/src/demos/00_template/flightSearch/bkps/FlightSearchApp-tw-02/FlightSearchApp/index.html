@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flight Search Application</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <h1>Flight Search </h1>
+        </div>
+        <div id="search-bar">
+            <form action="">
+                <div>
+                    <input type="radio" name="tripType" checked="checked" id="tripType" value="single">
+                    <input type="radio" name="tripType" id="tripType" value="round">
+                </div>
+                <div class="row" style="margin-top:-30px;">
+                    <div class="col-5">
+                        <label for="fromDestination">From</label>
+                        <input type="text" name="fromDestination" id="fromDestination" list="airportNames">
+                    </div>
+                    <div class="col-5">
+                        <label for="toDestination">To</label>
+                        <input type="text" name="toDestination" id="toDestination" list="airportNames">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <label for="outboundDate">Outbound Date</label>
+                        <input type="text" name="outboundDate" id="outboundDate">
+                    </div>
+                    <!-- <div class="col-5">
+                        <label for="airlineName">Airline Name</label>:
+                        <select name="airlineName" id="airlineName"></select>
+                    </div> -->
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <label for="travellers">Travellers</label>
+                        <!-- <span>Adults : </span> -->
+                        <span class="block decrement"> <a href="#nogo" onclick="Flights.SetTravellers('remove', 'adults')"> - </a></span>
+                        <input type="text" class="travellers" value="0" name="adults" placeholder="adults" id="adults">
+                        <span class="block increment"> <a href="#nogo" onclick="Flights.SetTravellers('add', 'adults')"> + </a></span>
+                        <!-- <span>Childs : </span> -->
+
+                        <span class="block decrement"> <a href="#nogo" onclick="Flights.SetTravellers('remove', 'child')"> - </a></span>
+                        <input type="text" class="travellers" value="0" placeholder="child" name="child" id="child">
+                        <span class="block increment"> <a href="#nogo" onclick="Flights.SetTravellers('add', 'child')"> + </a></span>
+
+                        <!-- <span>Infants : </span> -->
+
+                        <span class="block decrement"> <a href="#nogo" onclick="Flights.SetTravellers('remove', 'infant')"> - </a></span>
+                        <input type="text" class="travellers" value="0" name="infant" placeholder="infant" id="infant">
+                        <span class="block increment"> <a href="#nogo" onclick="Flights.SetTravellers('add', 'infant')"> + </a></span>
+
+                    </div>
+                    <div class="col-5">
+                        <label for="travelType">Travel Type</label>
+                        <select name="travelType" id="travelType">
+                            <option value="0">Economy</option>
+                            <option value="1">Premium Economy</option>
+                            <option value="2">Business Class</option>
+                            <option value="3">First Class</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-5">
+                        <label for="btns"></label>
+                        <input type="button" value="Search" class="btn" id="searchBtn" onclick="Flights.SearchFlights(data.routes)">
+                        <input type="reset" value="Cancel" class="btn" id="resetBtn" onclick="Flights.RenderFlights(data.routes);">
+                        <datalist id="airportNames"></datalist >
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="side-bar">
+                <h2>Filter By :</h2>
+                    <div class="row">
+                        <label for="byAirlineName" class="filterLabel">By Airline Name</label>
+                        <select name="airlineName" id="airlineName" class="filterControl" onchange="Flights.FilterBy(this)"></select>
+                    </div>
+                    <div class="row">
+                        <label for="byPrice" class="filterLabel">By Price :  <span id="showPrice"></span> </label>
+                        <input type="range" class="filterControl" name="price" id="price" value="9500" min="1500" max="10000" onchange="Flights.FliterByPrice(this), Flights.SetPriceToSlider()">
+                    </div>
+            </div>
+            <div class="content-panel">
+                <div class="row">
+                    <h2>Sort By :</h2>
+                    <a href="#nogo">Airlines</a>
+                    <a href="#nogo">Time</a>
+                    <a href="#nogo">Price</a>
+                </div>
+                <div class="row" id="app"></div>
+            </div>
+        </div>        
+    </div>
+    <div id="uiBlocker"></div> 
+    <section id="modal">
+        <a href="#nogo" data-type="close-modal">x</a>
+        <div class="row">
+            <div class="row" id="flightDetails"></div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

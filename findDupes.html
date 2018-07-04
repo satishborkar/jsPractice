@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Code Kata</title>
+</head>
+
+<body>
+    <p>
+        arr1 = [1,2,1,21,22,25,35,24,25,41,85,54,52,21,22,21,22,21,22]
+        <br> arr1 = [1,2,1,41,85,54,52,35,24,25,41,85,54,52]
+    </p>
+
+    <script>
+        function findDupes(arr) {
+            const obj1 = {}
+            const dupsArry = [];
+
+            arr.forEach(item => {
+                if (!obj1.hasOwnProperty(item)) {
+                    obj1[item] = item
+                    return;
+                }
+                if (!dupsArry.includes(item)) {
+                    dupsArry.push(item);
+                }
+            });
+
+            return dupsArry
+        }
+
+
+        console.log(findDupes([1, 2, 1, 41, 85, 54, 52, 35, 24, 25, 41, 85, 54, 52])); //[1, 41, 85, 54, 52]
+
+        console.log(findDupes(arr1 = [1, 2, 1, 21, 22, 25, 35, 24, 25, 41, 85, 54, 52, 21, 22, 21, 22, 21, 22])); //[1, 41, 85, 54, 52]
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codewars JS Programs</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        body {
+            width: 1024px;
+            margin: 50px auto 150px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        input,
+        button {
+            padding: 7px;
+        }
+
+        input {
+            min-width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Find the occurence of each unique word from given string. Accept input from user.</p>
+    <code> e.g input: "Ruby is nice lang. ruby follows oo principles" </code>
+    <br>
+    <code>Chandu ki chachi ne chandu ke chacha ko chandi ke chamach se chatni chatai</code>
+    <p> Outputs : Ruby -> 2 is -> 1 nice ->1 lang -> 1 follows -> 1 oo -> 1 principles -> 1</p>
+
+    <p>
+        <input type="text" name="inputText" id="sampleText">
+        <button type="submit" onclick="findUniqueOccurance()">Submit</button>
+    </p>
+
+    <p id="outputSection"></p>
+    <script>
+        function findUniqueOccurance(str = document.getElementById("inputText").value) {
+            var output = [],
+                arr = str.split(' '),
+                len = arr.length;
+
+            for (let i = 0; i < len; i++) {
+                let count = 0;
+                for (let j = 0; j < len; j++) {
+                    if (arr[i].toLowerCase() == arr[j].toLowerCase()) {
+                        count++;
+                    }
+                }
+                if (!output.includes(arr[i].toLowerCase() + " => " + count)) {
+                    output.push(arr[i].toLowerCase() + " => " + count);
+                }
+            }
+            document.getElementById("outputSection").innerHTML = output;
+            return output
+        }
+        console.log(findUniqueOccurance("Ruby is nice lang. ruby follows oo principles"));
+        console.log(findUniqueOccurance("Chandu ki chachi ne chandu ke chacha ko chandi ke chamach se chatni chatai"));
+    </script>
+</body>
+
+</html>

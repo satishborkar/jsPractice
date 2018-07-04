@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log('------------------------01---------------------------------');
+        console.log([] + []);
+        // PLus operator works only on Numbers & string hence it will try to convert array into in a string.
+        // like String([]) + String([]) = "  " blank string.
+
+        console.log('--------------------------02-------------------------------');
+
+        function a() {
+            return 'HEllO'
+        }
+
+        const sentence = a `SatyA`;
+
+        console.log(sentence);
+        console.log('---------------------------03------------------------------');
+
+
+        function y(a, b) {
+            console.log(this.length);
+        };
+
+        var x = {
+            length: 5,
+            method: function(y) {
+                arguments[0]();
+            }
+        };
+
+        x.method(y, 1);
+
+        console.log('---------------------------04------------------------------');
+
+        const s = 'constructor';
+
+        console.log(s[s](01));
+
+        // it will call the controctor method of a string and return 1
+
+
+        console.log('-------------------------05--------------------------------');
+
+        console.log(0.1 + 0.2);
+
+
+        console.log('--------------------------06-------------------------------');
+
+        console.log(('hi').__proto__.__proto__.__proto__);
+        // 1- __proto__ -- will return string object
+        // 2- __proto__ -- will return main javascript object which String object has created
+        // 2- __proto__ -- will return null as there is not parent object over main JS object. 
+
+        console.log('--------------------------07-------------------------------');
+        //function to return total numbers of argumets
+        // dont use any loops
+
+        let xap = function() {
+            return [].slice.call(arguments).length
+        };
+
+        console.log(xap(1, 2, 3, 4, 5));
+
+        console.log('--------------------------07-------------------------------');
+
+        var A = {
+            x: function() {
+                console.log('X');
+                return A;
+                //return this;
+            },
+            y: function() {
+                console.log('Y');
+                return A;
+            },
+            z: function() {
+                console.log('Z');
+                return A;
+            }
+        };
+
+        A.x().y().z();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Specificity Example</title>
+    <style>
+        ul#awesome {
+            color: red;
+        }
+
+        ul.shopping-list li.favorite span {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="shopping-list" id="awesome">
+        <li>
+            <span>Milk</span>
+        </li>
+        <li class="favorite" id="must-buy">
+            <span class="highlight">I am awesome</span>
+        </li>
+    </ul>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Credit Card Inout Sample Page</title>
+    <style>
+        body {
+            padding: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        input {
+            padding: 7px;
+            min-width: 300px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div id="card-type"></div>
+        <input type="tel" name="cc-name" id="cc-name" />
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function rangeChecker(ccNumber, maxRange, minRagnge) {
+            var isValidCc = false;
+            if (ccNumber) {
+                iIn = ccNumber.substring(0, 6);
+                console.log(iIn);
+                if (iIn >= maxRange && iIn<= minRagnge) {
+                    isValidCc = true;
+                }
+                return isValidCc
+            }
+        };
+
+
+        console.log(rangeChecker("51520002154874777", 510000, 559999));
+
+
+        //Standard format credit card format is XXXX XXXX XXXX XXXX XXX 
+
+        //https://www.cybersource.com/developers/getting_started/test_and_manage/best_practices/card_type_id/
+        //https://webstandardssherpa.com/reviews/auto-detecting-credit-card-type/
+
+        function getCreditCardType(accountNumber) {
+
+
+            //start without knowing the credit card type
+            var result = "unknown";
+
+            //first check for MasterCard
+            if (/^5[1-5]/.test(accountNumber)) {
+                result = "mastercard";
+            }
+
+            //then check for Visa
+            else if (/^4/.test(accountNumber)) {
+                result = "visa";
+            }
+
+            //then check for AmEx
+            else if (/^3[47]/.test(accountNumber)) {
+                result = "amex";
+            }
+
+            return result;
+        }
+
+        function handleEvent(event) {
+            var value = event.target.value,
+                type = getCreditCardType(value),
+                elem = document.getElementById("card-type");
+
+            switch (type) {
+                case "mastercard":
+                    elem.innerHTML = type
+                    //show MasterCard icon
+                    break;
+
+                case "visa":
+                    //show Visa icon
+                    elem.innerHTML = type
+                    break;
+
+                case "amex":
+                    //show American Express icon
+                    elem.innerHTML = type
+                    break;
+
+                default:
+                    elem.innerHTML = type
+                    //clear all icons?
+                    //show error?
+            }
+        }
+
+        // or window.onload
+        document.addEventListener("DOMContentLoaded", function () {
+            var ccCard = document.getElementById("cc-name");
+            ccCard.addEventListener("keyup", handleEvent, false);
+            ccCard.addEventListener("blur", handleEvent, false);
+        }, false);
+
+
+        function isCreditCard(st) {
+            // Encoding only works on cards with less than 19 digits
+            if (st.length > 19)
+                return (false);
+
+            sum = 0;
+            mul = 1;
+            l = st.length;
+            for (i = 0; i < l; i++) {
+                digit = st.substring(l - i - 1, l - i);
+                tproduct = parseInt(digit, 10) * mul;
+                if (tproduct >= 10)
+                    sum += (tproduct % 10) + 1;
+                else
+                    sum += tproduct;
+                if (mul == 1)
+                    mul++;
+                else
+                    mul--;
+            }
+            // Uncomment the following line to help create credit card numbers
+            // 1. Create a dummy number with a 0 as the last digit
+            // 2. Examine the sum written out
+            // 3. Replace the last digit with the difference between the sum and
+            //    the next multiple of 10.
+
+            //  document.writeln("<br>Sum      = ",sum,"<br>");
+            //  alert("Sum      = " + sum);
+
+            if ((sum % 10) == 0)
+                return (true);
+            else
+                return (false);
+        }
+    </script>
+
+</body>
+
+</html>

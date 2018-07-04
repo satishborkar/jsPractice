@@ -1,0 +1,26 @@
+{
+    "name": "reactpaytool",
+    "version": "0.0.1",
+    "description": "basic payment tool by reactjs",
+    "main": "main.js",
+    "scripts": {
+        "build": "grunt && webpack",
+        "sass": "grunt"
+    },
+    "author": "@prashantDahiwadekar",
+    "license": "ISC",
+    "dependencies": {
+        "grunt-sass": "^2.0.0",
+        "node-sass": "^4.7.2",
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0",
+        "webpack": "^3.9.1"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-react": "^6.24.1",
+        "grunt": "^1.0.1"
+    }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codewars JS Programs</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        body {
+            width: 1024px;
+            margin: 50px auto 150px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        input,
+        button {
+            padding: 7px;
+        }
+
+        input {
+            min-width: 250px;
+        }
+
+        .success {
+            color: green
+        }
+
+        .error {
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <p>If n is an integer greater than 0, n factorial (n!) is the product: n* (n-1) * (n-2) * ( n-3)… *</p>
+    <p>By convention, 0! = 1.</p>
+    <p>You must write a program that allows a user to enter an integer between 1 and 7. Your program must then compute the factorial
+        of the number entered by the user.</p>
+    <p>Your solution MUST actually perform a computation (i.e., you may not simply print “5040” to the screen as a literal value
+        if the input is 7).</p>
+    <p>
+        Example <br> 
+        Enter a 4 number: 4! = 24<br> 
+        Enter a 7 number: 7! = 5040
+    </p>
+    <p>
+        <input type="text" name="inputText" id="inputText">
+        <button type="submit" onclick="findFactorial()">Submit</button>
+    </p>
+
+    <p id="outputSection"></p>
+    <script>
+        function findFactorial(str = document.getElementById("inputText").value) {
+            var val = parseInt(str);
+
+            if (val > 0 && val < 8) {
+                for (let i = val - 1; i <= val && i > 0; i--) {
+                    val = val * i;
+                }
+                //return val
+                document.getElementById("outputSection").classList.remove('error');
+                document.getElementById("outputSection").classList.add('success');
+                document.getElementById("outputSection").innerHTML = "Factorial (n!) of " + parseInt(str) + " is " + val;
+
+            } else {
+                document.getElementById("outputSection").classList.remove('success');
+                document.getElementById("outputSection").classList.add('error');
+                document.getElementById("outputSection").innerHTML = "Please enter an integer between 1 and 7";
+            }
+
+        }
+    </script>
+</body>
+
+</html>

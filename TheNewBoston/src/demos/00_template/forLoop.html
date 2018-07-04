@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var routes = [{
+                "uid": "01",
+                "name": "AI-202",
+                "logo": "images/airIndia.jpg",
+                "source": "Dehli",
+                "destination": "Chennai",
+                "sourcecode": "IGI",
+                "destinationcode": "MAA",
+                "depart": "09:25",
+                "arrive": "11:05",
+                "price": "2500"
+            }, {
+                "uid": "02",
+                "name": "AF-258",
+                "logo": "images/air-france.png",
+                "source": "Chennai",
+                "destination": "Dehli",
+                "sourcecode": "MAA",
+                "destinationcode": "IGI",
+                "depart": "10:00",
+                "arrive": "12:05",
+                "price": "2500"
+            }, {
+                "uid": "03",
+                "name": "SJ-120",
+                "logo": "images/spicejet.jpg",
+                "source": "Chennai",
+                "destination": "Dehli",
+                "sourcecode": "MAA",
+                "destinationcode": "IGI",
+                "depart": "10:00",
+                "arrive": "12:05",
+                "price": "4500"
+            }, {
+                "uid": "04",
+                "name": "JA-458",
+                "logo": "images/jetAirways.png",
+                "source": "Dehli",
+                "destination": "Chennai",
+                "sourcecode": " IGI ",
+                "destinationcode": " MAA ",
+                "depart": "10:00",
+                "arrive": "12:05",
+                "price": "3800"
+            }, {
+                "uid": "05",
+                "name": "EA-987",
+                "logo": "images/emirates.jpg",
+                "source": "Chennai",
+                "destination": "Dehli",
+                "sourcecode": "MAA",
+                "destinationcode": "IGI",
+                "depart": "10:00",
+                "arrive": "12:05",
+                "price": "3400"
+            }, {
+                "uid": "06",
+                "name": "KLM-458",
+                "logo": "images/klm.png",
+                "source": "Dehli",
+                "destination": "Chennai",
+                "sourcecode": " IGI ",
+                "destinationcode": " MAA ",
+                "depart": "10:00",
+                "arrive": "12:05",
+                "price": "3800"
+            },
+
+            {
+                "uid": "07",
+                "name": "AI-202",
+                "logo": "images/airIndia.jpg",
+                "source": "Mumbai",
+                "destination": "Pune",
+                "sourcecode": "CST[BOM]",
+                "destinationcode": "PNQ",
+                "depart": "09:25",
+                "arrive": "11:05",
+                "price": "2500"
+            }, {
+                "uid": "08",
+                "name": "AF-258",
+                "logo": "images/air-france.png",
+                "source": "Pune",
+                "destination": "Mumbai",
+                "sourcecode": "PNQ",
+                "destinationcode": "CST[BOM]",
+                "depart": "10:00",
+                "arrive": "12:05",
+                "price": "2500"
+            }, {
+                "uid": "09",
+                "name": "SJ-120",
+                "logo": "images/spicejet.jpg",
+                "source": "Pune",
+                "destination": "Mumbai",
+                "sourcecode": "PNQ",
+                "destinationcode": "CST[BOM]",
+                "depart": "10:00",
+                "arrive": "12:05",
+                "price": "4500"
+            }, {
+                "uid": "10",
+                "name": "JA-458",
+                "logo": "images/jetAirways.png",
+                "source": "Mumbai",
+                "destination": "Pune",
+                "sourcecode": " CST[BOM] ",
+                "destinationcode": " PNQ ",
+                "depart": "10:00",
+                "arrive": "12:05",
+                "price": "3800"
+            }, {
+                "uid": "11",
+                "name": "EA-987",
+                "logo": "images/emirates.jpg",
+                "source": "Pune",
+                "destination": "Mumbai",
+                "sourcecode": "PNQ",
+                "destinationcode": "CST[BOM]",
+                "depart": "10:00",
+                "arrive": "12:05",
+                "price": "3400"
+            }, {
+                "uid": "12",
+                "name": "KLM-458",
+                "logo": "images/klm.png",
+                "source": "Mumbai",
+                "destination": "Pune",
+                "sourcecode": " CST[BOM] ",
+                "destinationcode": " PNQ ",
+                "depart": "10:00",
+                "arrive": "12:05",
+                "price": "3800"
+            }
+        ];
+
+        // const collection = [];
+        // for (let i = 0; i < routes.length; i++) {
+        //     if (routes[i].source == 'Pune' && routes[i].destination == 'Mumbai') {
+        //         collection.push(routes[i]);
+        //     } else if (routes[i].source == 'Mumbai' && routes[i].destination == 'Pune') {
+        //         collection.push(routes[i])
+        //     }
+        // }
+        //console.log(collection);
+
+        function searchResult(from_d, to_d) {
+            var array3 = [];
+            var a = 0,
+                b = 1;
+            for (var i = 0; i < routes.length; i++) {
+                if (routes[i].source.toLowerCase() == from_d.toLowerCase() && routes[i].destination.toLowerCase() == to_d.toLowerCase()) {
+                    array3[a] = routes[i];
+                    a = a + 2;
+                } else if (routes[i].source.toLowerCase() == to_d.toLowerCase() && routes[i].destination.toLowerCase() == from_d.toLowerCase()) {
+                    array3[b] = routes[i];
+                    b = b + 2;
+                }
+            }
+            console.log(array3);
+
+        }
+        var result = searchResult('Dehli', 'Chennai');
+
+        //console.log(result);
+
+        /*
+        const collectionReplica = [...collection];
+        var sortedCollection = collectionReplica.sort(function(a, b) {
+            return (a.source == 'Pune' && a.destination == 'Mumbai')
+                //return (b.source == 'Mumbai' && b.destination == 'Pune')
+        });
+        console.log(sortedCollection);*/
+    </script>
+</body>
+
+</html>

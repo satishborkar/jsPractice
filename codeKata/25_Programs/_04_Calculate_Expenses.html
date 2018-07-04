@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codewars JS Programs</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        body {
+            width: 1024px;
+            margin: 50px auto 150px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        input,
+        button {
+            padding: 7px;
+        }
+
+        input {
+            min-width: 250px;
+        }
+
+        .success {
+            color: green
+        }
+
+        .error {
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        Read the amount of money you have and the prices of the items you intend to buy. Determine whether you have enough money
+        to buy everything you selected or whether you are short of money. If you do not have enough money, indicate the amount
+        of the shortfall. Be sure to include 8% tax when figuring the amount, you need.
+    </p>
+    <p>
+        <strong>Input:</strong> The first line in the data set is an integer that represents the number of data collections that
+        follow. There are an unknown number of money amounts in each data set. The value –1 is used to indicate the end of
+        the collection of prices.
+    </p>
+    <p>
+        <strong>Output:</strong> All letters are to be upper case. Include the amount of shortfall if you do not have enough money.
+        This money amount is to have a dollar sign ($) in front of the amount and it is to be rounded to 2 decimal places.
+        The output is to be formatted exactly like that for the sample output given below.
+    </p>
+    <p>
+        <strong>Assumptions:</strong> The –1 used to indicate the end of a data collection is not part of the data for the problem.
+    </p>
+    <p>
+        <strong>Sample Input:</strong>
+        <br> 10.50 7.60 1.26 3.49 -1
+        <br> 15.75 6.00 3.98 -1
+        <br> 21.00 5.25 5.75 4.76 3.98 1.50 -1
+
+    </p>
+    <p>
+        <strong>Sample Output:</strong>
+        <br>$2.84 SHORT
+        <br>ENOUGH MONEY
+        <br>$1.94 SHORT
+    </p>
+    <p>
+
+        <input type="text" name="inputText" id="inputText">
+        <button type="submit" onclick="calculatesExpenses()">Submit</button>
+    </p>
+
+    <p id="outputSection"></p>
+    <script>
+        function calculatesExpenses(str = document.getElementById("inputText").value) {
+            var arr = str.split(' ');
+            var total = 0;
+            var result;
+            arr.splice(arr.length - 1, 1);
+            var givenMoney = Number(parseFloat(arr[0]).toFixed(2));
+            arr.splice(0, 1);
+
+            for (let i = 0; i < arr.length; i++) {
+                total += Number(parseFloat(arr[i]).toFixed(2))
+            }
+            includingTax = total + (total * 8 / 100);
+
+            if ((givenMoney - includingTax).toFixed(2) > 0) {
+                result = " ENOUGH MONEY"
+            } else {
+                result = "$" + (includingTax - givenMoney).toFixed(2) + " SHORT";
+            }
+
+            document.getElementById("outputSection").innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>

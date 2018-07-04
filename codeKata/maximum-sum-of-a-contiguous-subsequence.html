@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codewars JS Programs</title>
+    <style>
+        body {
+            width: 1024px;
+            margin: 50px auto 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>
+        The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array or list of integers:
+    </p>
+    <pre>
+            maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4])
+            // should be 6: [4, -1, 2, 1]
+    </pre>
+    <p>
+        Easy case is when the list is made up of only positive numbers and the maximum sum is the sum of the whole array. If the
+        list is made up of only negative numbers, return 0 instead.
+
+
+    </p>
+    <p>Empty list is considered to have zero greatest sum. Note that the empty list or array is also a valid sublist/subarray.</p>
+    <script>
+        var maxSequence = function (arr) {
+            if (Array.isArray(arr)) {
+
+                var maxEnding = 0;
+                var maximunSoFar = 0;
+                var result = [];
+
+                for (var i = 0; i < arr.length; i++) {
+
+                    maximunSoFar = maximunSoFar + arr[i];
+
+                    if (maximunSoFar < maxEnding) {
+                        maximunSoFar = maxEnding;
+                    }
+
+                    if (maxEnding < 0) {
+                        maxEnding = 0;
+                    }
+
+                    result.push(maximunSoFar)
+                };
+
+                if (Array.isArray(result) && result.length > 0) {
+                    var max = result.reduce(function (a, b) {
+                        return Math.max(a, b);
+                    });
+                    console.log(max);
+                    return max;
+                }else{
+                    console.log(0);
+                    return 0;
+                }
+            }
+        };
+
+        maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]);
+        maxSequence([]);
+    </script>
+</body>
+
+</html>

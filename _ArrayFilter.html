@@ -14,23 +14,23 @@
 
     <form action=""> 
         <div>
-                <label for="given-name">First Name</label> : 
-        <input type="text" name="given-name" id="given-name" autocomplete="on" />
+            <label for="given-name">First Name</label> : 
+            <input type="text" name="given-name" id="given-name" autocomplete="on" />
         </div>
         <br>
         <div>
-        <label for="family-name">Last Name</label> : 
-        <input type="text" name="family-name" id="family-name" autocomplete="on" />
+            <label for="family-name">Last Name</label> : 
+            <input type="text" name="family-name" id="family-name" autocomplete="on" />
         </div>
         <br>
         <div>
-        <label for="tele">Tele</label> : 
-        <input type="text" name="tele" id="tele" autocomplete="on" />
+            <label for="tele">Tele</label> : 
+            <input type="text" name="tele" id="tele" autocomplete="on" />
         </div>
         <br>
         <div>
-        <label for="cc-number">Last Name</label> : 
-        <input type="text" name="number" id="number" autocomplete="on" />
+            <label for="cc-number">Last Name</label> : 
+            <input type="text" name="number" id="number" autocomplete="on" />
         </div>
         <br>
         <div>
@@ -42,10 +42,10 @@
     <script type="text/javascript">
 
         const candidate = [
-            { name: 'Satish', city: 'Pune' },
-            { name: 'Gorakh', city: 'Latur' },
-            { name: 'Rahul', city: 'Pune' },
-            { name: 'Swapnil', city: 'Aurangabad' }
+        { name: 'Satish', city: 'Pune' },
+        { name: 'Gorakh', city: 'Latur' },
+        { name: 'Rahul', city: 'Pune' },
+        { name: 'Swapnil', city: 'Aurangabad' }
         ];
 
         var puneCandidate = candidate.filter(item => item.city === 'Pune');
@@ -60,7 +60,7 @@
         function xyz() {
             var instance = false;
             function x() {
-               
+             
             }
             return {
                 getInstance: function () {
@@ -74,8 +74,7 @@
 
         var xz = xyz.getInstance();
         var xy = xyz.getInstance();
-        console.log(xz == xy)
-
+        console.log(xz == xy);
 
 
         console.log(candidate);
