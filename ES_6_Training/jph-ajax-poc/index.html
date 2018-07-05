@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JPH- Ajax- POSTS</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JPH Users Data</h1>
+    <table class="table table-hover table-striped">
+        <thead>
+            <th>Name</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Phone</th>
+            <th>Company Name</th>
+        </thead>
+        <tbody id="userTbl">
+        </tbody>
+    </table>
+
+    <h1>JPH Post Data</h1>
+    <table class="table table-hover table-striped">
+        <thead>
+            <th>User ID</th>
+            <th>Post ID</th>
+            <th>Title</th>
+            <th>Description</th>
+        </thead>
+        <tbody id="postsTableBody">
+        </tbody>
+    </table>
+
+    
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="dal/jph-post.js"></script>
+    <script src="post-dom.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var table = $("#postsTableBody");
+            var userTbl = $("#userTbl");
+
+            var postDom = new PostDom();
+
+            postDom.processAllUsers().then((users) => {
+                for (let user of users) {
+                    let userRow = `<tr>
+                            <td> ${user.name} </td>
+                            <td> ${user.email} </td>
+                            <td> ${user.address.city} </td>
+                            <td> ${user.phone} </td>
+                            <td>
+                                <a href="http://${user.website}" target="_blank">${user.company.name}</a>
+                            </td>
+                        </tr>`;
+
+                    userTbl.append(userRow);
+                }
+            });
+
+            postDom.processPostData().then((posts) => {
+                for (let post of posts) {
+                    let row = `<tr>
+                            <td> ${post.userId} </td>
+                            <td> ${post.id} </td>
+                            <td> ${post.title} </td>
+                            <td> ${post.body} </td>
+                        </tr>`;
+                    table.append(row);
+                }
+            })
+        });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,2 +1,0 @@
-Calculate Taxes : total + (total * 8 / 100);
-Calculate Percentage : 

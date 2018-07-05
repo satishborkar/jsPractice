@@ -1,0 +1,67 @@
+## https://developer.mozilla.org/en-US/docs/Glossary/Hoisting
+
+## Why JS need
+    - DOM / BOM Manupulations
+    - Client Validations
+    - Multi Threading in JS,  SSE Server Sent Events [Background /Web Workers]
+
+## JS check dataType on runtime not on compile time. which is why JS dynamic language.
+
+
+## Creating Scopes in JS ES 5 
+    - Functions
+    - IIFE
+    - Namesspace
+    - Closure
+
+## In ES6 
+    - LET
+    - CONST
+        - they are not get hoisted,
+        - they can not be declare again.
+        - they have blocked scoped.  
+
+## Hoisting
+    -  JavaSript during compilation process pickup/ hoist all variable declatation & functionName declaration are placed in the memory
+
+## in JS all function arguments / parameters are optionals
+
+## Arrow functions/ Fat Arrow functions / Lymbda Functions;
+
+
+## Spread ... its operator & copy the enumurable properties.
+## Rest ... Pack all parameters in a single Array.
+
+
+## Arrow function 
+    - does not hold its own arguments object like normal function.
+    - can not be used as contructor function.
+    - does not hold its own lexical scope.
+
+
+## Classes
+    - We use contructor function to define class.
+    - To differentoate it from normal function we use CapitalCamelCasing.
+    - by using this keyword we declare public methods & 
+        parametes where as with var we declare private methods & paraments.
+    - function as class it is created window scope classes as class created in local scope..
+
+
+## Promises
+    - Disadvantage
+        - Promise always return you single value.
+        - Does not work on publisher and subcriber pattern.
+        - Promises once initiated are not cancelable.
+        
+    - Advantages
+
+##RXJS
+    - Does overcome all disadvantages of Promises.
+
+
+ITERATOR:
+    - iterator is an object which does not maintain its state, developer have to maintain its state.
+
+GENERATOR:
+    - Generator maintain their own state.
+
