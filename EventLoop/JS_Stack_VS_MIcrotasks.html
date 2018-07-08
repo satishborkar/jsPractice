@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS_Stack_VS_MIcrotasks</title>
+</head>
+
+<body>
+
+    <h1>JS Event Loop</h1>
+
+    <ul>
+        <li> Task: Serve one task at a time </li>
+        <li> RequestAnimationFrame: Serve all animations of that time which were available not newly added. </li>
+        <li> Microtasks : serve all the queqed task and newly added task aslo </li>
+    </ul>
+
+    <button id="btn">Click me </button>
+    <script>
+
+        var btn = document.getElementById("btn");
+
+        btn.addEventListener('click', () => {
+            Promise.resolve().then(() => console.log("MicroTask 01"));
+            console.log("Listener 01");
+        });
+
+        btn.addEventListener('click', () => {
+            Promise.resolve().then(() => console.log("MicroTask 02"));
+            console.log("Listener 02");
+        });
+
+        btn.click();
+
+    </script>
+</body>
+
+</html>
