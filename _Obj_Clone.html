@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object Clone</title>
+</head>
+
+<body>
+
+    <script>
+
+        //info@interviewnest.com
+        var obj1 = {
+            a: {
+                b: {
+                    c: 1
+                }
+            }
+        }
+
+        var obj2 = Object.assign({}, obj1);
+        //obj2.a.b.c = 2;
+
+        var obj3 = { ...obj1 };
+        obj3.a.b.c = 2;
+
+        var obj4 = JSON.parse(JSON.stringify(obj1));
+        obj4.a.b.c = 4;
+
+        console.log(obj1, obj1.a.b.c);
+        console.log(obj2, obj2.a.b.c);
+        console.log(obj3, obj3.a.b.c);
+        console.log(obj4, obj4.a.b.c);
+
+    </script>
+</body>
+
+</html>
