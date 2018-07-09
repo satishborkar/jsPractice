@@ -1,0 +1,11 @@
+#1 : 
+Create a Form page using Reactjs which accepts JSON data(if the form is to opened 
+in edit mode with prepopulated input values) which has the following input fields:
+
+1) Note  - text field with character limit of 100.
+    And element below that displays number of character left which keeps on updating when user enters value in "Note"
+2) Date : A datepicker field
+3) Occurrence: A dropdown field with values as - Everyday, Every week, Every year,None 
+    - When none is selected date field should update to show current date
+
+On submit  - Display the serialized input value of the form

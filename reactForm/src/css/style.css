@@ -1,0 +1,100 @@
+*,*:before,*:after{
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    box-sizing: border-box;
+    /* transition: all ease-in 0.2s; */
+}
+
+#app{
+    max-width: 925px;
+    margin: 50px auto 0;
+}
+
+.row{
+    width: 100%;
+    float: left;
+    padding:5px 0;
+    clear: both;
+}
+.row:after,.row:before{
+    clear: both;
+}
+
+.value-place-holder{
+    display: inline-block;
+    width: 60%;
+}
+
+.frm input[type="text"],
+.frm select,
+.frm textarea{
+    padding: 5px;
+    text-align: left;
+    border:1px solid #ccc;
+    width: 70%;
+}
+.frm label{
+    display: inline-block;
+    position: relative;
+    width: 40%;
+    text-align: right;
+    padding-right: 25px;
+}
+
+.frm label:after{
+    display: block;
+    content: ":";
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    top:0;
+    right: 10px;
+}
+
+.txt-center{
+    text-align: center;
+}
+
+.brdr-btm{
+    border-bottom: 1px solid #ccc;
+}
+
+.btn-holder *:first-child{
+    margin-left:40%;
+    margin-right: 10px;
+}
+
+.btn{
+    display: inline-block;
+    padding: 7px 12px;
+    border:1px solid #ccc;
+}
+
+.char-left{
+    font-style: italic;
+    color:red;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.link-block{
+    display: block;
+    width: auto;
+    padding: 7px 12px;
+    text-align: center;
+    border:1px solid #ccc;
+    float: right;
+    color: #333;
+    text-decoration: none;
+    /* transition: all ease-in 0.2s; */
+}
+
+.link-block:hover,
+.link-block:focus,
+.link-block.active{
+    background-color: #333;
+    color: #fff;
+}
