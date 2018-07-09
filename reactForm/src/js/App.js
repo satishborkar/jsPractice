@@ -4,6 +4,8 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
+import Note from './components/Note';
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +14,8 @@ class App extends Component {
             note: "",
             startDate: moment().format('YYYY/MM/DD'),
             occurrence: "",
-            charLeft: "100"
+            charLeft: "100",
+            showChars: "none"
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -38,7 +41,16 @@ class App extends Component {
     handleChange(event) {
         if (event.target.name === 'note') {
             let chars = 100 - event.target.value.length;
-            this.setState({ charLeft: chars })
+            this.setState({
+                charLeft: chars
+            }, function () {
+                if (this.state.charLeft < 100) {
+                    this.setState({ showChars: "block" });
+                } else {
+                    this.setState({ showChars: "none" });
+                }
+            })
+
         }
 
         if (event.target.name === 'occurrence' && event.target.value === '3') {
@@ -73,9 +85,7 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.state);
-        const { note, startDate, occurrence, charLeft, isEditMode } = this.state;
-        const showChars = (charLeft <= 99) ? "block" : "none";
+        const { note, startDate, occurrence, charLeft, isEditMode, showChars } = this.state;
         const btnEditMode = (isEditMode === false) ? "block" : "none";
 
         return (
@@ -85,13 +95,16 @@ class App extends Component {
                     <a href="javascript:void(0)" className="link-block" onClick={this.toggleEdit} style={{ display: btnEditMode }}>Edit</a>
                 </div>
                 <form className="frm" onSubmit={this.onSubmit}>
-                    <div className="row brdr-btm">
-                        <label htmlFor="note">Note</label>
-                        <div className="value-place-holder">
-                            <textarea maxLength="100" rows="3" cols="4" value={note} name="note" ref="note" onChange={this.handleChange} />
-                            <div className="char-left" style={{ display: showChars }}>character's left: <span className="bold"> {charLeft} </span> </div>
-                        </div>
-                    </div>
+                    <Note
+                        isEditMode={isEditMode}
+                        label={"Note"}
+                        initialValue={note}
+                        name={"note"}
+                        onChange={this.handleChange}
+                        showChars={showChars}
+                        charLeft={charLeft}
+                    />
+
                     <div className="row brdr-btm">
                         <label htmlFor="date">Date</label>
                         <div className="value-place-holder">
