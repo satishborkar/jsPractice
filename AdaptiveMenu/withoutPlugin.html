@@ -31,6 +31,30 @@
                 <li>
                     <a href="javascript:void(0)" data-section="section-6"> Services </a>
                 </li>
+                <li>
+                    <a href="javascript:void(0)" data-section="section-7"> About us </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-section="section-8"> Testimonials </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-section="section-9"> Link 1</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-section="section-10"> Link 2 </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-section="section-11"> Link 3 </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-section="section-12"> Link 4 </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-section="section-13"> Link 5</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-section="section-14"> Link 6 </a>
+                </li>
                 <li class="hamburger">
                     <a href="javascript:void(0)">
                         <span class="lines">
@@ -41,35 +65,11 @@
                         <span class="lines count">2</span>
                     </a>
                     <ul class="menu-dropdown">
-                        <li>
-                            <a href="javascript:void(0)" data-section="section-7"> About us </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-section="section-8"> Testimonials </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-section="section-9"> Link </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-section="section-10"> Link </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-section="section-11"> Link </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-section="section-12"> Link </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-section="section-13"> Link </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-section="section-14"> Link </a>
-                        </li>
                     </ul>
 
                 </li>
-                <li>
-                    <a href="javascript:void(0)" data-section="section-16" class="add-page"> + Add Page </a>
+                <li class="add-page">
+                    <a href="javascript:void(0)" data-section="section-16"> + Add Page </a>
                 </li>
             </ul>
         </div>
@@ -92,23 +92,71 @@
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
-        $(document).ready(function () {
-            var wrapper = $("#wrapper");
-            var listCount = $(".menu-inline").find("li");
-            var primaryMenu = $(".menu-inline > li");
-            var primaryMenuLinks = $(".menu-inline > li a");
-            var listArr = Array.from(listCount);
-            var subMenuCount = $(".menu-dropdown li").length;
 
-            //update submenu count
-            $(".count").html(subMenuCount)
-            
+        function getMenuDynamic(menuWidth) {
+            var linkList = [];
+            var wrapper = menuWidth - 80;
+            var menuContainer = $(".menu-inline");
+            var listCount = menuContainer.find("li");
+            var primaryMenu = $(".menu-inline > li");
+            var listArr = Array.from(primaryMenu);
+            var primaryMenuLinks = $(".menu-inline > li a");
+            var subMenu = $(".menu-dropdown");
+            var subMenuCount = subMenu.find("li").length;
+
             // toggle active / deactive
             primaryMenuLinks.on("click", function () {
                 primaryMenuLinks.removeClass("active");
                 $(this).addClass("active")
             });
+
+            listArr.forEach((list, index) => {
+                if (!list.hasAttribute('class')) {
+                    linkList.push({
+                        "requiredHeight": list.clientHeight,
+                        "requiredWidth": list.clientWidth,
+                        "text": list.innerText,
+                        "className": list.className,
+                        "childClassName": list.children[0].className,
+                        "href": list.children[0].href,
+                        "data": list.children[0].dataset.section
+                    });
+                    list.remove();
+                }
+            });
+
+            if (linkList.length > 0) {
+                linkList.forEach((link) => {
+                    let linkString = `<li><a href="${link.href}"> ${link.text} </a></li>`;
+                    wrapper = wrapper - link.requiredWidth
+                    if (wrapper > link.requiredWidth) {
+                        $(linkString).insertBefore(menuContainer.find("li.hamburger"));
+                    } else {
+                        //$(linkString).insertBefore(subMenu.find("li:first-child"));
+                        subMenu.append(linkString)
+                    }
+                });
+
+            };
+
+            //update submenu count
+            $(".count").html($(".menu-dropdown li").length)
+        }
+
+        var mWidth = $("#wrapper").width();
+        $(document).ready(function () {
+            getMenuDynamic(mWidth);
         });
+
+        var init;
+        $(window).resize(function () {
+            var newWidth = $("#wrapper").width();
+            clearTimeout(init);
+            init = setTimeout(() => {
+                getMenuDynamic(newWidth)
+            }, 500);
+        });
+
     </script>
 </body>
 
