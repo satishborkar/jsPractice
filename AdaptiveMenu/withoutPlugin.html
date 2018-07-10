@@ -103,7 +103,7 @@
             var primaryMenuLinks = $(".menu-inline > li a");
             var subMenu = $(".menu-dropdown");
             var subMenuCount = subMenu.find("li").length;
-
+            console.log(wrapper);
             // toggle active / deactive
             primaryMenuLinks.on("click", function () {
                 primaryMenuLinks.removeClass("active");
@@ -143,16 +143,17 @@
             $(".count").html($(".menu-dropdown li").length)
         }
 
-        var mWidth = $("#wrapper").width();
+
         $(document).ready(function () {
+            var mWidth = $("#wrapper").width();
             getMenuDynamic(mWidth);
         });
 
         var init;
         $(window).resize(function () {
-            var newWidth = $("#wrapper").width();
             clearTimeout(init);
             init = setTimeout(() => {
+                var newWidth = $("#wrapper").width();
                 getMenuDynamic(newWidth)
             }, 500);
         });
