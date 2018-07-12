@@ -60,6 +60,5 @@ Slider.prototype = {
 };
 
 document.addEventListener( "DOMContentLoaded", function() {
-	var aSlider = new Slider( "#slider" );
-	
+	var aSlider = new Slider( "#slider" );	
 });

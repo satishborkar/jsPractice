@@ -4,6 +4,8 @@
  * MIT license: https://opensource.org/licenses/MIT
  */
 
+"use strict";
+
 function getMenuDynamic(updatedWidth) {
 
     var linkList = [];
@@ -14,7 +16,7 @@ function getMenuDynamic(updatedWidth) {
     var subMenu = $(".menu-dropdown");
 
     listArr.forEach((list) => {
-        if (!list.hasAttribute('class')) {
+        if (!list.hasAttribute("class")) {
             linkList.push({
                 "requiredHeight": list.clientHeight,
                 "requiredWidth": list.clientWidth,
@@ -32,7 +34,7 @@ function getMenuDynamic(updatedWidth) {
 
     if (linkList.length > 0) {
         linkList.forEach((link) => {
-            
+
             let linkString = `<li><a href="${link.href}" data-section="${link.data}"> ${link.text} </a></li>`;
 
             wrapperWidth = wrapperWidth - link.requiredWidth;
@@ -55,8 +57,7 @@ function isWindowChanged() {
     if ($("#wrapper").css("width") != prevWidth) {
         var currentWidth = $("#wrapper").width();
         prevWidth = $("#wrapper").width();
-        
-        getMenuDynamic(currentWidth);
+        getMenuDynamic(currentWidth)
     }
 }
 
