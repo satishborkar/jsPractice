@@ -23,18 +23,20 @@
     <script>
         /*  ***************************************      */
 
-            // function array_diff(a, b) {
-            //     var count = [];
-            //     if (Array.isArray(a, b) && a.length > 0) {
-            //         a.forEach(elem => {
-            //             if (b.indexOf(elem) > -1) {
-            //                 return false
-            //             }
-            //             count.push(elem)
-            //         })
-            //     }
-            //     return count;
-            // }
+            //without using any native methods
+
+            function array_diff(a, b) {
+                var count = [];
+                if (Array.isArray(a, b) && a.length > 0) {
+                    a.forEach(elem => {
+                        if (b.indexOf(elem) > -1) {
+                            return false
+                        }
+                        count.push(elem)
+                    })
+                }
+                return count;
+            }
 
         /*  ***************************************      */
 
@@ -46,9 +48,9 @@
 
         /*  ***************************************      */
 
-            function array_diff(a, b) {
-                return a.filter(e => !b.includes(e));
-            }
+            // function array_diff(a, b) {
+            //     return a.filter(e => !b.includes(e));
+            // }
 
         /*  ***************************************      */
 

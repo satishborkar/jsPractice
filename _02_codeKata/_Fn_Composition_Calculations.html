@@ -20,26 +20,35 @@
 
         // OPTION 03
 
-        // function one(fn) {
-        //     return fn ? fn(1) : 1
-        // };
+        function one(fn) {
+            return fn ? fn(1) : 1
+        };
 
-        // function two(fn) {
-        //     return fn ? fn(2) : 2
-        // };
+        function two(fn) {
+            //console.log("two");
+            return fn ? fn(2) : 2
+        };
 
-        // function seven(fn) {
-        //     return fn ? fn(7) : 7
-        // };
+        function three(fn) {
+            //console.log("three");
+            return fn ? fn(3) : 3
+        };
 
-        // function times(n){
-        //     return function(u){
-        //         return u * n;
-        //     }
-        // };
+        function seven(fn) {
+            console.log("seven");
+            return fn ? fn(7) : 7
+        };
+
+        function times(n) {
+            //console.log("times");
+            return function (u) {
+                return u * n;
+            }
+        };
 
 
-        //console.log(seven(times(two())));
+        console.log(seven(times(two())));
+        console.log(three(times(seven())));
 
 
         // OPTION 02
@@ -111,7 +120,7 @@
 // let times     = (r) => (l) => l * r
 // let dividedBy = (r) => (l) => l / r
 
-        
+
     </script>
 </body>
 
