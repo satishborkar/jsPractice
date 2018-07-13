@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script>
+        function Person(name, email) {
+            this.name = name;
+            this.email = email;
+
+        };
+
+        Person.prototype.random = function () {
+            return `Hey! ${this.name} your email ID is a ${this.email} & your OTP is ${Math.floor(Math.random() * 10000)} `
+        }
+
+        function Student() {
+            Person.call(this, "Satish", "satyaspb@gmail.com");
+        };
+
+        Student.prototype = Object.create(Person.prototype);
+        Student.prototype.constructor = Student;
+
+        var student1 = new Student();
+        console.log("student1", student1);
+        console.log("student1 method: ", student1.random());
+
+        var person1 = new Person("Knobel", "knoji@gmail.com");
+        console.log("person1", person1)
+        console.log("person1 method : ", person1.random());
+
+    </script>
+</body>
+
+</html>

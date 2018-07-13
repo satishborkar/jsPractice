@@ -34,7 +34,7 @@
             var str = str.toString(), cal=1;
             
             for (var i = 0; i < str.length; i++) {
-                cal = parseInt(cal) * parseInt(str[i]);
+                cal = Number.parseInt(cal) * Number.parseInt(str[i]);
             }
             if(cal.toString().length != 1){
                 persistence(cal);

@@ -66,6 +66,29 @@
         highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"); //"542 -214");
         highAndLow("1 -1") // "1 -1;
         highAndLow("1 1") // "1 1;
+
+
+        var nums = "4 5 29 54 4 0 -214 542 -64 1 -3 6 -6";
+        var numsArr = nums.split(' ');
+
+        var convertToNumbers = [];
+        numsArr.map((item) => {
+            if (item > 0 || item < 0) {
+                convertToNumbers.push(Number(item))
+            }
+        });
+
+        console.log("convertToNumbers", convertToNumbers);
+        console.log("Max", Math.max(...convertToNumbers));
+        console.log("Min", Math.min(...convertToNumbers));
+
+        var max = convertToNumbers.reduce((a, b) => {
+            return Math.max(a, b);
+        });
+
+        console.log("Max Reduce", max);
+
+
     </script>
 </body>
 
