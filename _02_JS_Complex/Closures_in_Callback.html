@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Closures in Callback</title>
+</head>
+
+<body>
+    <script>
+        function getResult() {
+            var name = "satish";
+
+            function getName(callback) {
+                return callback()
+            }
+            getName(function () {
+                console.log(name);
+            });
+        }
+
+        getResult()
+
+        /* Example 2 */
+
+        function AlertThisLater(message, timeout) {
+            function fn() {
+                //alert(message);
+                console.log(`Two second has been done!.. ` + message);
+            }
+            window.setTimeout(fn, timeout);
+        }
+
+        AlertThisLater("Hello, World!", 2000);
+
+        // A closure is created containing in part the message parameter, 
+        // fn is executed quite some time after the call to AlertThisLater has returned, 
+        // yet fn still has access to the original content of message.      
+
+
+    </script>
+</body>
+
+</html>

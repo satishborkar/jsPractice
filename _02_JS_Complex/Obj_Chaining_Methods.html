@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Js Examples</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+
+        // Object with Methods
+
+        var DM = {
+            addClass: function () {
+                console.log("DM : class is added !!");
+                return this;
+            },
+            removeClass: function () {
+                console.log("DM : class is removed !!")
+                return this;
+            },
+            toggleClass: function () {
+                console.log("DM : class is toggled !!")
+                return this;
+            },
+            replaceClass: function () {
+                console.log("DM : class is replaced !!")
+                return this;
+            }
+        };
+
+        DM.addClass().removeClass().toggleClass().removeClass();
+
+        console.log("++++++++++++++++++++++++++");
+
+
+        // Function with functions as methods
+
+        var DM2 = function () {
+            return {
+                addClass: function () {
+                    console.log("DM2 : class is added !!");
+                    return this;
+                },
+                removeClass: function () {
+                    console.log("DM2 : class is removed !!");
+                    return this;
+                },
+                toggleClass: function () {
+                    console.log("DM2 : class is toggled !!");
+                    return this;
+                },
+                replaceClass: function () {
+                    console.log("DM2 : class is replaced !!");
+                    return this;
+                }
+            }
+        };
+
+        // DM2.call().addClass();
+        // DM2.call().removeClass();
+        // DM2.call().toggleClass();
+        // DM2.call().replaceClass();
+
+        DM2.call().addClass().removeClass().toggleClass().replaceClass();
+
+        console.log("++++++++++++++++++++++++++");
+
+        // DM2().addClass();
+        // DM2().removeClass();
+        // DM2().toggleClass();
+        // DM2().replaceClass();
+        
+        DM2().addClass().removeClass().toggleClass().replaceClass();
+
+        console.log("++++++++++++++++++++++++++");
+
+        var x = DM2();
+        x.addClass();
+
+
+    </script>
+
+</body>
+
+</html>

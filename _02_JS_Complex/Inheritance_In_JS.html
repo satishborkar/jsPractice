@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interitance in JS</title>
+</head>
+
+<body>
+    <script>
+
+        // This is an example of pseudo classical inheritance in javascript
+
+        //define person class
+        function Person() { }
+
+        Person.prototype.talk = function () {
+            console.log("Talking...");
+        }
+
+        Person.prototype.walk = function () {
+            console.log("walking...")
+        }
+
+        // define new class
+        function Student() {
+            // call the parent constructor
+            Person.call(this)
+        }
+
+        //inherit Person
+        //Student.prototype = new Person();
+        //Student.prototype = Object.create(Person.prototype);
+
+        //correct the construtor of student because its poiting to Person Object's constructor
+        Student.prototype.constructor = Student;
+
+        Student.prototype.talk = function(){
+            console.log("Student is talking with you....");
+        }
+
+        Student.prototype.study = function(){
+            console.log("Student is study with you....");
+        }
+        
+        var student1 = new Student();
+
+        student1.talk();
+        student1.walk();
+        student1.study();
+
+        var satya = new Person();
+
+        satya.talk();
+        satya.walk();
+
+        // check the inheritance
+        console.log("Is student is instance of Person", student1 instanceof Person);
+        console.log("Is student is instance of Student", student1 instanceof Student);
+
+    </script>
+</body>
+
+</html>

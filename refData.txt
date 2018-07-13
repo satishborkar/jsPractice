@@ -1,9 +1,0 @@
-D:\SatishB\REACT-JS\TheNewBoston\src\demos\00_template
-
-
-            "name": "Air-India",
-            "source": "Mumbai",
-            "destination": "Pune",
-            "date": "01/08/2017",
-            "time": "11",
-            "price": "2500"

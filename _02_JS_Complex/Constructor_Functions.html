@@ -1,0 +1,64 @@
+<script>
+    //constructor 
+
+    // It is stored in memory of the browsers.
+    // It is not get initialize untill its inatance get used
+    // can not be overwrited properties and methods with same name
+    // can be extends using prototype keyword.
+    // Using the prototype makes for faster object creation, 
+    // since that function does not have to be re-created each time a new object is created.
+    // Multiple instances can share same properties & methods through prototype. which result in to fatser executation and less weight 
+
+    function Slider() {
+        this.name = "Satish";
+        function calc() {
+            console.log(1 + 3);
+        }
+        function arc() {
+            console.log(1 + 3);
+        }
+        //calc();
+        this.accessPrivate = function () {
+            return {
+                calc,
+                arc
+            }
+        }
+    };
+
+    Slider.prototype.accessPrivate = function () {
+        console.log("Hi!");
+    }
+
+    //This is inheritance in JS
+    Slider.prototype.addName = "Test";
+
+    Slider.prototype.acc = function () {
+        //we can not acces private properties
+        //return calc();
+        return this.accessPrivate();
+        //this.accessPrivate().calc();
+    };
+    var x = new Slider();
+    //console.log(x);
+
+    //console.log(x.acc().calc());
+
+    var slider1 = {
+        name: "Satish",
+        lastName: "Borkar",
+        calc: function () {
+            console.log(1 + 3);
+        }
+    };
+
+    slider1.addName = "XXX";
+    slider1.fullName = function () {
+        console.log(this);
+        return this.name + ' ' + this.lastName;
+    }
+
+    slider1;
+    //console.log(slider1.fullName());
+
+</script>
