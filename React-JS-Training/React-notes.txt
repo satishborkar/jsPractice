@@ -1,0 +1,185 @@
+===========================================================
+## React Re-usable component example : 
+	https://github.com/newyork-anthonyng/react-a11y-context-tabs/tree/master/src
+===========================================================
+## Get all info about latest ES 6 on http://kangax.github.io/compat-table/es6/
+===========================================================
+##MVC
+	 - We create UI sepearate from login and more focus on Controller rather than UI.
+	 - in MVC View are not re-usable.
+
+===========================================================
+
+##ReactJS:
+	- Meant for creating re-usable UI components.
+	- Follows Uni direction data flow.
+	- React Components can be usable in any frmaework & technology.
+	- React library we can not create appliation only with react.
+		## Library 		
+			- Colleaction of Function
+			- Set of API
+			- Targeted to do one specific type of JOB.
+			- We an use valiina JS too..
+			- They can be plugged in already in developed code
+
+		##Framework
+			- Pre defined Structure / Colleaction of Function / API Targeteed to write a whole application
+			- Framework are rigid .i.e. having specific style of writing. (Blank Skeleton)
+			- We can not use native code .i.e. vanilla JS.
+			- They cannot be plugged in already in developed code
+
+		##Patterns 
+			- MVC
+			- MVVM
+			- MVP  *{P= Presenter}
+
+	- React Events i.e. (Synthetic Event) are by default avaiable in the methods of React. 
+	- While using React Events always provide (e) Events of Synthetic events as a paremeter to arguments of method body last in the paramerter /arguments list like handleClick(name,city,area, e){e.preventDefault()}.
+	- While using binding this to method we can pass custom paremeter to it like this.methodName.bind(this, "name", "lName") // sequence is matter.
+	- Never use Fat Arrow function directly in methods of react, We can use it in render methods.
+	- To communicate between two component Parent should hold the data & methods to update data and all childs components shoud use parent methods to update & recieve data.
+	- By default method does not hold any lexical or environmetal scope like fat arrow function. i.e. this in method will undefined untill & unless we have not bind this to same method.
+	- Updating state of a component using setState method need to be bind the component to get method context.
+	- Always use immutable methods to update state in array like we can re-assign primitive values data-types where as for complex data types we have to re-assign it to new same data type.
+		E.g. if we wnated to update Array in state we can not modify array in mutable way like array.push(newVal), instead we can use array.concat(newVal) which will return us new Array.
+		insteadof = this.state.arr.push(newVal) use  this.state.arr.concat(newVal)
+	- React never work with a mutable reference type of data like array object etc.
+
+===========================================================
+
+##Componnet {Encapsulation}
+	- State - Array - [Data]
+	- Behaviour - Event [Click]
+	- View - UI [Grid]
+
+===========================================================
+
+## FLUX - is pattern & Redux is framework of FLUX.
+
+===========================================================
+Search Video why they not preffered angular FACEBOOK.
+===========================================================
+
+##Babel
+
+	- JSX to JS
+	- ES6 to JS
+
+===========================================================
+
+## Max Bundle in React App
+
+	- app.js
+	- vender.js
+	- polyfill
+
+===========================================================
+##What is isolated components
+	- The components which hold his own css in the components
+
+===========================================================
+## Attributes vs Properties in HTML
+	- Attributes belongs to HTML
+	- Properties belongs to JavaScript
+	- There are some properties & Attributes name which are exactly same in both JavaScript & HTML.
+
+===========================================================
+
+##React Component Class:
+
+	#Instance Properties
+		- props
+		- state
+		- refs
+
+	#Methods
+		- render()
+		- setState()
+		- forceUpdate()
+
+	#Class Properties
+		- displayName: string
+		- propTypes: {}
+		- defaultProps: {}
+
+===========================================================
+
+## React LifyCycles Methods:
+
+	# Mounting Stage
+		- Constructor();
+		- ComponentWillMount();
+		- Render();
+		- ComponentDidMount();
+	#Updating Stage
+		- ComponentWillRecieveProps();
+		- shouldComponentUpdate();
+		- componentWillUpdate()
+		- Render()
+		- ComponentDidUpdate()
+	#Unmounting Stage
+		- ComponentWillUnmount();
+
+	#ErrorHandling Stage
+		- componentDidCatch();
+
+===========================================================
+
+##React PropTypes:
+	- React.PropTypes.string
+	- React.PropTypes.number
+	- React.PropTypes.bool
+	- React.PropTypes.any
+	- React.PropTypes.array
+	- React.PropTypes.object
+	- React.PropTypes.symbol
+	- React.PropTypes.func
+	- React.PropTypes.element (React Element)
+	- React.PropTypes.node
+	- React.PropTypes.instanceOf(<Type>)
+	- React.PropTypes.shape  
+		{
+			fColor:React.PropTypes.string,
+			bColor:React.PropTypes.string
+		}
+
+
+	- React.PropTypes.any.isRequired
+
+===========================================================
+
+## React Developement Style
+- Main thing to understand that in React Data flows Uni-directional i.e. data can only transfer from Parent to Child 
+	which means all the data related stuff should Parent component hold child components can access it using props or 
+	modify data of parent using callback functions as a props.
+
+	#Process for developing components in React
+		- Dump everything in a single component get all functionality work done like Photoshop Design Page.
+		- Splilt into possible component and distibute data to components like layers in Photoshop.
+
+===========================================================
+
+##Uncontrolled Component
+	- input form without value || defaultValue are uncontrolled || readOnly
+
+===========================================================
+
+## Types of Components
+	- Presentational components
+	- Container components
+
+===========================================================
+
+## Components Route Properties
+	- by default all route provide props with Match, History, Location object with it.
+
+===========================================================
+##REDUX
+	- Reducers are collection of Pure function
+	- Pure function always rerurn new Object
+
+===========================================================
+## THUNK
+	- Thunk is a middleware which helps us to use dispatch of dispatch in action creators instead of plain objects .
+
+===========================================================

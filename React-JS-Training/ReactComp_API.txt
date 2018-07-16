@@ -1,0 +1,16 @@
+React Component Class
+
+Instance Properties
+	props (this.props.<pname>)
+	state (this.state.<sname>)
+	refs
+
+Methods
+	render()
+	setState()
+	forceUpdate()
+
+Class Properties
+	displayName: string
+	propTypes: []
+	defaultProps: {}

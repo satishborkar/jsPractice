@@ -1,0 +1,47 @@
+================================================================================
+## VS Code Extensions:
+
+	- AutoFileName
+	- HTML Snippets
+	- View in Code Browsers
+
+================================================================================
+## Webpack Settings:
+
+	- Entry
+	- Extensions 
+	- Modules:
+		- loader (files other than JS. like CSS, Images, etc)
+	- Plugins
+		- Optimization
+	- Output
+
+================================================================================
+
+##Create local JSON API Server
+
+	- npm install -g json-server
+	- Create Products.json and run the following command
+	- json-server --watch -p 8000 Products.json
+
+================================================================================
+
+##Testing Framework [Mocha, Chai, Enzyme]
+
+	- https://www.sitepoint.com/unit-test-javascript-mocha-chai/
+	- https://blog.codeship.com/mocha-js-chai-sinon-frontend-javascript-code-testing-tutorial/
+	- https://medium.com/powtoon-engineering/a-complete-guide-to-testing-javascript-in-2017-a217b4cd5a2a
+
+================================================================================
+
+## Context swtiching methods in JS
+	- bind
+	- call
+	- apply
+
+================================================================================
+
+## JS Refernce:
+	- https://ponyfoo.com/
+	- ES 6 Compalibility Table : (http://kangax.github.io/compat-table/esnext/)
+================================================================================
