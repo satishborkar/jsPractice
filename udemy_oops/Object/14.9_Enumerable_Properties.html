@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Enumerable_Properties</title>
+</head>
+
+<body>
+    <script>
+        function Circle(radius) {
+            this.radius = radius;
+            this.draw = function () {
+                return radius
+            }
+            this.location = { x: 5, y: 7 }
+        };
+
+        const circleInstance = new Circle(4);
+
+        // for (let key in circleInstance) {
+        //     console.log(key, circleInstance[key]);
+        // }
+
+        for (let key in circleInstance) {
+            if (typeof circleInstance != 'function') {
+                console.log(key, circleInstance[key]);
+            }
+        };
+
+        console.log(Object.keys(circleInstance));
+        console.log(Object.values(circleInstance));
+
+        if ('radius' in circleInstance) {
+            console.log("Circle has Radisu");
+        }
+
+    </script>
+</body>
+
+</html>

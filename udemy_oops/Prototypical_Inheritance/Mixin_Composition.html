@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mixin or Composition</title>
+</head>
+
+<body>
+    <script>
+
+        // ...sources Rest Operator
+        function mixin(target, ...sources){
+            //...sources Spread Operator
+            return Object.assign(target, ...sources);
+        }
+
+        var canEat = {
+            eat: function () {
+                console.log('eating..');
+            }
+        };
+
+        var canWalk = {
+            walk: function () {
+                console.log("walking...")
+            }
+        };
+
+        var canSwim = {
+            swim: function () {
+                console.log("swimming...")
+            }
+        };
+
+        //var man = Object.assign({}, canEat, canWalk);
+        var man = mixin({}, canEat, canWalk)
+        // but all the method are addeed direclty to object
+        
+        console.log(man);
+
+        function Person(name) {
+            this.name = name
+        };
+
+        //Object.assign(Person.prototype, canEat, canWalk);
+        mixin(Person.prototype, canEat, canWalk)
+
+        const pers1 = new Person("satish");
+        console.log(pers1);
+
+
+        function Fish(name) {
+            this.name = name;
+        }
+
+        //Object.assign(Fish.prototype, canEat, canSwim);
+        mixin(Fish.prototype, canEat, canSwim)
+
+        const goldFish = new Fish('Gold');
+        console.log(goldFish);
+
+
+
+
+    </script>
+</body>
+
+</html>

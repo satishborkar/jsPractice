@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Abstraction Principle</title>
+</head>
+
+<body>
+    <script>
+
+        //Implemented Abstraction : Hide the implementations details, show only the essentils
+
+        function CicleAbstraction(radius) {
+            this.radius = radius;
+
+            // TYPE of private property
+            let defaultLocation = { x: 0, y: 0 };
+
+            // TYPE of private method
+            let computOptimumLocation = function (factor) {
+                console.log('Comput-Optimum-Location method is get fired...', factor)
+            }
+
+            //What if we wanted to show in about defaultLocation to read only property.
+            //Type - 1 
+            this.getDefaultLocation = function () {
+                return defaultLocation
+            }
+
+            //but this way we are initiating new method to object,
+            // getDefaultLocation can be overwrite from outer side too..and through closure
+            // we can access private varibles in this function inself so, not so secure way 
+            // of defining private property /merthods
+
+            this.draw = function () {
+                computOptimumLocation(0.1);
+                return `This is an method returns on Cicle Object Constructor`;
+            };
+
+            //TYPE -2 
+
+            Object.defineProperty(this, 'getlocation', {
+                get: function () {
+                    return defaultLocation;
+                },
+                set: function (value) {
+                    //before assigning value to any propery / methods of object,
+                    // we can validate it.
+                    if (!value.x || !value.y) {
+                        throw new Error("Invalid Value..")
+                    } else {
+                        defaultLocation = value
+                    }
+                }
+            })
+        }
+
+        const cicleAbstractionInstance = new CicleAbstraction(10);
+
+        console.log(cicleAbstractionInstance.draw());
+        console.log(cicleAbstractionInstance.getlocation)
+
+    </script>
+</body>
+
+</html>

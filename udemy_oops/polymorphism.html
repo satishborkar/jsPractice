@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        function $extend(Child, Parent, ElemType) {
+            Child.prototype = new Parent('select');
+            Child.prototype.constructor = Child;
+        }
+
+        function HAMLElement(name) {
+            this.name = name;
+            this.click = function () {
+                console.log("click event is triggered");
+            }
+        }
+
+        HAMLElement.prototype.focus = function () {
+            console.log("Focus event is triggered");
+        };
+
+        HAMLElement.prototype.render = function () {
+            return `<${this.name}></${this.name}>`;
+        }
+
+
+        function HAMLSelectElement(items = []) {
+            var items = items;
+
+            this.addItems = function (item) {
+                items.push(item);
+                return this.getItems();
+            };
+
+            this.getItems = function () {
+                return items
+            };
+
+            this.removeItem = function (item) {
+                if (item & items.indexOf(item) > -1) {
+                    items.splice(items.indexOf(item), 1);
+                    // return this.getItems();
+                } else {
+                    items.pop();
+                    // return this.getItems();
+                }
+            };
+
+            this.render = function () {
+                let result = `<select>`;
+                if (items.length > 0) {
+                    items.forEach((item) => {
+                        result += `<option value="${item}"> ${item} </option>`;
+                    })
+                }
+                result += `<select>`;
+                return result
+            }
+        }
+
+        $extend(HAMLSelectElement, HAMLElement, 'select')
+
+        // Object.defineProperty(HAMLSelectElement, 'getItems', {
+        //     enumerable: true,
+        //     configurable: false,
+        //     writable: false,
+        //     value: function () {
+        //         return items;
+        //     }
+        // })
+
+        
+
+
+    </script>
+</body>
+
+</html>

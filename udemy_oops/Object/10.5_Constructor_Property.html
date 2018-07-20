@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Constructor Property</title>
+</head>
+
+<body>
+    <script>
+        //JS internally create like
+
+        // Initiating Data type          Literals , ShortCuts
+        let x = new Object();           // {}
+        let y = new String()            // '', "", ``
+        let z = new Boolean()           // true,  false
+        let w = new Array()             // []
+        let s = new Number()            // 1,2,3...
+
+
+
+        // Constructor Pattern
+        function Circle(radius) {
+            this.radius = radius;
+            this.draw = function () {
+                return `This is Object created by Constructor function and it had behaviour`;
+            }
+        };
+
+        const circle = new Circle(5);
+        console.log(circle);
+        console.log("===================================");
+        console.log("Circle Class Constructor :", Circle.constructor, typeof Circle.constructor)
+        console.log("===================================");
+        console.log("Circle instance Constructor :", circle.constructor, typeof circle.constructor);
+        console.log("===================================");
+
+        // Factory Pattern
+        function createCircle(radius) {
+            return {
+                radius: radius,
+                draw: function () {
+                    return `This is Object created by Factory function and it had behaviour`;
+                }
+            }
+        };
+
+        const circle2 = createCircle(4);
+        console.log(circle2);
+        console.log("===================================");
+        console.log(circle2.draw());
+        console.log("===================================");
+        console.log("createCircle Factory Constructor :", createCircle.constructor, typeof createCircle.constructor);
+        console.log("===================================");
+        console.log("createCircle instance Constructor :", circle2.constructor, typeof circle2.constructor);
+        console.log("===================================");
+
+
+
+    </script>
+</body>
+
+</html>

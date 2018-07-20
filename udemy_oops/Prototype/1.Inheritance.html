@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inheritnace</title>
+</head>
+
+<body>
+    <script>
+        
+        //Objects create by given constructor will have same prototype
+        //Don't modify any object which you dont own.
+
+        const person = {
+            name: "Satish Borkar",
+            intro: function () {
+                return `This si nsundy cjhys..`;
+            }
+        }
+
+        Object.defineProperty(person, 'name', {
+            //by default true, we can not overwrite name of the object when is a false
+            writable: false,
+            // by default it is a true, if false can not be deleted from object
+            configurable: false,
+            //by default true, if set to false can not be iterate over the property name
+            enumerable: false,
+            value: "Knobel Borkar"
+        });
+
+        person.name = "Samanjas";
+        console.log(person.name)
+
+        let objectBase = Object.getPrototypeOf(person);
+        let propertyDescriptor = Object.getOwnPropertyDescriptor(objectBase, 'toString');
+
+        console.log(propertyDescriptor);
+
+        let getOwnMethodPropertyDescriptor = Object.getOwnPropertyDescriptor(person, 'name');
+        console.log(getOwnMethodPropertyDescriptor);
+
+
+
+        function Circle(radius) {
+            //Instance Methods / props
+            this.radius = radius;
+            this.draw = function () {
+                // we can call prototype methods like below
+                this.move();
+                console.log("Draw is the instance methods");
+            }
+        };
+
+        Circle.prototype.move = function () {
+            // we can call instance method like below
+            //this.draw()
+            console.log("This is an Prototype methods of an Circle Class")
+        }
+
+
+        const cin = new Circle(5);
+
+        // return only Instance methods / property
+        const cinKeys = Object.keys(cin);
+
+        console.log("cinKeys", cinKeys);
+
+        // Returns all the Instance & Prototype methods / properties
+        for (let key in cin) console.log(key)
+
+
+    </script>
+</body>
+
+</html>

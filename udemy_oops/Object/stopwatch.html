@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stop Watch</title>
+</head>
+
+<body>
+    <script>
+        function Stopwatch() {
+            let isStarted, startDuration, endDuration, totalDuration;
+
+            this.start = function () {
+                if (!!isStarted) {
+                    throw new Error("StopWatch is already started...");
+                }
+                startDuration = new Date();
+                isStarted = true;
+            };
+
+            this.stop = function () {
+                if (!isStarted) {
+                    throw new Error("StopWatch can not be stopped until and unless it is started...");
+                }
+                endDuration = new Date();
+                totalDuration = (endDuration - startDuration) / 1000;
+                isStarted = false;
+            };
+
+            Object.defineProperty(this, 'duration', {
+                get: function () {
+                    return totalDuration;
+                }
+            });
+        };
+
+        function SmartStopWatch() {
+            let startTime, endTime, running, duration = 0;
+
+            this.start = function () {
+                if (running) {
+                    throw new Error("SmartStopWatch has already started!...");
+                }
+
+                running = true;
+                startTime = new Date();
+            }
+
+            this.stop = function () {
+                if (!running) {
+                    throw new Error("SmartStopWatch is not running...");
+                }
+                running = false;
+                endTime = new Date();
+                const seconds = (endTime.getTime() - startTime.getTime()) / 1000;
+                duration += seconds.toFixed(2);
+            }
+
+            this.reset = function () {
+                startTime = null, endTime = null,
+                running = false, duration = 0;
+            }
+
+            Object.defineProperty(this, 'getduration', {
+                get: function () {
+                    return duration
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>

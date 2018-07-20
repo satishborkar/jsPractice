@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sort Table</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <style>
+        .container {
+            margin-top: 100px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 4px;
+        }
+
+        th {
+            cursor: pointer;
+        }
+
+        th:hover {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table id="grid">
+            <thead>
+                <tr>
+                    <th data-type="number">Age</th>
+                    <th data-type="string">Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5</td>
+                    <td>John</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Pete</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Ann</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Satyaspb</td>
+                </tr>
+                <tr>
+                        <td>7</td>
+                        <td>Aprilla</td>
+                    </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Eugene</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Ilya</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Preete</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Asete</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Knobel</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Augusta</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        grid.onclick = function (e) {
+            if (e.target.tagName != 'TH') return;
+
+            let th = e.target;
+            // if TH, then sort
+            // cellIndex is the number of th:
+            //   0 for the first column
+            //   1 for the second column, etc
+            sortGrid(th.cellIndex, th.dataset.type);
+        };
+
+        function sortGrid(colNum, type) {
+            let tbody = grid.querySelector('tbody');
+
+            let rowsArray = Array.from(tbody.rows);
+
+            // compare(a, b) compares two rows, need for sorting
+            let compare;
+
+            switch (type) {
+                case 'number':
+                    compare = function (rowA, rowB) {
+                        return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
+                    };
+                    break;
+                case 'string':
+                    compare = function (rowA, rowB) {
+                        return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML ? 1 : -1;
+                    };
+                    break;
+            }
+
+            // sort
+            rowsArray.sort(compare);
+
+            tbody.append(...rowsArray);
+        }
+    </script>
+</body>
+
+</html>

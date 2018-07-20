@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Values Vs Reference Types</title>
+</head>
+
+<body>
+    <script>
+
+        // Objects are in JS is dynamic i.e we can add / delete properties / methods on the fly
+
+        function Circle(radius) {
+            this.radius = radius;
+            this.draw = function () {
+                return radius
+            }
+        };
+
+        const circle1 = new Circle(12);
+
+        circle1.location = { x: 1 };
+        circle1["address"] = "Pune";
+
+        const propertyName = "center-location";
+
+        circle1[propertyName] = "Hinjewadi";
+
+        circle1.greeting = function(){
+            return 'hi....';
+        }
+       
+        console.log(circle1);
+        console.log(circle1[propertyName])
+        console.log(circle1.greeting());
+
+        // Delete properties
+        //delete circle1.location
+        //delete circle1['location']
+
+    </script>
+</body>
+
+</html>

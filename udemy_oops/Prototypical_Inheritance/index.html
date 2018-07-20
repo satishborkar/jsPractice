@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prototypical Inheritance</title>
+</head>
+
+<body>
+    <script>
+
+        function Shape(type) {
+            this.shapeType = type;
+            this.paintShape = function () {
+                return "Shape is painted.....";
+            }
+        }
+
+        Shape.prototype.changeShape = function () {
+            return "This is shape repainted....";
+        }
+
+        const s = new Shape('digonal');
+        console.log("paintShape", s.paintShape());
+        console.log("changeShape", s.changeShape());
+
+
+        // function Circle(radius) {
+        //     this.radius = radius;
+        //     this.draw = function () {
+        //         return "Circle is drawn...";
+        //     }
+        // };
+
+        // Circle.prototype.updateCircle = function () {
+        //     return "Circle is updated...";
+        // }
+
+        // const c = new Circle(5);
+        // console.log("draw", c.draw());
+        // console.log("updateCircle", c.updateCircle());
+
+
+        //============== Implementing Inheritance in Cicle
+
+        function Circle(radius) {
+
+            //Super Constructor
+            Shape.call(this, 'digonalo');
+            this.radius = radius;
+            this.draw = function () {
+                return "Circle is drawn...";
+            }
+        };
+
+        //Circle.prototype.constructor === Circle
+        //new Circle.prototype.constructor(5) === new Circle(5)        
+
+        Circle.prototype = Object.create(Shape.prototype);
+        Circle.prototype.constructor = Circle;
+
+        Circle.prototype.updateCircle = function () {
+            return "Circle is updated...";
+        }
+
+        // Methods Overriding
+        Circle.prototype.changeShape = function () {
+            return Shape.prototype.changeShape.call(this) +  "... This is Circle ChangeShape method....";
+        }
+
+        const c = new Circle(5);
+        console.log("Circle Instance :=> ", c);
+        console.log("draw :=>", c.draw());
+        console.log("Circle updateCircle :=> ", c.updateCircle());
+        console.log("Circle changeShape :=> ", c.changeShape());
+        //This way we are only able to inherit prototype properties of 
+        //Shape Class not Instance methods
+        console.log("Circle paintShape :=> ", c.paintShape());
+        // To avoid such probem we have call base class in constructor 
+        //Shape.call(this, 'digonalo');
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Abstraction Pattern</title>
+</head>
+
+<body>
+    <script>
+        function Cicle(radius) {
+            this.radius = radius;
+            this.defaultLocation = { x: 0, y: 0 };
+            this.computOptimumLocation = function () {
+                console.log('computOptimumLocation method is get fired...')
+            }
+
+            this.draw = function () {
+                this.computOptimumLocation();
+                return `THis is an method returns on Cicle Object COnstructor`
+            };
+        }
+
+        const circleInstance = new Cicle(10);
+
+        console.log(circleInstance.draw());
+
+
+
+        //Implemented Abstraction : Hide the implementations details, show only the essentils
+        function CicleAbstraction(radius) {
+            this.radius = radius;
+            let defaultLocation = { x: 0, y: 0 };
+            let computOptimumLocation = function (factor) {
+                console.log('computOptimumLocation method is get fired...', factor)
+            }
+
+            this.draw = function () {
+                computOptimumLocation(0.1);
+                return `THis is an method returns on Cicle Object COnstructor`
+            };
+        }
+
+        const cicleAbstractionInstance = new CicleAbstraction(10);
+        
+        console.log(cicleAbstractionInstance.draw());
+
+    </script>
+</body>
+
+</html>

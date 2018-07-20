@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Polymorphism </title>
+</head>
+
+<body>
+    <script>
+        function Shape(type) {
+            this.type = type;
+            this.render = function () {
+                return `rendering the ${this.type} ...`;
+            }
+        }
+
+        Shape.prototype.paintShape = function () {
+            return `${this.type} is painted...`;
+        }
+
+        const s = new Shape('diagonal');
+        console.log("Diagonal Shape :=> ", s);
+        console.log("Diagonal render :=> ", s.render());
+        console.log("Diagonal Paint :=> ", s.paintShape());
+
+        console.log("==========================================");
+
+
+        //Extending Shape to Circle
+
+        function Cirlce(radius) {
+            //Inherit instance methods of Shape 
+            Shape.call(this, 'Circle');
+            this.radius = radius;
+
+            this.render = function () {
+                //we can not call Shape instance methods
+                return Shape.prototype.paintShape.call(this) + "This is a Circle Render...";
+            }
+        }
+
+        Cirlce.prototype = Object.create(Shape.prototype);
+        Cirlce.prototype.constructor = Cirlce;
+
+        const c = new Cirlce(5);
+
+        console.log("Cirlce Shape :=> ", c);
+        console.log("Cirlce render :=> ", c.render());
+        console.log("Cirlce Paint :=> ", c.paintShape());
+
+        console.log("==========================================");
+
+        //Extending the Circle to Oval
+
+        function Oval(ovalProps) {
+            Shape.call(this, 'Oval');
+            this.ovalProps = ovalProps;
+            this.ovalMethods = function () {
+                return `This is an ovalMethod`;
+            }
+
+            // To override the existing method Instance method should be override by instance inself 
+            //& prototype methods by prototype methods
+            this.render = function () {
+                return Shape.prototype.paintShape.call(this) + "This is a Oval Render...";
+            }
+        };
+
+        Oval.prototype = Object.create(Cirlce.prototype);
+        Oval.prototype.constructor = Oval;
+
+        Oval.prototype.greeting = function () {
+            return `Greetings from Oval constructor...`;
+        }
+
+        const ov = new Oval("satyaspb");
+        console.log("Oval Shape :=> ", ov);
+        console.log("Oval greeting :=> ", ov.greeting());
+        console.log("Oval render :=> ", ov.render());
+        console.log("Oval Paint :=> ", ov.paintShape());
+
+
+        // Instead of having long if & else in single render method 
+        // we are having different implementations of render methods as per types of Shape
+        // i.e. Having Many (Poly) forms (morphism) of single method i.e. Polymorphism
+
+        const newShapes = [
+            new Cirlce('circle1'),
+            new Cirlce('circle2'),
+            new Oval('ovalShape1'),
+            new Oval('ovalShape2'),
+            new Oval('ovalShape3')
+        ];
+
+        for(let key in newShapes){
+            console.log(newShapes[key], "....... || .....",  newShapes[key].render())
+        }
+
+
+
+    </script>
+</body>
+
+</html>

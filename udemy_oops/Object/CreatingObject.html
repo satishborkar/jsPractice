@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Object Creating Patterns </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1> Object </h1>
+        <ul>
+            <li>Creating Object : Object Literals</li>
+            <li>Creating Object : Factory functions </li>
+            <li>Creating Object : Constructor functions </li>
+            <li>Working with properties </li>
+            <li>Private properties </li>
+            <li>Getter &amp; Setter </li>
+        </ul>
+    </div>
+
+
+    <script>
+
+        //Object Literals  ===========================================================================
+
+        var circle = {
+            radius: 1,
+            location: {
+                x: 4,
+                y: 5
+            },
+            move: function () {
+                return 'This object is created by Object Literrals method & it has behaviour/ method';
+            }
+        };
+
+        //console.log(circle.move());
+
+        // Factory Functions ===========================================================================
+
+        function createCircle(radius, x, y) {
+            return {
+                radius,
+                location: {
+                    x,
+                    y
+                },
+                draw: function () {
+                    return 'This object is created by Factory function & it has behaviour/ method';
+                }
+            }
+        };
+
+        const factoryObject = createCircle(4, 5, 6);
+        //console.log(factoryObject);
+
+        // Constructor Functions ===========================================================================
+
+        function Circle(radius) {
+            this.radius = radius;
+            this.draw = function () {
+                return `This is Object created by Constructor functions and it had behaviour`;
+            }
+        };
+
+        const another = new Circle(2);
+        console.log(another.draw());
+
+        // NEW Operator ---------------------------------------
+        // When we use new operator to initiate new instance of the constrctor function.
+        // following three things are happens.
+        // 1. it creates new empty object {}
+        // 2. it enables to this or lexical scope to point newly created object instead of global/window object.
+        // 3. it auto return the object from constructor function we dont have to write retirn statement explicitly.
+
+
+    </script>
+</body>
+
+</html>

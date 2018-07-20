@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OOP in JavaScript</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>What is OOP</h1>
+        <p>
+            It is an programming paradigm centered around object rather than functions.
+            <br/> OOP is not language or tool. its a style of programming.
+        </p>
+        <p>The language which support OOP are C#, Java, Ruby, Python, JvaScript</p>
+        <hr/>
+        <h2>Principles of OOP / 4 Pillars of OOP</h2>
+        <ol>
+            <li>
+                <h3>Encapsulation</h3>
+                <p>We conbine related thing in a group, called as a Unit. we refer variables as property &amp; functions as
+                    a methods in that unit.</p>
+                <p>Conbining highly related thing in a group is called as Encapsulation </p>
+
+                <h5>Benefits of Encapsulations</h5>
+                <ul>
+                    <li>
+                        <strong>Reduce the Complexity</strong> i.e. By grouping related variables and function together.
+                    </li>
+                    <li>
+                        <strong>Increase reusability</strong> i.e. We can re-use same object again and again.
+                    </li>
+                </ul>
+                <hr/>
+            </li>
+            <li>
+                <h3> Abstraction </h3>
+                <p> It is an like DVD player, all the comlex logic is on board is in inside but only few buttons are abstrated / exposed
+                    <br> to out side to which we interact i.e. hidding unnessesiry / complex thing being leaked outside and
+                    <br> showing only essentials is called as abstraction.
+                </p>
+                <p> Same techniques can be applied to object, to create abstraction by hiding the things from being leaked
+                    <br> outside and only expose few to the outside which are essentials.
+                </p>
+                <h5>Benefits of Abstraction</h5>
+                <ul>
+                    <li>
+                        <strong>Reduce the Complexity</strong> i.e. We hide the details &amp; Complexity and show only the essentials.
+                    </li>
+                    <li>
+                        <strong>Simpler Interface</strong>
+                    </li>
+                    <li>
+                        <strong>Reduce / Isolate the Impact of Change</strong> i.e. any change inside logic or methods in object
+                        will not affect the outer things</li>
+                </ul>
+                <hr/>
+            </li>
+            <li>
+                <h3>Inheritance</h3>
+                <p>
+                    Inheritance is an mechanism which help /allow us to eliminated redundant code.
+                </p>
+                <p>
+                    If we are using same kind of functionality for different object, instead of having same methods for every object
+                    we can re-use exiting methods in every object by inheriting that object into our object.
+                </p>
+                <h5>Benefits of Inheritance</h5>
+                <ul>
+                    <li>
+                        <strong>Eliminates redundant code</strong>
+                    </li>
+                </ul>
+                <hr/>
+            </li>
+            <li>
+                <h3>Polymorphism</h3>
+                <p>
+                    Poly = many and morphism = forms i.e. many forms. it is an technique which
+                    <br> allow us to get rid of long if,else /switch case statements.
+                </p>
+                <h5>Benefits of Polymorphism</h5>
+                <ul>
+                    <li>
+                        <strong>Refactor ugly switch/case statements</strong>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+
+    <script>
+
+
+        //1. Encapsulation Example ==============================================================================
+
+        //Procedural Programming Example
+        var baseSalary = 3000;
+        var overtime = 10;
+        var rate = 20;
+
+        function getWage(baseSalary, overtime, rate) {
+            return baseSalary + (overtime * rate)
+        };
+
+        //console.log(getWage(baseSalary, overtime, rate));
+
+
+        // Object Oriented Programming Encapsulation Example
+        var person = {
+            baseSalary: 3000,
+            overtime: 10,
+            rate: 20,
+            getWage: function () {
+                return this.baseSalary + (this.overtime * this.rate);
+            }
+        };
+
+        //console.log(person.getWage());
+
+        //2. Abstraction Example ==============================================================================
+
+        function Person(name, company, salary) {
+            this.name = name;
+            this.company = company;
+            this.salary = salary;
+
+            this.getDetails = function () {
+                return {
+                    name: this.name,
+                    company: this.company,
+                    salary: this.salary
+                }
+            }
+        };
+
+        const person1 = new Person('satish', 'synechron', 5400);
+        person1.salary = 8000;
+        // console.log(person1.getDetails())
+
+        // In above examples all the properties and methods are public which means any of the 
+        //arguments in constractor function can be modified from outside and can change state of object.
+
+        //Solution with abstraction
+
+        function Student(name, subject, fees) {
+            var name, subject, fees;
+
+            this.getDetails = function () {
+                return {
+                    name: name,
+                    subject: subject,
+                    fee: fees
+                }
+            }
+        };
+
+
+        const student1 = new Student('satish', 'OOP', 1250);
+        // console.log(student1.getDetails())
+
+        // this way only getDetails method is public rest all the properties are private
+
+        //3. Inheritance Example ==============================================================================
+
+        function HAMLElement(elm) {
+            this.elm = elm;
+            this.render = function (elem) {
+                return `<${this.elm}><${this.elm}>`
+            }
+        };
+
+        HAMLElement.prototype.click = function () {
+            console.log(`${this.elm} is triggerred with Event : click`);
+        }
+        HAMLElement.prototype.focus = function () {
+            console.log(`${this.elm} is triggerred with Event : focus`);
+        }
+
+        // const element = new HAMLElement('Element');
+        // console.log(element.render());
+        // element.click();
+        // element.focus();
+
+
+        function HAMLSelectElement(optios = []) {
+            this.optios = optios;
+        }
+
+        HAMLSelectElement.prototype = new HAMLElement('select');
+
+        // HAMLSelectElement.prototype.render = function () {
+        //     //const legecyRender = new HAMLElement.prototype.constructor('select').render();
+        //     const legecyRender = new HAMLElement('select').render();
+        //     console.log(legecyRender);
+        //     this.optios.forEach((items) => {
+
+        //     });
+        // };
+        HAMLSelectElement.prototype.constructor = HAMLSelectElement;
+
+        const select = new HAMLSelectElement(["!", "@", "#", "$"]);
+        select.render();
+
+        //In above example we are inheriting all the proprties and methods of HAMLElement 
+        // into HAMLSelectElement by using Object Inheritance pattern
+
+        //4. Polymorphism Example ==============================================================================
+
+        function HAMLImgElement(src) {
+            this.src = src;
+            this.render = function (elem) {
+                return `<${this.elm} str="${this.src}"><${this.elm}>`
+            }
+        };
+
+        HAMLImgElement.prototype = new HAMLElement('img');
+        HAMLImgElement.prototype.constructor = HAMLImgElement;
+
+        // In this example we are using polymorphism which means we are |
+        //implementing same method with different implementation to avoid nesty or complex if else / switch case statements.
+
+    </script>
+</body>
+
+</html>

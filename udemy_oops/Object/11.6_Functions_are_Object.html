@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Functions are Object</title>
+</head>
+
+<body>
+    <script>
+
+        // Constructor Pattern
+        function Circle(radius) {
+            this.radius = radius;
+            this.draw = function () {
+                return `This is Object created by Constructor function and it had behaviour`;
+            }
+        };
+        //execute emmidiately
+        //Circle.call({}, 7);
+        //Circle.apply({}, [1, 2, 3]);
+        
+        console.log("satya", satya);
+        const circle = new Circle(5);
+        console.log("circle", circle);
+
+        //We have properties and methods on functions like call, bind, apply
+        // Circle.apply() //Methods
+        // Circle.arguments //Properties
+        // Circle.bind()
+        // Circle.call()
+        // Circle.caller
+        // Circle.length
+        // Circle.name
+        // Circle.prototype
+        // Circle.toString()
+
+        // Every Obj in JS has constructor which create that functions, 
+        //so if we see the constructor of function in a build in Function
+
+        //Circle.constructor
+        console.log(Circle.constructor);
+
+        //build in way of creating functions
+        const Circle1 = new Function('radius', `
+        this.radius = radius;
+            this.draw = function () {
+                return "This is Object created by Constructor function and it had behaviour";
+            }
+        `);
+
+        const circle4 = new Circle1(2);
+        console.log(circle4.draw())
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Values Vs Reference Types</title>
+</head>
+
+<body>
+    <script>
+
+        // Primitive / ValueTypes               ReferenceTypes
+        // 1.Number                             1. Object
+        // 2.Boolean                            2. Array
+        // 3.String                             3. Function                
+        // 4.undefined
+        // 5.null
+        // 6.Symbol
+
+
+
+        console.log("=======================// Primitive / ValueTypes Example")
+        let x = 10;
+        let y = x;
+        x = 20;
+        console.log("X", x); //20
+        console.log("Y", y); // 10
+
+        let number = 10;
+        function increase(number) {
+            number++
+        }
+        increase(number);
+        console.log("Increase Number", number)//10
+
+        // as it is primitive type when we use number in function it is copied and 
+        //increased but not accesible out side of the functions scope.
+
+        console.log("=======================// ReferenceTypes Example")
+
+        let w = { value: 10 };
+        let z = w;
+        w.value = 20;
+        console.log("W", w); //20
+        console.log("Z", z); // 20
+
+        let obj = { value: 10 };
+
+        function increaseObj(obj) {
+            obj.value++;
+        }
+        increaseObj(obj);
+        console.log("Increase Obj Value", obj) //11
+
+        // as it is reference type when we updates the object we are updating it on its location
+        //so it is accesible from anywhere once got updated.
+
+    </script>
+</body>
+
+</html>

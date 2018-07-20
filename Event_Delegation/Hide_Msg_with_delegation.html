@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event Delegation Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <ul id="list">
+            <li style="padding: 15px; border-bottom: 1px solid red" data-toggle-id="slide-1">
+                01.Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                <a href="#nogo" data-toggle="slide-1"> close </a>
+            </li>
+            <li style="padding: 15px; border-bottom: 1px solid red" data-toggle-id="slide-2">
+                02.Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                <a href="#nogo" data-toggle="slide-2"> close </a>
+            </li>
+            <li style="padding: 15px; border-bottom: 1px solid red" data-toggle-id="slide-3">
+                03.Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                <a href="#nogo" data-toggle="slide-3"> close </a>
+            </li>
+            <li style="padding: 15px; border-bottom: 1px solid red" data-toggle-id="slide-4">
+                04.Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                <a href="#nogo" data-toggle="slide-4"> close </a>
+            </li>
+            <li style="padding: 15px; border-bottom: 1px solid red" data-toggle-id="slide-5">
+                05.Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                <a href="#nogo" data-toggle="slide-5"> close </a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var list = document.getElementById("list");
+        list.addEventListener('click', function () {
+            if (event.target != undefined && event.target.nodeName === 'A') {
+                var slide = event.target.dataset.toggle;
+                var targetSlide = document.querySelector("li[data-toggle-id=" + slide + "]");
+                targetSlide.setAttribute('hidden', true);
+            }
+        });
+    </script>
+</body>
+
+</html>
