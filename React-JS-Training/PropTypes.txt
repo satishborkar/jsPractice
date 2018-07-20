@@ -1,0 +1,21 @@
+Prop Types
+
+React.PropTypes.string
+React.PropTypes.number
+React.PropTypes.bool
+React.PropTypes.any
+React.PropTypes.array
+React.PropTypes.object
+React.PropTypes.symbol
+React.PropTypes.func
+React.PropTypes.element (React Element)
+React.PropTypes.node
+React.PropTypes.instanceOf(<Type>)
+React.PropTypes.shape  
+	{
+		fColor:React.PropTypes.string,
+		bColor:React.PropTypes.string
+	}
+
+
+React.PropTypes.any.isRequired
