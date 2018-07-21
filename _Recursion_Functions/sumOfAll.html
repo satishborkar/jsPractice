@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sum of all previous numbers</title>
+</head>
+
+<body>
+    <script>
+        //Recurssive way
+
+        // function sumTo(num) {
+        //     if (num === 0) {
+        //         return num
+        //     } else {
+        //         return num += sumTo(num - 1)
+        //     }
+        // }
+
+        function sumTo(n) { return (n === 0) ? n : n += sumTo(n - 1) };
+
+        console.log("============ Recurssive way ================");
+        console.log(sumTo(1)); // 1
+        console.log(sumTo(2)); // 3
+        console.log(sumTo(3)); // 6
+        console.log(sumTo(4)); // 10
+        console.log(sumTo(100)); //5050
+
+        console.log("=========== Looping way =================");
+
+        //Looping way
+        function sumOf(num) {
+            let sum = 0;
+            for (let i = 1; i <= num; i++) {
+                sum += i
+            }
+            return sum;
+        }
+        console.log(sumOf(1)); // 1
+        console.log(sumOf(2)); // 3
+        console.log(sumOf(3)); // 6
+        console.log(sumOf(4)); // 10
+        console.log(sumOf(100)); //5050
+
+        console.log("=========== //Math way=================");
+
+        //Math way
+        function sumMeTo(n) {
+            return n * (n + 1) / 2;
+        }
+
+         console.log(sumMeTo(1)); // 1
+        console.log(sumMeTo(2)); // 3
+        console.log(sumMeTo(3)); // 6
+        console.log(sumMeTo(4)); // 10
+        console.log(sumMeTo(100)); //5050
+    </script>
+</body>
+
+</html>

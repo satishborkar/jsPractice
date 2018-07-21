@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Power of recursive function</title>
+</head>
+
+<body>
+
+    <pre>
+            let company = {
+                sales: [{
+                  name: 'John',
+                  salary: 1000
+                }, {
+                  name: 'Alice',
+                  salary: 600
+                }],
+              
+                development: {
+                  sites: [{
+                    name: 'Peter',
+                    salary: 2000
+                  }, {
+                    name: 'Alex',
+                    salary: 1800
+                  }],
+              
+                  internals: [{
+                    name: 'Jack',
+                    salary: 1300
+                  }]
+                }
+              };
+              getSomeOfSalary(company) // 6700
+    </pre>
+    <script>
+
+        // let company = {
+        //     sales: [{
+        //         name: 'John',
+        //         salary: 1000
+        //     }, {
+        //         name: 'Alice',
+        //         salary: 600
+        //     }],
+
+        //     development: {
+        //         sites: [{
+        //             name: 'Peter',
+        //             salary: 2000
+        //         }, {
+        //             name: 'Alex',
+        //             salary: 1800
+        //         }],
+
+        //         internals: [{
+        //             name: 'Jack',
+        //             salary: 1300
+        //         }]
+        //     }
+        // };
+
+        let company = { // the same object, compressed for brevity
+            sales: [{ name: 'John', salary: 1000 }, { name: 'Alice', salary: 600 }],
+            development: {
+                sites: [{ name: 'Peter', salary: 2000 }, { name: 'Alex', salary: 1800 }],
+                internals: [{ name: 'Jack', salary: 1300 }]
+            }
+        };
+
+        function getSomeOfSalary(department) {
+            if (Array.isArray(department)) {
+                return department.reduce((prev, current) => {
+                    return prev += current.salary
+                }, 0)
+            } else {
+                let sum = 0;
+                for (let subdep of Object.values(department)) {
+                    sum += getSomeOfSalary(subdep);
+                }
+                return sum;
+            }
+        };
+
+        // function getSomeOfSalary(department) {
+        //     if (Array.isArray(department)) { // case (1)
+        //         return department.reduce((prev, current) => prev + current.salary, 0); // sum the array
+        //     } else { // case (2)
+        //         let sum = 0;
+        //         for (let subdep of Object.values(department)) {
+        //             sum += getSomeOfSalary(subdep); // recursively call for subdepartments, sum the results
+        //         }
+        //         return sum;
+        //     }
+        // }
+
+        console.log(getSomeOfSalary(company));
+
+    </script>
+</body>
+
+</html>
