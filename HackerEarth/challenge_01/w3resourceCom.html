@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Exercises</title>
+</head>
+
+<body>
+    <script>
+        //Write a JavaScript program to get the integers in range(x, y).
+        //Example : range(2, 9)
+        //Expected Output: [3, 4, 5, 6, 7, 8]
+
+        // iterative approach
+        function findRange(x, y) {
+            const range = [];
+
+            for (let i = x + 1; i < y; i++) {
+                range.push(i)
+            }
+            return range
+        }
+
+        //recurssive approach
+
+        function getRange(a, b) {
+            const range = [];
+            while (a < b - 1) {
+                a++;
+                range.push(a);
+                getRange(a, b);
+            }
+            return range;
+        }
+
+
+        // // solution
+        var range = function (start_num, end_num) {
+            if (end_num - start_num === 2) {
+                return [start_num + 1];
+            }
+            else {
+                var list = range(start_num, end_num - 1);
+                list.push(end_num - 1);
+                return list;
+            }
+        };
+
+        console.log("Iterative Example : = ", findRange(2, 9));
+        console.log("Recursive Example mine : = ", getRange(2, 9));
+        console.log("Recursive Example : = ", range(2, 9));
+        console.log("=============================== Reverse Array without native functions ================================");
+
+        //Input
+        //flipme([1,2,3,4,5,6,7,8,9])
+
+        //Output
+        //[9,8,7,6,5,4,3,2,1]
+
+        function flipme(arr) {
+            let newArr = [];
+            for (let i = arr.length - 1; i >= 0 && i <= arr.length; i--) {
+                //newArr.push(arr[i]);
+                newArr[arr.length - 1 - i] = arr[i]
+            };
+
+            return newArr;
+        };
+
+        console.log("Original Array : [1, 2, 3, 4, 5, 6, 7, 8, 9] ", flipme([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+
+
+    </script>
+</body>
+
+</html>

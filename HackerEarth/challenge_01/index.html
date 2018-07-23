@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // First line of the input file contains two integers, a and b.
+
+        // Print the number of common factors of a and b.
+
+
+        // Float Number 
+        //2.1
+        // 1.5
+
+        //Integer Number
+        // 1 
+        // 2
+        // 5
+
+        function commonFactors(a, b) {
+            let count = 1;
+            let result = [];
+            
+            for (let i = 0; i <= 10; i++) {
+                if (isInt(a / count) && isInt(b / count)) {
+                    result.push(count);
+                }
+                count++;
+            }
+            return result;
+        }
+
+        function isInt(n) {
+            return Number(n) === n && n % 1 === 0
+        }
+
+        console.log(commonFactors(10, 15)); // 2
+        console.log(commonFactors(10, 10)); // 4
+        console.log(commonFactors(10, 20)); //4
+        console.log(commonFactors(12345, 12123)); // 2
+        console.log(commonFactors(10, 1)); // 1
+        console.log(commonFactors(125, 105)); // 2
+
+        console.log(commonFactors(125, 175)); // 3
+        console.log(commonFactors(70, 140)); // 8
+
+        function isFloat(n) {
+            return Number(n) === n && n % 1 !== 0;
+        }
+    </script>
+</body>
+
+</html>
