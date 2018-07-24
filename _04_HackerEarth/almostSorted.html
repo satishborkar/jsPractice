@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Almost Sorted </title>
+</head>
+
+<body>
+    <script>
+
+        // Complete the almostSorted function below.
+        // function almostSorted(arr) {
+        //     // Given an array of integers, can you sort an array in 
+        //     // ascending order using only one of the following operations one time?
+        //     // Swap two elements.
+        //     // Reverse one sub-segment.
+        //     for (let i = 0; i < arr.length; i++) {
+
+        //     }
+
+        // };
+
+        function sortSingleOp(array) {
+            var left, right;
+            for (var i = 1; i < array.length; i++) {
+                if (array[i - 1] > array[i]) {
+                    left = i - 1;
+                    break;
+                }
+            }
+
+            for (var j = array.length - 1; j > 0; j--) {
+                if (array[j - 1] > array[j]) {
+                    right = j;
+                    break;
+                }
+            }
+
+            if (left === right) {
+                console.log('yes');
+                return;
+            }
+
+            // check environment of swaps
+            if (array[right] > array[left + 1] || array[left] < array[right - 1]
+                || array[left - 1] > array[right] || array[right + 1] < array[left]) {
+                console.log('no');
+                return;
+            }
+
+            var reverse = true;
+            var swappable = true;
+            var i = right - 1;
+            while (i > left) {
+                if (array[i] > array[i - 1]) {
+                    reverse = false;
+                    break;
+                }
+                if (array[i - 1] > array[i] && i - 1 !== left) {
+                    swappable = false;
+                }
+                i--;
+            }
+
+            if (reverse && !swappable) {
+                console.log('yes\nreverse', left + 1, right + 1)
+                return
+            }
+            else if (swappable) {
+                console.log('yes\nswap', left + 1, right + 1);
+            }
+            else {
+                console.log('no');
+                return;
+            }
+
+
+
+        }
+
+
+        console.log(sortSingleOp([1, 5, 4, 3, 2, 6]));
+
+    </script>
+</body>
+
+</html>
