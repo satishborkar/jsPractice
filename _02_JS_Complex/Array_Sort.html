@@ -146,9 +146,22 @@
 
         const companyEmpsByPropNames = function (prop) {
 
-            return [...companyEmps].sort((a, b) => {
-                return a[prop] - b[prop]
-            })
+            const sortType = typeof companyEmps[0][prop];
+            let sorted = [];
+            console.log(sortType)
+            if (sortType === 'number') {
+                sorted = [...companyEmps].sort((a, b) => {
+                    a[prop] - b[prop]
+                })
+            };
+
+            sorted = [...companyEmps].sort((a, b) => {
+                if (a[prop] < b[prop]) return -1;
+                if (a[prop] > b[prop]) return 1;
+                return 0;
+            });
+
+            return sorted;
         };
 
         console.log("companyEmpsByPropNames : rank", companyEmpsByPropNames('rank'));

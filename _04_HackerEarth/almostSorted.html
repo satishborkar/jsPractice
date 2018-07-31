@@ -76,13 +76,61 @@
                 console.log('no');
                 return;
             }
+        };
 
+        // const arr = [1, 2, 5, 7];
 
+        // let sum = arr.reduce((all, item) => {
+        //     return all += item
+        // });
 
+        // console.log("SUM", sum);
+        // console.log(sortSingleOp([1, 5, 4, 3, 2, 6]));
+
+        // function add(x, y) {
+        //     if (y != undefined) {
+        //         return x + y;
+        //     }
+        //     return function (y) {
+        //         return x + y;
+        //     }
+        // };
+
+        // console.log("Add(3,2)", add(3, 2));
+        // console.log("Add(3)(2)", add(3)(2));
+
+        const arrNums = [9, 1, 8, 2, 3, 7, 4, 6];
+
+        function findMissingNums(arr) {
+            const sorted = arr.sort(function (a, b) {
+                return a - b
+            });
+            let missing;
+
+            for (let i = 0; i < sorted.length; i++) {
+                if (sorted[i + 1] - sorted[i] == 2) {
+                    missing = sorted[i] + 1;
+                }
+            }
+            return missing;
+        };
+        const arrNums2 = [23, 22, 26, 27, 25, 28]
+        console.log("Missing Num", findMissingNums(arrNums));
+        console.log("Missing Num", findMissingNums(arrNums2));
+
+        // all are in coins format
+        // til
+        const vallet = {
+            penny: 12, // 1 cents each
+            nickel: 10, // 5 cents each
+            dime: 2, // 10 cents each
+            quater: 12, // 25 cents each
+            dollar: 30 // 100 cents each
         }
 
+        //Pay the user $20.47 with minimum coins
 
-        console.log(sortSingleOp([1, 5, 4, 3, 2, 6]));
+
 
     </script>
 </body>
