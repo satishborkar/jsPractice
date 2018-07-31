@@ -9,6 +9,13 @@
 </head>
 
 <body>
+    <h1>Fat Arrow function</h1>
+    <ul>
+        <li>Fat Arrow function does not hold its own lexical scope, it gets it from the its parent in which environment it is
+            declared
+        </li>
+        <li>Fat Arrow function does not have argument object like normal function</li>
+    </ul>
     <script type="text/javascript">
         // var person = {
         //     firstname: 'Satish',
@@ -19,29 +26,27 @@
         // };
         // console.log(person.fullName());
 
-        var devInfoObject = function () {
-            return {
-                devName: "Prashant ",
-                devType: 'Javascript Developer',
-                devBind: function () {
-                    console.log(this.devName + this.devType)
-                }
+        var DevInfoObject = function (name, role) {
+            this.devName = name;
+            this.devType = role;
+            this.info = () => {
+                console.log("Hello "+this.devName + " " + this.devType);
             }
         };
 
-        devInfoObject.call({devName:"Satish"}).devBind();
+        var xx = new DevInfoObject("Prashant", "Javascript Developer").info();
+        xx;
+        //xx.info();
 
-        var devInfoObject2 = function () {
-            return {
-                devName: "Prashant ",
-                devType: 'Javascript Developer',
-                devBind: ()=> {
-                    console.log(this.devName + this.devType);
-                }
+        var devInfoObject2 = function (name, role) {
+            this.devName = name;
+            this.devType = role;
+            this.devBind = () => {
+                console.log(this.devName + this.devType);
             }
         };
 
-        devInfoObject2.call().devBind();
+        new devInfoObject2("Satish ", "UI Developer").devBind();
         //devInfoObject2.call({devName:"Satish ", devType: 'UI Developer'}).devBind();
         //devInfoObject2.call().devBind();
 

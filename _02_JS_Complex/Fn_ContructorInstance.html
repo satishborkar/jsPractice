@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Constructor Instance </title>
+</head>
+
+<body>
+    <script>
+        function Car(name) {
+            if (this == window) {
+                return new Car(name);
+            }
+            this.name = name;
+            this.start = function () {
+                return "The car " + this.name + " has been started...";
+            }
+        }
+
+
+        //Initiating instance with new keyword
+        var bmw = new Car("BMW");
+        console.log(bmw.start());
+
+        //Initiating instance without new keyword
+        var tata = Car("TATA");
+        console.log(tata.start());
+
+        //Initiating instance without new keyword
+        var maruti = Car("MARUTI SUZUKI");
+        console.log(maruti.start());
+
+        //
+        // var mercedes = Car.call("Mercedes");
+
+        // console.log(mercedes.start());
+
+
+        function Person(name, email, phone) {
+            return {
+                name: name,
+                email: email,
+                phone: phone,
+                details: function () {
+                    return `This is ${this.name} and my email Id is ${this.email} and contact number is ${this.phone} `
+                }
+            }
+        };
+
+        let satya = new Person("Satish Borkar", "satyaspb@gmail.com", "+919874123654");
+        console.log(satya.details());
+
+        String.prototype.greet = function () {
+            console.log("Hello, " + this + " " + arguments[0]);
+        }
+
+        "Satish".greet("Borkar");
+
+        String.prototype.greetme = function () {
+            var obj = arguments[0];
+            console.log("Hello, " + this + " " + obj.lastName  + " your email provided is "  + " " + obj.email);
+        }
+
+        "Satish".greetme({ lastName: "Borkar", email: "satyaspb@gmail.com" });
+
+    </script>
+</body>
+
+</html>

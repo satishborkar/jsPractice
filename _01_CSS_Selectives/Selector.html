@@ -27,13 +27,11 @@
         function el(elem) {
             //console.log(elem.charAt(0));
             if (arguments[0].charAt(0) == '#') {
-                elem = document.querySelector(elem)
+                elem = document.querySelector(elem);
             } else {
-                elem = document.querySelectorAll(elem)
+                elem = document.querySelectorAll(elem);
             }
-            //console.log(elem);
             return elem;
-
         };
 
         var $ = el;
@@ -44,15 +42,17 @@
         console.log($(".oyester"))
         console.log('------------------------------');
 
-        document.oncopy = function() {
+        document.oncopy = function () {
             console.log('you copied something!!!');
         };
 
-        el("#page").addEventListener('click', function() {
+        el("#page").addEventListener('click', function () {
             console.log("Hi!....Goo....")
         });
 
         var checkboxes = $('input[type="checkbox"]');
+        console.log(el('input[type="checkbox"]'));
+                         
     </script>
 
 </body>

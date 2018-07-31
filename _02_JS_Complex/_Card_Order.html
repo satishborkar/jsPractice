@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Card Sort Function</title>
+</head>
+
+<body>
+    <script>
+        var cards = [
+
+            {
+                "card_id": "A4C4VEY61HAH06OIZL49TTS1B",
+                "card_number": "**************12",
+                "card_expiry_date": "08/19",
+                "card_default": false,
+                "card_brand": "visa",
+                "card_expiry_status": "valid" // expiring, expired
+            },
+            {
+                "card_id": "A4C4VEY61HAH06OIZL49TTS1E",
+                "card_number": "**************14",
+                "card_expiry_date": "08/17",
+                "card_default": false,
+                "card_brand": "mastercard",
+                "card_expiry_status": "expired"
+            },
+            {
+                "card_id": "A4C4VEY61HAH06OIZL58TTS1T",
+                "card_number": "**************19",
+                "card_expiry_date": "09/86",
+                "card_default": false,
+                "card_brand": "dinersclub",
+                "card_expiry_status": "expiring"
+            },
+            ,
+            {
+                "card_id": "A4C4VEY61HAH06OIZL59TTS1T",
+                "card_number": "**************19",
+                "card_expiry_date": "09/16",
+                "card_default": false,
+                "card_brand": "discover",
+                "card_expiry_status": "expiring"
+            },
+            {
+                "card_id": "A4C4VEY61HAH06OIZL49TTS1D",
+                "card_number": "**************13",
+                "card_expiry_date": "12/17",
+                "card_default": true,
+                "card_brand": "amex",
+                "card_expiry_status": "valid" //expired
+            },
+            {
+                "card_id": "A4C4VEY61HAH06OIZL49TTS1T",
+                "card_number": "**************15",
+                "card_expiry_date": "09/17",
+                "card_default": false,
+                "card_brand": "visa",
+                "card_expiry_status": "expiring"
+            },
+            {
+                "card_id": "A4C4VEY61HAH06OIZL50TTS1D",
+                "card_number": "**************16",
+                "card_expiry_date": "12/17",
+                "card_default": false,
+                "card_brand": "amex",
+                "card_expiry_status": "valid" //expired
+            },
+            {
+                "card_id": "A4C4VEY61HAH06OIZL51TTS1B",
+                "card_number": "**************17",
+                "card_expiry_date": "08/19",
+                "card_default": false,
+                "card_brand": "visa",
+                "card_expiry_status": "valid" // expiring, expired
+            },
+            {
+                "card_id": "A4C4VEY61HAH06OIZL52TTS1E",
+                "card_number": "**************18",
+                "card_expiry_date": "08/17",
+                "card_default": false,
+                "card_brand": "mastercard",
+                "card_expiry_status": "expired"
+            },
+            {
+                "card_id": "A4C4VEY61HAH06OIZL53TTS1T",
+                "card_number": "**************19",
+                "card_expiry_date": "09/17",
+                "card_default": false,
+                "card_brand": "visa",
+                "card_expiry_status": "expiring"
+            },
+            {
+                "card_id": "A4C4VEY61HAH06OIZL54TTS1D",
+                "card_number": "**************20",
+                "card_expiry_date": "12/17",
+                "card_default": false,
+                "card_brand": "amex",
+                "card_expiry_status": "valid" //expired
+            },
+            {
+                "card_id": "A4C4VEY61HAH06OIZL55TTS1B",
+                "card_number": "**************21",
+                "card_expiry_date": "08/33",
+                "card_default": false,
+                "card_brand": "visa",
+                "card_expiry_status": "valid" // expiring, expired
+            },
+            {
+                "card_id": "A4C4VEY61HAH06OIZL56TTS1E",
+                "card_number": "**************18",
+                "card_expiry_date": "08/29",
+                "card_default": false,
+                "card_brand": "mastercard",
+                "card_expiry_status": "expired"
+            },
+            {
+                "card_id": "A4C4VEY61HAH06OIZL57TTS1T",
+                "card_number": "**************19",
+                "card_expiry_date": "09/36",
+                "card_default": false,
+                "card_brand": "visa",
+                "card_expiry_status": "expiring"
+            },
+            {
+                "card_id": "A4C4VEY61HAH06OIZL60TTS1T",
+                "card_number": "**************19",
+                "card_expiry_date": "09/16",
+                "card_default": false,
+                "card_brand": "jcb",
+                "card_expiry_status": "expiring"
+            }
+
+        ];
+
+        var cardOrder = ["visa", "mastercard", "jcb", "amex", "dinersclub", "discover"];
+
+        function getSortByOrder(order, list) {
+            const sortedCards = [];
+
+            for (let i = 0; i < order.length; i++) {
+                let orderCardType = order[i];
+                list.filter((item) => {
+                    if (item.card_default !== true && item.card_brand === orderCardType) {
+                        sortedCards.push(item);
+                    } else if (item.card_default === true && item.card_brand === orderCardType) {
+                        sortedCards.unshift(item)
+                    }
+                });
+            }
+
+            // order.filter(function (item) {
+            //     list.filter(function (o) {
+            //         if (o.card_brand == item) {
+            //             sortedCards.push(o)
+            //         };
+            //     });
+            // });
+
+            return sortedCards;
+        };
+
+        console.log(getSortByOrder(cardOrder, cards));
+
+
+        const isDefault = cards.filter((card) => {
+            if (card.card_default === true) {
+                return true
+            }
+        });
+
+        console.log("ISdefault", isDefault);
+
+    </script>
+</body>
+
+</html>
