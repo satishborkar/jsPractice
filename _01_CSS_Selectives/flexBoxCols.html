@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FlexBox Cols</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+        }
+
+        .wrapper {
+            width: 420px;
+            height: 550px;
+            border: 1px solid greenyellow;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            padding: 25px;
+        }
+
+        ul.blocks {
+            display: flex;
+            justify-content: center;
+            align-content: stretch;
+            margin: 10px;
+        }
+
+        ul.blocks,
+        ul.blocks li {
+            list-style-type: none;
+            list-style: none;
+        }
+
+        ul.blocks li {
+            flex-direction: column;
+            padding: 15px;
+            text-align: center;
+            border-right: 1px solid tomato;
+        }
+
+        ul.options-single li{
+            width: 40%;
+        }
+
+        ul.options-two li{
+            width: 50%;
+        }
+
+        ul.blocks li:last-child {
+            border-right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul class="blocks options-two">
+            <li>
+                <a href="#nogo"> SEICO </a>
+            </li>
+            <li>
+                <a href="#nogo"> FAMIMA </a>
+            </li>
+            <li>
+                <a href="#nogo"> LAWSON </a>
+            </li>
+            <li>
+                <a href="#nogo"> OTHERS </a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
