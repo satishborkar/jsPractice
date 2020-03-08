@@ -10,7 +10,7 @@ class ShoppingList extends Component {
         this.state = {
             list: [
                 { id: 1, date: "27/12/2017", name: 'Prashant Dahiwadekar', desc: 'JS Dev', quantity: 1 },
-                { id: 2, date: "27/12/2017", name: 'Satish Borkar', desc: 'UI Dev', quantity: 2 },
+                { id: 2, date: "27/12/2017", name: 'Jon Doe', desc: 'UI Dev', quantity: 2 },
                 { id: 3, date: "27/12/2017", name: 'Rahul Pansare', desc: 'FullStack Dev', quantity: 3 },
                 { id: 4, date: "27/12/2017", name: 'Sajid Bhaig', desc: 'Java Dev', quantity: 4 }
             ]

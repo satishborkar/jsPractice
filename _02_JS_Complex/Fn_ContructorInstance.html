@@ -49,21 +49,21 @@
             }
         };
 
-        let satya = new Person("Satish Borkar", "satyaspb@gmail.com", "+919874123654");
+        let satya = new Person("Jon Doe", "jondoe@email.com", "+919874123654");
         console.log(satya.details());
 
         String.prototype.greet = function () {
             console.log("Hello, " + this + " " + arguments[0]);
         }
 
-        "Satish".greet("Borkar");
+        "Jon".greet("Doe");
 
         String.prototype.greetme = function () {
             var obj = arguments[0];
             console.log("Hello, " + this + " " + obj.lastName  + " your email provided is "  + " " + obj.email);
         }
 
-        "Satish".greetme({ lastName: "Borkar", email: "satyaspb@gmail.com" });
+        "Jon".greetme({ lastName: "Doe", email: "jondoe@email.com" });
 
     </script>
 </body>

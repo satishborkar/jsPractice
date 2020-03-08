@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://satishborkar.github.com"
+    "url": "https://JonDoe.github.com"
   },
   "keywords": [
     "react",
     "api-consume",
     "promise"
   ],
-  "author": "@satishborkar",
+  "author": "@JonDoe",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.0",

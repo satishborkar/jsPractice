@@ -6,13 +6,13 @@ const Person = {
 
 const Customer = {
     customerId: 410,
-    contactNane: "Satish Borkar",
+    contactNane: "Jon Doe",
     city: "Pune"
 };
 
 const SuperCustomer = {
     customerId: 410,
-    contactNane: "Satish Borkar",
+    contactNane: "Jon Doe",
     city: "Mumbai"
 };
 
@@ -29,7 +29,7 @@ console.log("Customer", Customer);
 
 const CreditCustomer = {
     creditLimit: 200000,
-    contactNane: "Satish Borkar"
+    contactNane: "Jon Doe"
 };
 
 

@@ -166,7 +166,7 @@
     }
     TreeTable.prototype.init = function() {
         //console.log(this.id + "Main Method");
-        //this.id.innerHTML = this.interateArray("Satish");
+        //this.id.innerHTML = this.interateArray("Jon");
         //console.log(interateArray);
 
     }
