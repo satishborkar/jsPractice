@@ -1,56 +1,53 @@
 //Singleton Object to be created by javascript
 
-var singleton = (function () {
+var singleton = (function() {
+  var instance;
 
-    var instance;
+  function createInstance() {
+    var jim = "korea";
 
-    function createInstance() {
-        var prashant = "Dahiwadekar";
-
-        function add() {
-            return "Hi from function";
-        };
-
-        return {
-            Add: add,
-            Prashant: prashant
-        }
+    function add() {
+      return "Hi from function";
     }
 
     return {
-        getInstance: function () {
-            if (!instance) {
-                instance = new createInstance();
-            }
-            return instance;
-        }
-
+      Add: add,
+      Jim: jim
     };
+  }
 
+  return {
+    getInstance: function() {
+      if (!instance) {
+        instance = new createInstance();
+      }
+      return instance;
+    }
+  };
 })();
-//singleton.getInstance()
+
+// singleton.getInstance()
 // singleton.getInstance();
 
 // console.log(singleton.getInstance() === singleton.getInstance());
-// console.log(singleton.getInstance().Prashant);
+// console.log(singleton.getInstance().Jim);
 // console.log(singleton.getInstance().Add())
 
+var addition = (function() {
+  function x() {
+    console.log(1);
+  }
+  var y = new x();
 
-var addition = (function () {
-    function x() {
-        console.log(1);
+  // return function(){
+  //     return y
+  // }
+
+  return {
+    anotherInstance: function() {
+      return y;
     }
-    var y = new x();
-
-    // return function(){
-    //     return y
-    // }
-
-    return {
-        anotherInstance: function () {
-            return y
-        }
-    }
+  };
 })();
 
 console.log(addition.anotherInstance() === addition.anotherInstance());

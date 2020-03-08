@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Interitance in JS</title>
+    <title>Inheritance in JS</title>
 </head>
 
 <body>
@@ -14,27 +14,33 @@
         // function Engine() {
         //     this.hp = 256;
         // }
+
         // Engine.prototype.start = function () {
         //     console.log("Engine has been started with the capacity of " + this.hp + "-HP successfully!!");
         // }
+
         // function Car() {
         //     this.name = "VW";
         //     this.engine = new Engine();
         // }
+
         // Car.prototype.start = function () {
         //     if (this.engine) {
         //         this.engine.start()
         //     }
         // };
+
         // function Driver() {
         //     this.name = "Satish";
         //     this.car = new Car();
         // }
+
         // Driver.prototype.drive = function () {
         //     if (this.car) {
         //         this.car.start();
         //     }
         // };
+
         // var driver = new Driver("satya");
         // driver.drive();
 
@@ -42,29 +48,36 @@
         function Engine(hp) {
             this.hp = hp;
         }
+
         Engine.prototype.start = function () {
             console.log("Engine has been started with the capacity of " + this.hp + "-HP successfully!!");
         }
+
         function Car(name, engine) {
             this.name = name;
             this.engine = engine;
         }
+
         Car.prototype.start = function () {
             if (this.engine) {
                 this.engine.start();
             }
         }
+
         function Driver(name, car) {
             this.name = name;
             this.car = car;
         }
+
         Driver.prototype.drive = function () {
             if (this.car) {
                 this.car.start();
             }
         };
+
         // var driver = new Driver("satish", new Car("vw", new Engine(800)));
         // driver.drive();
+        
         var driver = new Driver("satish");
         driver.car = new Car("Knobel", new Engine(256));
         driver.drive();

@@ -1,61 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bootstrap 101 Template</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Function Expression</h1>
-    <hr>
-     <p>
-        In the function expression case, <code style="color:blue">this</code> refers to the object that was created inside the createObject. 
+    <hr />
+    <p>
+      In the function expression case,
+      <code style="color:blue">this</code> refers to the object that was created
+      inside the createObject.
     </p>
     <div id="funExpr"></div>
 
     <h1>Fat Arrow Function</h1>
-    <hr>
-       <p>
-        In the arrow function case, <code style="color:blue"> this </code> refers to <code style="color:blue">this</code> of createObject itself.
+    <hr />
+    <p>
+      In the arrow function case, <code style="color:blue"> this </code> refers
+      to <code style="color:blue">this</code> of createObject itself.
     </p>
     <div id="fatArrowFunct"></div>
 
-
     <script type="text/javascript">
-        function createdObject(){
-            document.getElementById("funExpr").innerHTML = "Function Expression outer Foo : " + this.foo + "<br/>";
-            return{
-                foo : 45,
-                bar : function(){
-                    this.foo;
-                    document.getElementById("funExpr").innerHTML += "Function Expression Inner Foo : " + this.foo + "<br/>";
-                }
-            }    
+      function createdObject() {
+        document.getElementById("funExpr").innerHTML =
+          "Function Expression outer Foo : " + this.foo + "<br/>";
+        return {
+          foo: 45,
+          bar: function() {
+            this.foo;
+            document.getElementById("funExpr").innerHTML +=
+              "Function Expression Inner Foo : " + this.foo + "<br/>";
+          }
         };
+      }
 
-        //createdObject.call({foo:15}).bar();
-        createdObject.call({foo:15}).bar();
+      //createdObject.call({foo:15}).bar();
+      createdObject.call({ foo: 15 }).bar();
 
-
-        function myObjectCreated(){
-            document.getElementById("fatArrowFunct").innerHTML = "Fat Arrow Function outer Foo : " + this.foo + "<br/>";
-            return{
-                foo : 45,
-                bar : ()=>{
-                    this.foo;
-                    document.getElementById("fatArrowFunct").innerHTML += "Fat Arrow Function Inner Foo : " + this.foo + "<br/>";
-                }
-            }    
+      function myObjectCreated() {
+        document.getElementById("fatArrowFunct").innerHTML =
+          "Fat Arrow Function outer Foo : " + this.foo + "<br/>";
+        return {
+          foo: 45,
+          bar: () => {
+            this.foo;
+            document.getElementById("fatArrowFunct").innerHTML +=
+              "Fat Arrow Function Inner Foo : " + this.foo + "<br/>";
+          }
         };
+      }
 
-        myObjectCreated.call({foo:15}).bar();
-        //myObjectCreated.call().bar();
-            //rerurn undefined
-    
+      myObjectCreated.call({ foo: 15 }).bar();
+      //myObjectCreated.call().bar();
+      //rerurn undefined
     </script>
-
-</body>
-
+  </body>
 </html>

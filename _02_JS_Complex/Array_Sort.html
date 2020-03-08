@@ -1,186 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Array Sort Methods</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <script>
-        const nums = [1, 8, 3, 6, 9, 4, 2, 7, 10, 5];
-        console.log("Original Array", nums);
-        console.log("------------------------------------");
-        console.log("nums.sort()", [...nums].sort());
-        console.log("------------------------------------");
+      const nums = [1, 8, 3, 6, 9, 4, 2, 7, 10, 5];
+      console.log("Original Array", nums);
+      console.log("------------------------------------");
+      console.log("nums.sort()", [...nums].sort());
+      console.log("------------------------------------");
 
+      // Sort method sort array in place
+      const sortedArrayAsc = [...nums].sort((a, b) => {
+        return a - b;
+      });
+      const sortedArrayDsc = [...nums].sort((a, b) => {
+        return b - a;
+      });
+      const sortHalf = [...nums]
+        .sort((a, b) => {
+          return a - b;
+        })
+        .sort((a, b) => {
+          if (a <= 5 && b <= 5) {
+            return 1;
+          } else {
+            return -1;
+          }
+        });
 
-        // Sort method sort array in place
-        const sortedArrayAsc = [...nums].sort((a, b) => { return a - b });
-        const sortedArrayDsc = [...nums].sort((a, b) => { return b - a });
-        const sortHalf = [...nums]
-            .sort((a, b) => { return a - b })
-            .sort((a, b) => {
-                if (a <= 5 && b <= 5) {
-                    return 1
-                } else {
-                    return -1
-                }
-            });
+      console.log("sortedArrayAsc", sortedArrayAsc);
+      console.log("------------------------------------");
+      console.log("sortedArrayDsc", sortedArrayDsc);
+      console.log("------------------------------------");
+      console.log("sortHalf", sortHalf);
+      console.log("------------------------------------");
+      console.log("Original Array of", nums);
+      console.log("------------------------------------");
 
-        console.log("sortedArrayAsc", sortedArrayAsc);
-        console.log("------------------------------------");
-        console.log("sortedArrayDsc", sortedArrayDsc);
-        console.log("------------------------------------");
-        console.log("sortHalf", sortHalf);
-        console.log("------------------------------------");
-        console.log("Original Array of", nums);
-        console.log("------------------------------------");
+      const companyEmps = [
+        {
+          empId: 1,
+          contractorId: null,
+          name: "John Doe",
+          role: "CEO",
+          rank: 1
+        },
+        {
+          empId: 2,
+          contractorId: null,
+          name: "Anitha Gollsuky",
+          role: "CFO",
+          rank: 1
+        },
+        {
+          empId: 3,
+          contractorId: null,
+          name: "Satya Nadella",
+          role: "COO",
+          rank: 2
+        },
+        {
+          empId: 14,
+          contractorId: null,
+          name: "Jenifer ramsey",
+          role: "Director",
+          rank: 3
+        },
+        {
+          empId: 4,
+          contractorId: null,
+          name: "Jenifer ramsey",
+          role: "Sr. Director",
+          rank: 3
+        },
+        {
+          empId: 5,
+          contractorId: 25,
+          name: "Josef Handwer",
+          role: "Sr. Manager",
+          rank: 4
+        },
+        {
+          empId: 6,
+          contractorId: 335,
+          name: "Harry Potter",
+          role: "Sr.Architect",
+          rank: 4
+        },
+        {
+          empId: 7,
+          contractorId: 545,
+          name: "Harryson Pollas",
+          role: "Technology Specialist",
+          rank: 4
+        },
+        {
+          empId: 8,
+          contractorId: 945,
+          name: "Larry Book",
+          role: "Sr.Technology Specialist",
+          rank: 4
+        },
+        {
+          empId: 9,
+          contractorId: 95,
+          name: "Lara Kumskey",
+          role: "Manager",
+          rank: 5
+        },
+        {
+          empId: 10,
+          contractorId: 15,
+          name: "Shane Watson",
+          role: "Lead",
+          rank: 6
+        },
+        {
+          empId: 11,
+          contractorId: 13,
+          name: "Satish Borkar",
+          role: "UI Developer",
+          rank: 7
+        },
+        {
+          empId: 12,
+          contractorId: 16,
+          name: "Varsha Borkar",
+          role: "Sr.Developer",
+          rank: 7
+        },
+        {
+          empId: 13,
+          contractorId: 17,
+          name: "Bhima Godbole",
+          role: "Jr. Developer",
+          rank: 8
+        }
+      ];
 
-        const companyEmps = [
-            {
-                empId: 1,
-                contractorId: null,
-                name: 'John Doe',
-                role: 'CEO',
-                rank: 1
-            },
-            {
-                empId: 2,
-                contractorId: null,
-                name: 'Anitha Gollsuky',
-                role: 'CFO',
-                rank: 1
-            },
-            {
-                empId: 3,
-                contractorId: null,
-                name: 'Satya Nadella',
-                role: 'COO',
-                rank: 2
-            },
-            {
-                empId: 14,
-                contractorId: null,
-                name: 'Jenifer ramsey',
-                role: 'Director',
-                rank: 3
-            },
-            {
-                empId: 4,
-                contractorId: null,
-                name: 'Jenifer ramsey',
-                role: 'Sr. Director',
-                rank: 3
-            },
-            {
-                empId: 5,
-                contractorId: 25,
-                name: 'Josef Handwer',
-                role: 'Sr. Manager',
-                rank: 4
-            },
-            {
-                empId: 6,
-                contractorId: 335,
-                name: 'Harry Potter',
-                role: 'Sr.Architect',
-                rank: 4
-            },
-            {
-                empId: 7,
-                contractorId: 545,
-                name: 'Harryson Pollas',
-                role: 'Technology Specialist',
-                rank: 4
-            },
-            {
-                empId: 8,
-                contractorId: 945,
-                name: 'Larry Book',
-                role: 'Sr.Technology Specialist',
-                rank: 4
-            },
-            {
-                empId: 9,
-                contractorId: 95,
-                name: 'Lara Kumskey',
-                role: 'Manager',
-                rank: 5
-            },
-            {
-                empId: 10,
-                contractorId: 15,
-                name: 'Shane Watson',
-                role: 'Lead',
-                rank: 6
-            },
-            {
-                empId: 11,
-                contractorId: 13,
-                name: 'Satish Borkar',
-                role: 'UI Developer',
-                rank: 7
-            },
-            {
-                empId: 12,
-                contractorId: 16,
-                name: 'Varsha Borkar',
-                role: 'Sr.Developer',
-                rank: 7
-            },
-            {
-                empId: 13,
-                contractorId: 17,
-                name: 'Bhima Godbole',
-                role: 'Jr. Developer',
-                rank: 8
-            }
-        ];
+      console.log("Company Positions", companyEmps);
+      console.log("------------------------------------");
 
-        console.log("Company Positions", companyEmps);
-        console.log("------------------------------------");
+      const companyEmpsByPropNames = function(prop) {
+       // const sortType = typeof companyEmps[0][prop];
+        let sorted = [];
+       // console.log({ sortType });
+        // if (sortType === "number") {
+        //   sorted = [...companyEmps].sort((a, b) => {
+        //     a[prop] - b[prop];
+        //   });
+        // }
 
-        const companyEmpsByPropNames = function (prop) {
+        sorted = [...companyEmps].sort((a, b) => {
+          if (a[prop] < b[prop]) return -1;
+          if (a[prop] > b[prop]) return 1;
+          return 0;
+        });
 
-            const sortType = typeof companyEmps[0][prop];
-            let sorted = [];
-            console.log(sortType)
-            if (sortType === 'number') {
-                sorted = [...companyEmps].sort((a, b) => {
-                    a[prop] - b[prop]
-                })
-            };
+        return sorted;
+      };
 
-            sorted = [...companyEmps].sort((a, b) => {
-                if (a[prop] < b[prop]) return -1;
-                if (a[prop] > b[prop]) return 1;
-                return 0;
-            });
+      console.log(
+        "companyEmpsByPropNames : rank",
+        companyEmpsByPropNames("rank")
+      );
+      console.log("------------------------------------");
 
-            return sorted;
-        };
+      console.log(
+        "companyEmpsByPropNames : empId",
+        companyEmpsByPropNames("empId")
+      );
+      console.log("------------------------------------");
 
-        console.log("companyEmpsByPropNames : rank", companyEmpsByPropNames('rank'));
-        console.log("------------------------------------");
+      console.log(
+        "companyEmpsByPropNames : contractorId",
+        companyEmpsByPropNames("contractorId")
+      );
+      console.log("------------------------------------");
 
-        console.log("companyEmpsByPropNames : empId", companyEmpsByPropNames('empId'));
-        console.log("------------------------------------");
+      console.log(
+        "companyEmpsByPropNames : name",
+        companyEmpsByPropNames("name")
+      );
+      console.log("------------------------------------");
 
-        console.log("companyEmpsByPropNames : contractorId", companyEmpsByPropNames('contractorId'));
-        console.log("------------------------------------");
-
-        console.log("companyEmpsByPropNames : name", companyEmpsByPropNames('name'));
-        console.log("------------------------------------");
-
-        console.log("companyEmpsByPropNames : role", companyEmpsByPropNames('role'));
-        console.log("------------------------------------");
-
+      console.log(
+        "companyEmpsByPropNames : role",
+        companyEmpsByPropNames("role")
+      );
+      console.log("------------------------------------");
     </script>
-
-</body>
-
+  </body>
 </html>

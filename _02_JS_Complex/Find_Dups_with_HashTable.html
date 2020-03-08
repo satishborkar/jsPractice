@@ -16,26 +16,31 @@
 
     <script>
         function findDupes(arr) {
-            const obj1 = {}
-            const dupsArry = [];
+            const obj = {}
+            const dupesArry = [];
 
             arr.forEach(item => {
-                if (!obj1.hasOwnProperty(item)) {
-                    obj1[item] = item
+                if (!obj.hasOwnProperty(item)) {
+                    obj[item] = item
                     return;
                 }
-                if (!dupsArry.includes(item)) {
-                    dupsArry.push(item);
+                if (!dupesArry.includes(item)) {
+                    dupesArry.push(item);
                 }
             });
 
-            return dupsArry
+            return {
+                unique : Object.values(obj),
+                duplicates : dupesArry
+            }
         }
 
 
-        console.log(findDupes([1, 2, 1, 41, 85, 54, 52, 35, 24, 25, 41, 85, 54, 52])); //[1, 41, 85, 54, 52]
+        console.log(findDupes([1, 2, 1, 41, 85, 54, 52, 35, 24, 25, 41, 85, 54, 52])); 
+        //[1, 41, 85, 54, 52]
 
-        console.log(findDupes(arr1 = [1, 2, 1, 21, 22, 25, 35, 24, 25, 41, 85, 54, 52, 21, 22, 21, 22, 21, 22])); //[1, 41, 85, 54, 52]
+        console.log(findDupes(arr1 = [1, 2, 1, 21, 22, 25, 35, 24, 25, 41, 85, 54, 52, 21, 22, 21, 22, 21, 22])); 
+        //[1, 25, 21, 22]
     </script>
 </body>
 

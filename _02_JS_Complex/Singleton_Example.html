@@ -1,144 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>SingleTon</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        // function singleton() {
-        //     var instance = false;
-        //     function singleObj() {
-        //        return "Hi..from SingleObj";
-        //     };
+      // function singleton() {
+      //     var instance = false;
+      //     function singleObj() {
+      //        return "Hi..from SingleObj";
+      //     };
 
-        //     return {
-        //         getInstance: function() {
-        //             if (!instance) {
-        //                 instance = singleObj();
-        //             }                    
-        //             return instance;
-        //         }
-        //     }
-        // };
+      //     return {
+      //         getInstance: function() {
+      //             if (!instance) {
+      //                 instance = singleObj();
+      //             }
+      //             return instance;
+      //         }
+      //     }
+      // };
 
-        // var instance1 = singleton().getInstance();
-        // var instance2 = singleton().getInstance();
-        // console.log(instance1===instance2)    
+      // var instance1 = singleton().getInstance();
+      // var instance2 = singleton().getInstance();
 
+      // console.log(instance1===instance2)
 
-        var Person = (function (name) {
-            //Private Variables
-            var instance;
-            var createPerson = function (name) {
-                var weight = 60;
-                var personName = function () {
-                    return name;
-                }
-                var looseWeight = function (wht) {
-                    weight -= wht
-                }
-                var gainWeight = function (wht) {
-                    weight += wht
-                }
-                var getWeight = function () {
-                    return weight
-                }
+      var Person = (function(name) {
+        // Private Variables
+        var instance;
+        var createPerson = function(name) {
 
-                return {
-                    LooseWeight: looseWeight,
-                    GainWeight: gainWeight,
-                    GetWeight: getWeight,
-                    Name: personName
-                }
+          var weight = 60;
+          var personName = function() {
+            return name;
+          };
+
+          var looseWeight = function(wht) {
+            weight -= wht;
+          };
+
+          var gainWeight = function(wht) {
+            weight += wht;
+          };
+
+          var getWeight = function() {
+            return weight;
+          };
+
+          return {
+            LooseWeight: looseWeight,
+            GainWeight: gainWeight,
+            GetWeight: getWeight,
+            Name: personName
+          };
+
+        };
+
+        return {
+          getInstance: function(name) {
+            if (!instance) {
+              instance = createPerson(name);
             }
+            return instance;
+          }
+        };
+      })();
 
-            return {
-                getInstance: function (name) {
-                    if (!instance) {
-                        instance = createPerson(name);
-                    }
-                    return instance
-                }
-            }
-        })();
+      var person1 = Person.getInstance("John Doe");
+      var person2 = Person.getInstance("Natalie Desooja");
+      console.log(person1.Name(), person2.Name());
 
-        var person1 = Person.getInstance('John Doe');
-        var person2 = Person.getInstance('Natalie Shiusga');
-        console.log(person1.Name(), person2.Name());
+      // var Singleton = (function () {
+      //     var instance;
+      //     function createSingle() {
+      //         var obj = new Object();
+      //         return obj;
+      //     }
+      //     return {
+      //         getInstance: function () {
+      //             // if(!instance){
+      //             return instance = createSingle();
+      //             // }
+      //             //return instance;
+      //         }
+      //     }
+      // })();
 
+      // var x = Singleton.getInstance(); //
+      // var y = Singleton.getInstance();
+      // console.log(x === y)
 
-        // var Singleton = (function () {
-        //     var instanace;
+      // var mySingleton = (function () {
 
-        //     function createSingle() {
-        //         var obj = new Object();
-        //         return obj;
-        //     }
-        //     return {
-        //         getInstance: function () {
-        //             // if(!instanace){
-        //             return instanace = createSingle();
-        //             // }
-        //             //return instanace;
-        //         }
-        //     }
+      //     // Instance stores a reference to the Singleton
+      //     var instance;
 
-        // })();
-        // var x = Singleton.getInstance(); //
-        // var y = Singleton.getInstance();
-        // console.log(x === y)
+      //     function init() {
+      //         // Singleton
+      //         // Private methods and variables
+      //         function privateMethod() {
+      //             console.log("I am private");
+      //         }
+      
+      //         var privateVariable = "Im also private";
+      //         return {
+      //             // Public methods and variables
+      //             publicMethod: function () {
+      //                 console.log("The public can see me!");
+      //             },
+      //             publicProperty: "I am also public"
+      //         };
+      //     };
 
-        // var mySingleton = (function () {
-
-        //     // Instance stores a reference to the Singleton
-        //     var instance;
-
-        //     function init() {
-
-        //         // Singleton
-
-        //         // Private methods and variables
-        //         function privateMethod() {
-        //             console.log("I am private");
-        //         }
-
-        //         var privateVariable = "Im also private";
-
-        //         return {
-
-        //             // Public methods and variables
-        //             publicMethod: function () {
-        //                 console.log("The public can see me!");
-        //             },
-
-        //             publicProperty: "I am also public"
-        //         };
-
-        //     };
-
-        //     return {
-
-        //         // Get the Singleton instance if one exists
-        //         // or create one if it doesn't
-        //         getInstance: function () {
-
-        //             if (!instance) {
-        //                 instance = init();
-        //             }
-
-        //             return instance;
-        //         }
-
-        //     };
-
-        // })();
+      //     return {
+      //         // Get the Singleton instance if one exists
+      //         // or create one if it doesn't
+      //         getInstance: function () {
+      //             if (!instance) {
+      //                 instance = init();
+      //             }
+      //             return instance;
+      //         }
+      //     };
+      // })();
 
     </script>
-</body>
-
+  </body>
 </html>

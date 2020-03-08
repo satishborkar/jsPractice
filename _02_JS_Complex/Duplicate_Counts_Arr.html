@@ -25,27 +25,27 @@
         //const data = [1, 2, 3, 3, 4, 5, 6, 6, 7, 8, 9, 9, 0];
         const data = ['Mike', 'Matt', 'Nancy', 'Mike', 'Adam', 'Jenny', 'Nancy', 'Adam', 'Carl', 'Matt']
 
-        const nodupes = new Set(data)
-        //console.log("noDupes", [...nodupes]);
-        //console.log("noDupes", Array.from(nodupes));
+        const noDupes = new Set(data)
+        //console.log("noDupes", [...noDupes]);
+        //console.log("noDupes", Array.from(noDupes));
         // [...set];
         // [...set.keys()];
         // [...set.values()];
         // Array.from(set);
         // Array.from(set.keys());
         // Array.from(set.values());
-        const dupsArr = [];
+        const duplicateArray = [];
         data.forEach(function (item, index) {
             // if (data.indexOf(item) != data.lastIndexOf(item)) {
-            //     dupsArr.push(item)
+            //     duplicateArray.push(item)
             // }
             if(item === data[index]){
-                dupsArr.push(item)
+                duplicateArray.push(item)
             }
             
         });
 
-        console.log(dupsArr);
+        console.log(duplicateArray);
 
 
         /*  ***************************************      */
@@ -53,19 +53,19 @@
         /*  ***************************************      */
 
         function duplicateCount(text) {
-            let splitedText = text.toLowerCase().split('');
-            let dups = [];
-            splitedText.forEach((element, index) => {
+            let toArray = text.toLowerCase().split('');
+            let dupes = [];
+            toArray.forEach((element, index) => {
                 // Find if there is a duplicate or not
-                if (splitedText.indexOf(element, index + 1) > -1) {
+                if (toArray.indexOf(element, index + 1) > -1) {
                     //Find the element is already there or not otherwise push
-                    if (dups.indexOf(element) === -1) {
-                        dups.push(element)
+                    if (dupes.indexOf(element) === -1) {
+                        dupes.push(element)
                     }
                 }
             });
 
-            return dups.length
+            return dupes.length
         }
 
         /*  ***************************************      */

@@ -1,45 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bootstrap 101 Template</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <script type="text/javascript">
+      // https://lodash.com/docs#isEqual
 
-        // https://lodash.com/docs#isEqual
+      // How to determine equality for two JavaScript objects?
+      // There is no generic methods to determine that an object is equal to another in the sense eqality.
+      // The exception is when you are strictly thinking of an object being typeless.
 
-        // How to determine equality for two JavaScript objects?
-        // There is no generic methods to determine that an object is equal to another in the sense eqality. 
-        // The exception is when you are strictly thinking of an object being typeless.
+      var car1 = { name: "BMW", color: "red", model: "S200" };
+      var car2 = { name: "BMW", color: "red", model: "S200" };
+      var car3 = JSON.parse(JSON.stringify(car1));
 
-        var car1 = { name: "BMW", color: "red", model: "S200" };
-        var car2 = { name: "BMW", color: "red", model: "S200" };
-        var car3 = JSON.parse(JSON.stringify(car1));
+      //get Object length
+      console.log(Object.keys(car1).length);
+      // return 3
 
-        //get Object length
-        console.log(Object.keys(car1).length);
-        // return 3
+      //Compare Objects
+      console.log("Compare Objects car1 == car2", car1 == car2);
 
-        //Compare Objects
-        console.log("Compare Objects car1 == car2", car1 == car2);
+      //Compare Objects
+      console.log("Compare Objects car1 === car2", car1 === car2);
 
-        //Compare Objects
-        console.log("Compare Objects car1 === car2", car1 === car2);
+      //Compare Objects
+      console.log("Compare Objects car1 == car3", car1 == car3);
 
-        //Compare Objects
-        console.log("Compare Objects car1 == car3", car1 == car3);
-
-        //Compare Objects
-        console.log("Compare Objects car1 === car3", Object.is(car1, car3));
-
+      //Compare Objects
+      console.log("Compare Objects car1 === car3", Object.is(car1, car3));
     </script>
-
-</body>
-
+  </body>
 </html>

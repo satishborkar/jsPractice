@@ -25,7 +25,7 @@
 
         /* Example 2 */
 
-        function AlertThisLater(message, timeout) {
+        function alertThisLater(message, timeout) {
             function fn() {
                 //alert(message);
                 console.log(`Two second has been done!.. ` + message);
@@ -33,7 +33,7 @@
             window.setTimeout(fn, timeout);
         }
 
-        AlertThisLater("Hello, World!", 2000);
+        alertThisLater("Hello, World!", 2000);
 
         // A closure is created containing in part the message parameter, 
         // fn is executed quite some time after the call to AlertThisLater has returned, 

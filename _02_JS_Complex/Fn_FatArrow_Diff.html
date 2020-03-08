@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bootstrap 101 Template</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Fat Arrow function</h1>
     <ul>
-        <li>Fat Arrow function does not hold its own lexical scope, it gets it from the its parent in which environment it is
-            declared
-        </li>
-        <li>Fat Arrow function does not have argument object like normal function</li>
+      <li>
+        Fat Arrow function does not hold its own lexical scope, it gets it from
+        the its parent in which environment it is declared
+      </li>
+      <li>
+        Fat Arrow function does not have argument object like normal function
+      </li>
     </ul>
     <script type="text/javascript">
-        // var person = {
-        //     firstname: 'Satish',
-        //     lastname: 'Borkar',
-        //     fullName: function () {
-        //         return this.firstname + this.lastname
-        //     }
-        // };
-        // console.log(person.fullName());
+      // var person = {
+      //     firstname: 'Satish',
+      //     lastname: 'Borkar',
+      //     fullName: function () {
+      //         return this.firstname + this.lastname
+      //     }
+      // };
+      // console.log(person.fullName());
 
-        var DevInfoObject = function (name, role) {
-            this.devName = name;
-            this.devType = role;
-            this.info = () => {
-                console.log("Hello "+this.devName + " " + this.devType);
-            }
+      var DevInfoObject = function(name, role) {
+        this.devName = name;
+        this.devType = role;
+        this.info = () => {
+          console.log("Hello " + this.devName + " " + this.devType);
         };
+      };
 
-        var xx = new DevInfoObject("Prashant", "Javascript Developer").info();
-        xx;
-        //xx.info();
+      var xx = new DevInfoObject("Prashant", "Javascript Developer").info();
+      xx;
+      //xx.info();
 
-        var devInfoObject2 = function (name, role) {
-            this.devName = name;
-            this.devType = role;
-            this.devBind = () => {
-                console.log(this.devName + this.devType);
-            }
+      var devInfoObject2 = function(name, role) {
+        this.devName = name;
+        this.devType = role;
+        this.devBind = () => {
+          console.log(this.devName + this.devType);
         };
+      };
 
-        new devInfoObject2("Satish ", "UI Developer").devBind();
-        //devInfoObject2.call({devName:"Satish ", devType: 'UI Developer'}).devBind();
-        //devInfoObject2.call().devBind();
-
+      new devInfoObject2("Satish ", "UI Developer").devBind();
+      //devInfoObject2.call({devName:"Satish ", devType: 'UI Developer'}).devBind();
+      //devInfoObject2.call().devBind();
     </script>
-
-</body>
-
+  </body>
 </html>

@@ -1,87 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Push State &amp; Pop State in history Object </title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Push State &amp; Pop State in history Object</title>
     <style>
-        .container {
-            display: flex;
-            width: 100%;
-            height: auto;
-            padding: 30px;
-        }
+      .container {
+        display: flex;
+        width: 100%;
+        height: auto;
+        padding: 30px;
+      }
 
-        .box {
-            display: block;
-            flex-direction: row;
-            width: 150px;
-            height: 150px;
-            text-align: center;
-            line-height: 150px;
-            color: #000;
-            font-weight: 600;
-            background-color: bisque;
-            border: 1px solid aqua;
-            margin: 30px;
-            transition: all 300ms ease-in-out 0s;
-        }
+      .box {
+        display: block;
+        flex-direction: row;
+        width: 150px;
+        height: 150px;
+        text-align: center;
+        line-height: 150px;
+        color: #000;
+        font-weight: 600;
+        background-color: bisque;
+        border: 1px solid aqua;
+        margin: 30px;
+        transition: all 300ms ease-in-out 0s;
+      }
 
-        .box:hover,
-        .box:focus,
-        .box.active {
-            transform: scale(1.2);
-            background-color: aquamarine;
-            border: 5px solid aqua;
-        }
+      .box:hover,
+      .box:focus,
+      .box.active {
+        transform: scale(1.2);
+        background-color: aquamarine;
+        border: 5px solid aqua;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="box" id="box-1">
-            Box 01
-        </div>
-        <div class="box" id="box-2">
-            Box 02
-        </div>
-        <div class="box" id="box-3">
-            Box 03
-        </div>
-        <div class="box" id="box-4">
-            Box 04
-        </div>
+      <div class="box" id="box-1">
+        Box 01
+      </div>
+      <div class="box" id="box-2">
+        Box 02
+      </div>
+      <div class="box" id="box-3">
+        Box 03
+      </div>
+      <div class="box" id="box-4">
+        Box 04
+      </div>
     </div>
     <script>
-        let boxes = Array.from(document.getElementsByClassName("box"));
+      let boxes = Array.from(document.getElementsByClassName("box"));
 
-        function toogleClass(id) {
-            boxes.forEach(box => {
-                box.classList.toggle('active', box.id === id)
-            })
-        }
-
+      function toggleClass(id) {
         boxes.forEach(box => {
-            let id = box.id;
-            box.addEventListener("click", () => {
-                history.pushState({ id }, `Selected : ${id}`, `../selected?=${id}`);
-                toogleClass(id);
-            })
+          box.classList.toggle("active", box.id === id);
         });
+      }
 
-        window.addEventListener('popstate', (e) => {
-            // if (e.state !== null) {
-            //     toogleClass(e.state.id);
-            // }
-            toogleClass(e.state.id);
-            history.replaceState({ id: null }, `Default State`, `./`);
+      boxes.forEach(box => {
+        let id = box.id;
+        box.addEventListener("click", () => {
+          history.pushState({ id }, `Selected : ${id}`, `../selected?=${id}`);
+          toggleClass(id);
         });
+      });
 
+      window.addEventListener("popstate", e => {
+        // if (e.state !== null) {
+        //     toggleClass(e.state.id);
+        // }
+        toggleClass(e.state.id);
         history.replaceState({ id: null }, `Default State`, `./`);
+      });
 
+      history.replaceState({ id: null }, `Default State`, `./`);
     </script>
-</body>
-
+  </body>
 </html>

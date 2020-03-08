@@ -14,13 +14,16 @@
 
         function addition(a) {
             var element = a;
+
             function innerFun(b) {
                 element += b;
                 return innerFun;
             }
+
             innerFun.toString = function () {
                 return element;
             }
+
             return innerFun;
         }
 
@@ -63,7 +66,7 @@
         var myObject = {
             foo: "bar",
             func: function () {
-                //Lexical scope for this & self is refereed to myObject so it accesible in first Level.
+                //Lexical scope for this & self is refereed to myObject so it accessible in first Level.
                 // Lexical scope for self is assigned to func function so self will be accessible thought func function as local variable
                 var self = this;
                 console.log("First Level:  this.foo = " + this.foo);
@@ -91,7 +94,7 @@
         var myObject2 = {
             foo: "bar",
             func: function () {
-                //Lexical scope for this & self is refereed to myObject so it accesible in first Level.
+                //Lexical scope for this & self is refereed to myObject so it accessible in first Level.
                 // Lexical scope for self is assigned to func function so self will be accessible thought func function as local variable
                 var self = this;
                 console.log("myObject2 First Level:  this.foo = " + this.foo);

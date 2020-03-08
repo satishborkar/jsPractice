@@ -2,12 +2,12 @@
     //constructor 
 
     // It is stored in memory of the browsers.
-    // It is not get initialize untill its inatance get used
-    // can not be overwrited properties and methods with same name
-    // can be extends using prototype keyword.
+    // It is not get initialize until its instance get used.
+    // Can not be overwritten properties and methods with same name.
+    // Can be extends using prototype keyword.
     // Using the prototype makes for faster object creation, 
-    // since that function does not have to be re-created each time a new object is created.
-    // Multiple instances can share same properties & methods through prototype. which result in to fatser executation and less weight 
+    // Since that function does not have to be re-created each time a new object is created.
+    // Multiple instances can share same properties & methods through prototype. which result in to faster execution and less weight 
 
     function Slider() {
         this.name = "Satish";
@@ -34,7 +34,7 @@
     Slider.prototype.addName = "Test";
 
     Slider.prototype.acc = function () {
-        //we can not acces private properties
+        //we can not access private properties 
         //return calc();
         return this.accessPrivate();
         //this.accessPrivate().calc();

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Recurssive JS Function</title>
+    <title> Recursive JS Function </title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
 
         ////////////////////////////////////////////// Type 2
 
-        function addme(x) {
+        function addMe(x) {
             var fn = function(y) {
                 x = x + y;
                 return arguments.callee;
@@ -38,11 +38,12 @@
             fn.toString = function() {
                 return x
             };
+            
             return fn;
         };
 
-        console.log(addme(5)(5));
-        console.log(addme(5)(5)(56));
+        console.log(addMe(5)(5));
+        console.log(addMe(5)(5)(56));
     </script>
 </body>
 

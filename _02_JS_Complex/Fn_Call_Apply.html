@@ -29,7 +29,7 @@
             console.log("Hello " + this.name + "!!");
         };
 
-        var saygoodBye = function() {
+        var sayGoodBye = function() {
             console.log("Good By " + this.name + "!!");
         };
 
@@ -37,7 +37,7 @@
         console.log("+++++++++++++++++++++++++++++++++++++");
 
         sayHello();
-        saygoodBye();
+        sayGoodBye();
 
         console.log("+++++++++++++++++++++++++++++++++++++");
 
@@ -47,14 +47,14 @@
         console.log("Using call function passing scope for the data");
 
         sayHello.call(person1);
-        saygoodBye.call(person2);
+        sayGoodBye.call(person2);
 
 
         console.log("+++++++++++++++++++++++++++++++++++++");
         console.log("Using apply function passing scope for the data");
 
         sayHello.apply(person1);
-        saygoodBye.apply(person2);
+        sayGoodBye.apply(person2);
 
 
         console.log("+++++++++++++++++++++++++++++++++++++");
@@ -66,8 +66,8 @@
             console.log(greeting + ', ' + this.name);
         };
 
-        greetHim.call(person1, "Welcome to Synechron");
-        greetHim.call(person2, "Welcome to Synechron");
+        greetHim.call(person1, "Welcome on a board");
+        greetHim.call(person2, "Welcome on a board");
 
         console.log("+++++++++++++++++++++++++++++++++++++");
         console.log("Using call function passing scope for the data & multiple arguments to the function");
@@ -77,7 +77,7 @@
             this.age = age;
             this.role = role;
 
-            console.log(this.name + " has a age of " + this.age + " and his role in Synechron is " + this.role);
+            console.log(this.name + " has a age of " + this.age + " and his role in COMPANY is " + this.role);
         };
 
         updateInfo.call(person1, 'Sarvesh', 32, 'QA Lead');

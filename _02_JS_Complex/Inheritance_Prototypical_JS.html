@@ -13,7 +13,6 @@
         function Person(name, email) {
             this.name = name;
             this.email = email;
-
         };
 
         Person.prototype.random = function () {
@@ -21,7 +20,7 @@
         }
 
         function Student() {
-            Person.call(this, "Satish", "satyaspb@gmail.com");
+            Person.call(this, "John", "asb@gmail.com");
         };
 
         Student.prototype = Object.create(Person.prototype);

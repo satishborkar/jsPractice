@@ -3,8 +3,8 @@
     - Whenever wanted to persist some value throughout the function store 
         in a var of function scope and update it whenever needed.
         like timer in stopwatch example.
-        We can consider every fucntion as global for all inner functions/operations and make use it like window object.
+        We can consider every function as global for all inner functions/operations and make use it like window object.
 
     - While doing operations on mix data like array, object. depending on the output type
         consider the basic methods to do so and convert rest in that format.
-        like sumOfAllDeptSalaty function which is recursive function example.
+        like sumOfAllDeptSalary function which is recursive function example.

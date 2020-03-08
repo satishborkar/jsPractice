@@ -13,7 +13,7 @@
 
         // This is an example of pseudo classical inheritance in javascript
 
-        //define person class
+        // Define person class
         function Person() { }
 
         Person.prototype.talk = function () {
@@ -24,17 +24,17 @@
             console.log("walking...")
         }
 
-        // define new class
+        // Define new class
         function Student() {
             // call the parent constructor
             Person.call(this)
         }
 
-        //inherit Person
-        //Student.prototype = new Person();
-        //Student.prototype = Object.create(Person.prototype);
+        // Inherit Person
+        // Student.prototype = new Person();
+        // Student.prototype = Object.create(Person.prototype);
 
-        //correct the construtor of student because its poiting to Person Object's constructor
+        // Correct the constructor of student because its pointing to Person Object's constructor
         Student.prototype.constructor = Student;
 
         Student.prototype.talk = function(){
@@ -51,12 +51,12 @@
         student1.walk();
         student1.study();
 
-        var satya = new Person();
+        var person = new Person();
 
-        satya.talk();
-        satya.walk();
+        person.talk();
+        person.walk();
 
-        // check the inheritance
+        // Check the inheritance
         console.log("Is student is instance of Person", student1 instanceof Person);
         console.log("Is student is instance of Student", student1 instanceof Student);
 

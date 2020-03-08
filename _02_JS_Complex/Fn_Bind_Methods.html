@@ -30,9 +30,9 @@
         // New programmers might confuse the
         // global var x with module's property x
 
-        var boundGetX = retrieveX.bind(module);
+        var boundedGetX = retrieveX.bind(module);
 
-        boundGetX(); // 81
+        boundedGetX(); // 81
 
 
         function list() {
@@ -42,12 +42,12 @@
         var list1 = list(1, 2, 3); // [1, 2, 3]
 
         // Create a function with a preset leading argument
-        var leadingThirtysevenList = list.bind(null, 37);
+        var leadingThirtySevenList = list.bind(null, 37);
 
-        var list2 = leadingThirtysevenList();
+        var list2 = leadingThirtySevenList();
         // [37]
 
-        var list3 = leadingThirtysevenList(1, 2, 3);
+        var list3 = leadingThirtySevenList(1, 2, 3);
         // [37, 1, 2, 3]
     </script>
 
